@@ -4,7 +4,8 @@ export default function layout({ children, isMobile }) {
     return (
         <div>
             <Navbar isMobile={isMobile} />
-            {children}
+                {children}
+                
         </div>
     )
 }

@@ -6,7 +6,7 @@ export default function navbar({ isMobile }) {
     <>
       <div style={main_container}>
         <div style={nav_sides}>
-          <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center" }}>
+          <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
             logo
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function navbar({ isMobile }) {
       </div>
 
 
-      <div style={G_father_container}>
+      <div style={{ ...G_father_container, zIndex: 1, pointerEvents: isClicked ? "auto" : "none" }}>
         <div style={{ ...father_container, width: isClicked ? "200%" : "0", height: isClicked ? "500%" : "0" }}>
           <div style={{ ...container, opacity: isClicked ? 1 : 0, transition: isClicked ? "2s" : "0.2s" }}>
             <div style={menu}>

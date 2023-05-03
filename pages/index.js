@@ -1,5 +1,8 @@
 import Layout from "./index/layout/layout"
+import Sections from "./index/sections/sections";
 import { useState, useEffect } from "react"
+import Mask from "./index/mask/mask";
+import data from "./index/data";
 export default function Home() {
   const [isMobile, setIsMobile] = useState(true);
 
@@ -13,7 +16,8 @@ export default function Home() {
   }, [isMobile]);
   return (
     <Layout isMobile={isMobile}>
-
+      <Mask />
+      {data.map((e, i) => <Sections img={e.img} index={i} />)}
     </Layout>
   )
 }
