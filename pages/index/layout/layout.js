@@ -1,11 +1,10 @@
 import React from 'react'
 import Navbar from './navbar/navbar'
-export default function layout({ children, isMobile }) {
+export default function layout({ children, screen }) {
     return (
         <div>
-            <Navbar isMobile={isMobile} />
-                {children}
-                
+            <Navbar screen={screen} />
+            {children}
         </div>
     )
 }
