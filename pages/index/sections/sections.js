@@ -21,10 +21,6 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
     useEffect(() => {
         if ((scroll > (window.innerHeight * (0.25)) + (window.innerHeight * index)) && (scroll < (window.innerHeight * (0.25)) + (window.innerHeight * (index + 1))) && color !== index + 1) {
             setBackground(index + 1)
-            if (index === 3) {
-
-            }
-
         } else if (window.innerHeight > scroll && color !== 0) {
             setBackground(0)
         }
@@ -34,7 +30,7 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
             setSticky(false)
         }
     }, [scroll]);
-    // scroll > (window.innerHeight * (0.25)) + (window.innerHeight * index)
+
     return (
         <div style={styles.father_contaier}>
             <div style={styles.container}>
