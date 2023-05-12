@@ -1,12 +1,17 @@
-import React from 'react'
+import { useRef } from 'react'
 import Navbar from './navbar/navbar'
 import Footer from './footer/footer'
-export default function layout({ children, screen }) {
+import { cursorHandler } from '@/sharedComponents/customCursor'
+export default function layout({ background, mainContainer, containerRef, innerContainerRef, innerRef, innerInnerRef, scroll, primaryCursor, children, screen, setActiveMouse }) {
+
     return (
-        <div>
+        <div ref={mainContainer}>
             <Navbar screen={screen} />
             {children}
-            <Footer />
+            <Footer containerRef={containerRef}
+                innerContainerRef={innerContainerRef}
+                innerRef={innerRef}
+                innerInnerRef={innerInnerRef} scroll={scroll} />
         </div>
     )
 }
