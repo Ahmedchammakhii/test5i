@@ -1,6 +1,6 @@
 import { lines, lines_btn, main_container, nav_sides, quote, quote_container, links, links_container, G_father_container, father_container, container, menu, left_side, right_side, menu_title, mobile_button, mobile_button_hover, mobile_button_leave } from "./style"
 import { useState } from "react"
-export default function navbar({ isMobile }) {
+export default function navbar({ screen }) {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <>
@@ -11,7 +11,7 @@ export default function navbar({ isMobile }) {
           </div>
         </div>
         <div style={nav_sides}>
-          <div style={{ ...links_container, opacity: isClicked ? 0 : 1, display: isMobile ? "none" : "inherit" }}>
+          <div style={{ ...links_container, opacity: isClicked ? 0 : 1, display: screen === "mobile" ? "none" : "inherit" }}>
             <a style={links}>Contact</a>
             <a style={links}>Blogs</a>
             <a style={links}>Services</a>
@@ -30,12 +30,12 @@ export default function navbar({ isMobile }) {
       </div>
 
 
-      <div style={{ ...G_father_container, zIndex: 1, pointerEvents: isClicked ? "auto" : "none" }}>
+      <div style={{ ...G_father_container, zIndex: 1000, pointerEvents: isClicked ? "auto" : "none" }}>
         <div style={{ ...father_container, width: isClicked ? "200%" : "0", height: isClicked ? "500%" : "0" }}>
           <div style={{ ...container, opacity: isClicked ? 1 : 0, transition: isClicked ? "2s" : "0.2s" }}>
             <div style={menu}>
 
-              {isMobile ? null : <div style={left_side}>
+              {screen === "mobile" ? null : <div style={left_side}>
                 <div style={menu_title}>get in touch</div>
                 <div>info@info.com</div>
                 <div style={{ ...menu_title, marginTop: "30px" }}>social</div>
@@ -43,12 +43,12 @@ export default function navbar({ isMobile }) {
                 <div>instagram</div>
               </div>}
 
-              <div style={{ ...right_side, fontSize: isMobile ? "3rem" : "2.4rem", textAlign: isMobile ? "center" : "left" }}>
-                {isMobile ? null : <div style={menu_title}>menu</div>}
+              <div style={{ ...right_side, fontSize: screen === "mobile" ? "3rem" : "2.4rem", textAlign: screen === "mobile" ? "center" : "left" }}>
+                {screen === "mobile" ? null : <div style={menu_title}>menu</div>}
                 <div onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Services</div>
                 <div onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Blogs</div>
                 <div onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Contact</div>
-                {isMobile ? <div style={mobile_button}>
+                {screen === "mobile" ? <div style={mobile_button}>
                   Estimate Project
                 </div> : null}
               </div>
