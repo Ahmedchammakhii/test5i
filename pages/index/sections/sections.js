@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 export default function sections({ sticky, setSticky, preLast, last, element, index, scroll, background, setBackground, color, screen }) {
 
     const styles = {
-        father_contaier: { marginTop: index ? 0 : "-80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", background, transition: "2s" },
+        father_contaier: { marginTop: index ? 0 : "-80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", transition: "2s" },
         container: { width: screen === "tablet" ? "78%" : "62%", justifyContent: "center", display: "flex", position: "relative" },
         left_side: { width: "calc(43% - 10%)", paddingRight: "10%", marginLeft: screen === "tablet" ? 0 : "7%", display: "flex", justifyContent: "center", flexDirection: "column" },
         h1: { fontSize: "1.302rem", fontWeight: "500" },
@@ -29,7 +29,6 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
         } else if (preLast && (100 - (((window.innerHeight * 0.55) - (scroll - window.innerHeight * index)) / 292) * 100) < 99) {
             setSticky(false)
         }
-        console.log(scroll);
     }, [scroll]);
 
     return (

@@ -10,8 +10,8 @@ import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./index/functi
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [color, setBackground] = useState("#fae1ee");
   const [sticky, setSticky] = useState(false);
+  const [color, setBackground] = useState("#fae1ee");
   const [activeMouse, setActiveMouse] = useState(true);
   const background = ["#fae1ee", "#e0f0ff", "#ffede0", "#d3d6f0", "#ffeae0", "#f5f5f7"];
 

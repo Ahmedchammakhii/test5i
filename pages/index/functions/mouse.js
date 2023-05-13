@@ -6,10 +6,10 @@ export const mouseMove = (event, containerRef, innerRef, innerInnerRef, primaryC
     if (scrollY + (window.innerHeight * 2) >= mainContainer.current.scrollHeight) {
         const { clientWidth, clientHeight } = containerRef.current;
         const scrollY = window.scrollY;
-        const x = (clientX - clientWidth / 2) * 2.5;
+        const x = (clientX - clientWidth / 2) * 2.5 * 0.7;
         const containerTop = containerRef.current.offsetTop;
         const yRelativeToContainer = clientY - containerTop + scrollY;
-        const y = (yRelativeToContainer - clientHeight / 2) * 2.5;
+        const y = (yRelativeToContainer - clientHeight / 2) * 2.5 * 0.7;
         innerInnerRef.current.style.transform = `scale(${scale})`;
         innerRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`
         }
