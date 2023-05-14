@@ -1,15 +1,15 @@
 
-export const CustomCursor = ({ scroll, primaryCursor, activeMouse }) => {
+export const CustomCursor = ({ primaryCursor, activeMouse }) => {
 
 
     return (
         <div ref={primaryCursor} style={{
-            position: "absolute",
+            position: "fixed",
             width: "7px",
             height: "7px",
             borderRadius: "100%",
             background: "black", display: "flex", justifyContent: "center",
-            alignItems: "center", zIndex: 999, left: 0, top: scroll, display: activeMouse ? "block" : "none", transition: "0.1s",
+            alignItems: "center", zIndex: 999, left: -5, top: 5, display: activeMouse ? "block" : "none", transition: "0.1s",
             pointerEvents: "none"
         }}>
         </div>
