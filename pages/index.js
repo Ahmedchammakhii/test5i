@@ -37,11 +37,11 @@ export default function Home() {
       innerContainerRef={innerContainerRef}
       innerRef={innerRef}
       innerInnerRef={innerInnerRef} scroll={scrollPosition} setActiveMouse={setActiveMouse} primaryCursor={primaryCursor} screen={screen}>
-      <CustomCursor activeMouse={activeMouse} primaryCursor={primaryCursor} scroll={scrollPosition} />
+      <CustomCursor activeMouse={activeMouse} primaryCursor={primaryCursor} />
       <div >
-        {data.map((e, i) => <Sections key={i} sticky={sticky} setSticky={setSticky} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i} background={background[color]} color={color} setBackground={setBackground} />)}
+        {data.map((e, i) => <Sections key={i} sticky={sticky} setSticky={setSticky} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i}  color={color} setBackground={setBackground} />)}
       </div>
-      <How scroll={scrollPosition} background={background[color]} />
+      <How scroll={scrollPosition} />
     </Layout>
   )
 }

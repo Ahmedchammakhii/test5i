@@ -20,9 +20,9 @@ export default function App({ containerRef, innerContainerRef, innerRef, innerIn
                             }}
                             clipPath="url(#clip)"
                         >
-                            <h4 style={{ fontWeight: "normal", zIndex: "5555", marginTop: "-28px", color: "white", fontSize: "20px", position: "absolute", left: "50%", top: "50%", transform: 'translate(-50%, -50%)' }}>
+                            <h4 style={{ fontWeight: "normal", zIndex: "5555", marginTop: "-28px", color: "black", fontSize: "20px", position: "absolute", left: "50%", top: "50%", transform: 'translate(-50%, -50%)' }}>
                                 Click to </h4>
-                            <h1 style={{ fontWeight: "normal", zIndex: "5555", marginTop: "14px", color: "white", fontSize: "50px", position: "absolute", left: "50%", top: "50%", transform: 'translate(-50%, -50%)' }}>
+                            <h1 style={{ fontWeight: "normal", zIndex: "5555", marginTop: "14px", color: "black", fontSize: "50px", position: "absolute", left: "50%", top: "50%", transform: 'translate(-50%, -50%)' }}>
                                 Get in touch </h1>
                             <div
                                 ref={innerRef}
