@@ -38,12 +38,16 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
                     <h2 style={styles.h2}>Vimcosmo.com</h2>
                     <h1 style={styles.h1}>Beauty brand, e-commerce</h1>
                     <p style={{ fontSize: "0.45rem" }}>Branding, Website, Design, Development</p>
-                    <button style={{ fontSize: "0.48rem", marginTop: "50px", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent" }}>View more</button>
+                    <div style={{ background: "black", width: "200px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: "center", height: "100px" }}>
+                        <button style={{ transform: `translate3d(-15px, -15px, 0)`, fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent" }}>
+                            View more
+                        </button>
+                    </div>
                 </div>
                 <div style={styles.right_side}>
                     <img style={styles.img} src={element.img} />
                 </div>
-            </div>
+            </div>  
         </div>
     )
 }

@@ -1,34 +1,44 @@
 import { useLayoutEffect, useRef } from "react";
 let scale = "0";
 let touch = false
-export const mouseMove = (event, containerRef, innerRef, innerInnerRef, primaryCursor, mainContainer) => {
+
+export const mouseMove = (event) => {
+
     const { clientX, clientY } = event;
-    if (scrollY + (window.innerHeight * 2) >= mainContainer.current.scrollHeight) {
-        const { clientWidth, clientHeight } = containerRef.current;
+    const mainContainer = document.querySelector('.main-container');
+    if (scrollY + (window.innerHeight * 2) >= mainContainer.scrollHeight) {
+        const containerRef = document.querySelector('.footer-container');
+        const innerRef = document.querySelector('.footer-inner');
+        const innerInnerRef = document.querySelector('.footer-inner-inner');
+    
+        const { clientWidth, clientHeight } = containerRef;
         const scrollY = window.scrollY;
         const x = (clientX - clientWidth / 2) * 2.5 * 0.7;
-        const containerTop = containerRef.current.offsetTop;
+        const containerTop = containerRef.offsetTop;
         const yRelativeToContainer = clientY - containerTop + scrollY;
         const y = (yRelativeToContainer - clientHeight / 2) * 2.5 * 0.7;
-        innerInnerRef.current.style.transform = `scale(${scale})`;
-        innerRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`
-        }
+        innerInnerRef.style.transform = `scale(${scale})`;
+        innerRef.style.transform = `translate3d(${x}px, ${y}px, 0)`
+    }
+    const primaryCursor = document.querySelector('.primary-cursor');
 
     if (scale === "0") {
-        primaryCursor.current.style.transform = `translate3d(${clientX -
-            primaryCursor.current.clientWidth / 2}px, ${clientY -
-            primaryCursor.current.clientHeight / 2}px, 0)`;
-        primaryCursor.current.style.visibility = "visible"
-    } else if (scale !== "0" && primaryCursor.current.style.visibility !== "hidden") {
-        primaryCursor.current.style.visibility = "hidden"
+        primaryCursor.style.transform = `translate3d(${clientX -
+            primaryCursor.clientWidth / 2}px, ${clientY -
+            primaryCursor.clientHeight / 2}px, 0)`;
+        primaryCursor.style.visibility = "visible"
+    } else if (scale !== "0" && primaryCursor.style.visibility !== "hidden") {
+        primaryCursor.style.visibility = "hidden"
     }
-   
+
 }
 
 
-export const mouseEnter = (event, innerContainerRef) => {
+export const mouseEnter = (event) => {
+    const innerContainerRef = document.querySelector('.footer-inner-container');
+
     event.stopPropagation()
-    const children = innerContainerRef.current.children
+    const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {
             children[i].style.color = "white"
@@ -36,9 +46,11 @@ export const mouseEnter = (event, innerContainerRef) => {
     }, 200);
     scale = "3"
 }
-export const mouseLeave = (event, innerContainerRef) => {
+export const mouseLeave = (event) => {
+    const innerContainerRef = document.querySelector('.footer-inner-container');
+
     event.stopPropagation()
-    const children = innerContainerRef.current.children
+    const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {
             children[i].style.color = "black"
@@ -48,22 +60,19 @@ export const mouseLeave = (event, innerContainerRef) => {
 };
 
 export const cursorHandler = (
-    primaryCursor,
-    mainContainer,
-    containerRef,
-    innerContainerRef,
-    innerRef,
-    innerInnerRef,
     handleMouseMove,
     handleMouseEnter,
     handleMouseLeave
 ) => useLayoutEffect(() => {
-    mainContainer.current.addEventListener("mousemove", (event) => handleMouseMove(event, containerRef, innerRef, innerInnerRef, primaryCursor, mainContainer));
-    innerContainerRef.current.addEventListener("mouseenter", (event) => handleMouseEnter(event, innerContainerRef));
-    innerContainerRef.current.addEventListener("mouseleave", (event) => handleMouseLeave(event, innerContainerRef));
+    const innerContainerRef = document.querySelector('.footer-inner-container');
+    const mainContainer = document.querySelector('.main-container');
+
+    mainContainer.addEventListener("mousemove", handleMouseMove);
+    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
     return () => {
-        mainContainer.current.addEventListener("mousemove", (event) => handleMouseMove(event, containerRef, innerRef, innerInnerRef, primaryCursor, mainContainer));
-        innerContainerRef.current.removeEventListener("mouseenter", (event) => handleMouseEnter(event, innerContainerRef));
-        innerContainerRef.current.removeEventListener("mouseleave", (event) => handleMouseLeave(event, innerContainerRef));
+        mainContainer.addEventListener("mousemove", handleMouseMove);
+        innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+        innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
     };
 }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
