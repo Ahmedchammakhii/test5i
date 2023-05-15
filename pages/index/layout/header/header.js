@@ -1,7 +1,18 @@
 import { lines, lines_btn, main_container, nav_sides, quote, quote_container, links, links_container, G_father_container, father_container, container, menu, left_side, right_side, menu_title, mobile_button, mobile_button_hover, mobile_button_leave } from "./style"
-import { useState } from "react"
-export default function navbar({ screen }) {
+import { useState, useCallback, useEffect } from "react"
+import { projectMouseEnter, projectMouseLeave } from "../../functions/mouse";
+export default function navbar({ screen, scroll }) {
   const [isClicked, setIsClicked] = useState(false);
+
+  const mousE = useCallback(projectMouseEnter, [])
+  const mouseL = useCallback(projectMouseLeave, [])
+
+
+  // useEffect(() => {
+  //   if (scroll) {
+  //     console.log(true)
+  //   }
+  // }, [scroll])
   return (
     <>
       <div style={main_container}>
@@ -11,13 +22,13 @@ export default function navbar({ screen }) {
           </div>
         </div>
         <div style={nav_sides}>
-          <div style={{ ...links_container, opacity: isClicked ? 0 : 1, display: screen === "mobile" ? "none" : "inherit" }}>
+          <div style={{ ...links_container, opacity: isClicked || scroll ? 0 : 1, display: screen === "mobile" ? "none" : "inherit", marginTop: scroll ? "-80px" : 0 }}>
             <a style={links}>Contact</a>
             <a style={links}>Blogs</a>
             <a style={links}>Services</a>
           </div>
 
-          <div style={quote_container}>
+          <div onMouseEnter={mousE} onMouseLeave={mouseL} className="project-container" style={quote_container}>
             <div style={quote}>
               get a quote
             </div>

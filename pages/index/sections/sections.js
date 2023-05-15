@@ -1,11 +1,11 @@
 import { useEffect, useCallback } from "react";
 import { projectMouseEnter, projectMouseLeave } from "../functions/mouse"
-export default function sections({ sticky, setSticky, preLast, last, element, index, scroll, background, setBackground, color, screen }) {
+export default function sections({ sticky, setSticky, preLast, last, element, index, scroll, setBackground, color, screen }) {
 
     const styles = {
-        father_contaier: { marginTop: index ? 0 : "-80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", transition: "2s" },
+        father_contaier: { marginTop: index ? 0 : "80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", transition: "2s" },
         container: { width: screen === "tablet" ? "78%" : "62%", justifyContent: "center", display: "flex", position: "relative" },
-        left_side: { width: "calc(43% - 10%)", paddingRight: "10%", marginLeft: screen === "tablet" ? 0 : "7%", display: "flex", justifyContent: "center", flexDirection: "column" },
+        left_side: { marginTop: "-100px", width: "calc(43% - 10%)", paddingRight: "10%", marginLeft: screen === "tablet" ? 0 : "7%", display: "flex", justifyContent: "center", flexDirection: "column" },
         h1: { fontSize: "1.302rem", fontWeight: "500" },
 
         right_side: { width: "50%", position: "relative" },
@@ -17,7 +17,7 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
             width: last && sticky ? "100%" : `calc(${screen === "tablet" ? "78%" : "62%"} / 2)`, height: `calc(100vw * ${screen === "tablet" ? "0.78" : "0.62"} / 2)`, objectFit: "cover", borderRadius: "11%"
         },
         h2: { fontSize: "0.5rem", color: element.color, fontWeight: "500" },
-        btn_container: {  width: "250px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: "center", height: "150px" },
+        btn_container: { width: "250px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: "center", height: "150px" },
         btn: { transition: "0.3s", fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent", pointerEvents: "none" }
     };
 

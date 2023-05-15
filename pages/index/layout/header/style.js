@@ -5,7 +5,7 @@ const styles = {
     nav_sides: { display: "flex" },
     links: { fontSize: "15px", fontWeight: "600", color: "#6e6e73", marginLeft: "50px" },
 
-    quote: { width: "100px", height: "40px", background: "#3398ff", borderRadius: "50px", color: "white", fontSize: "13px", display: "flex", justifyContent: "center", alignItems: "center", fontWeight: "600" },
+    quote: { transition: "0.3s", width: "100px", height: "40px", background: "#3398ff", borderRadius: "50px", color: "white", fontSize: "13px", display: "flex", justifyContent: "center", alignItems: "center", fontWeight: "600" },
     quote_container: { display: "flex", alignItems: "center", height: "100%", width: "170px", justifyContent: "center", marginRight: "-10px", zIndex: 1002 },
     links_container: { display: "flex", alignItems: "center", transition: "0.5s", zIndex: 1002 },
     G_father_container: { height: "100vh", width: "100%", marginTop: "-80px", overflow: "hidden", position: "fixed", background: "transparent" },

@@ -62,7 +62,6 @@ export const mouseMove = (event) => {
 
 export const mouseEnter = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
-
     event.stopPropagation()
     const children = innerContainerRef.children
     setTimeout(() => {
@@ -74,7 +73,6 @@ export const mouseEnter = (event) => {
 }
 export const mouseLeave = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
-
     event.stopPropagation()
     const children = innerContainerRef.children
     setTimeout(() => {
