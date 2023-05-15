@@ -9,7 +9,7 @@ export default function navbar({ screen, scroll }) {
 
 
   useEffect(() => {
-   console.log(headerMouseLeave)
+    console.log(headerMouseLeave)
   }, [])
   return (
     <>

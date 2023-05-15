@@ -25,10 +25,10 @@ export const mouseMove = (event) => {
         const projectContainer = document.querySelector('.project-container');
         const { left, top } = projectContainer.getBoundingClientRect();
 
-        const minTranslateX = -projectContainer.clientWidth / 20;
-        const maxTranslateX = projectContainer.clientWidth / 20;
-        const minTranslateY = -projectContainer.clientHeight / 20;
-        const maxTranslateY = projectContainer.clientHeight / 20;
+        const minTranslateX = -projectContainer.clientWidth / 15;
+        const maxTranslateX = projectContainer.clientWidth / 15;
+        const minTranslateY = -projectContainer.clientHeight / 15;
+        const maxTranslateY = projectContainer.clientHeight / 15;
 
         let translateX = (clientX - left) - projectContainer.clientWidth / 2;
         let translateY = (clientY - ((window.innerHeight * (window.scrollY / window.innerHeight).toFixed()) + top)) - projectContainer.clientHeight / 2;
@@ -113,47 +113,64 @@ export const mouseLeave = (event) => {
 
 
 export const projectMouseEnter = (event) => {
-    event.target.children[0].classList.add("project-button");
-    event.target.children[0].children[0].style.top = "50%";
-    event.target.children[0].children[0].style.borderRadius = "0";
 
-    event.target.children[0].children[1].style.marginTop = "-40px",
-        event.target.children[0].children[1].style.opacity = 0,
-        event.target.children[0].children[1].style.color = "white"
+    if (event.target.children[0]?.children[0] && event.target.children[0]?.children[1] && event.target.children[0]?.children[2]) {
+        event.target.children[0].classList.add("project-button");
 
-    event.target.children[0].children[2].style.opacity = 1,
-        event.target.children[0].children[2].style.marginTop = "0",
-        event.target.children[0].children[2].style.color = "white"
-    project = true;
+        event.target.children[0].children[0].style.top = "50%";
+        event.target.children[0].children[0].style.borderRadius = "0";
+        event.target.children[0].children[1].style.marginTop = "-40px",
+            event.target.children[0].children[1].style.opacity = 0,
+            event.target.children[0].children[1].style.color = "white"
+
+        event.target.children[0].children[2].style.opacity = 1,
+            event.target.children[0].children[2].style.marginTop = "0",
+            event.target.children[0].children[2].style.color = "white"
+
+        project = event.target.children[0].style.border;
+        event.target.children[0].style.border = "1px solid black"
+
+    }
 }
 
 export const projectMouseLeave = (event) => {
-    event.target.children[0].classList.remove("project-button")
-    project = false;
-    event.target.children[0].children[0].style.top = "150%";
-    event.target.children[0].children[0].style.borderRadius = "100%"
+    if (event.target.children[0]?.children[0] && event.target.children[0]?.children[1] && event.target.children[0]?.children[2]) {
+        event.target.children[0].classList.remove("project-button")
 
-    event.target.children[0].children[1].style.marginTop = "0",
-        event.target.children[0].children[1].style.opacity = 1,
-        event.target.children[0].children[1].style.color = "black"
+        event.target.children[0].children[0].style.top = "150%";
+        event.target.children[0].children[0].style.borderRadius = "100%"
 
-    event.target.children[0].children[2].style.opacity = 0,
-        event.target.children[0].children[2].style.marginTop = "50px",
-        event.target.children[0].children[2].style.color = "black"
+        event.target.children[0].children[1].style.marginTop = "0",
+            event.target.children[0].children[1].style.opacity = 1,
+            event.target.children[0].children[1].style.color = "black"
+
+        event.target.children[0].children[2].style.opacity = 0,
+            event.target.children[0].children[2].style.marginTop = "50px",
+            event.target.children[0].children[2].style.color = "black"
 
 
-    event.target.children[0].style.transform = `translate3d(0, 0, 0)`;
+        event.target.children[0].style.border = project
+
+        project = false;
+
+
+        event.target.children[0].style.transform = `translate3d(0, 0, 0)`;
+
+    }
 }
 
 export const headerMouseEnter = (event) => {
-    event.target.children[0].classList.add("header-button");
-    header = true
+    if (event.target?.children[0]) {
+        event.target.children[0].classList.add("header-button");
+        header = true
+    }
 }
 export const headerMouseLeave = (event) => {
-
-    event.target.children[0].classList.remove("header-button")
-    header = false
-    event.target.children[0].style.transform = `translate3d(0, 0, 0)`;
+    if (event.target?.children[0]) {
+        event.target.children[0].classList.remove("header-button")
+        header = false
+        event.target.children[0].style.transform = `translate3d(0, 0, 0)`;
+    }
 }
 
 

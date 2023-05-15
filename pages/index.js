@@ -1,16 +1,15 @@
-import Layout from "./index/layout/layout"
-import Sections from "./index/sections/sections";
-import How from "./how/how";
+import Layout from "./landing/layout/layout"
+import Sections from "./landing/sections/sections";
+import How from "./landing/how/how";
 import { useState, useCallback, useEffect } from "react"
-import data from "./index/data";
+import data from "./landing/data";
 import { CustomCursor } from "@/sharedComponents/customCursor";
-import { screenHandler } from "./index/functions/scroll";
-import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./index/functions/mouse";
+import { screenHandler } from "./landing/functions/scroll";
+import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
 
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [sticky, setSticky] = useState(false);
   const [color, setBackground] = useState("#fae1ee");
   const [activeMouse, setActiveMouse] = useState(true);
   const background = ["#fae1ee", "#e0f0ff", "#ffede0", "#d3d6f0", "#ffeae0", "#f5f5f7"];
@@ -26,12 +25,12 @@ export default function Home() {
   cursorHandler(handleMouseMove, handleMouseEnter, handleMouseLeave);
   useEffect(() => { document.querySelector('html').style.background = background[color] }, [color])
 
-  
+
   return (
     <Layout
       scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
       <CustomCursor activeMouse={activeMouse} />
-      <div>{data.map((e, i) => <Sections key={i} sticky={sticky} setSticky={setSticky} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i} color={color} setBackground={setBackground} />)}</div>
+      <div>{data.map((e, i) => <Sections key={i} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i} color={color} setBackground={setBackground} />)}</div>
       <How scroll={scrollPosition} />
     </Layout>
   )
