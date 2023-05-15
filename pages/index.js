@@ -5,7 +5,7 @@ import { useState, useRef, useCallback } from "react"
 import data from "./index/data";
 import { CustomCursor } from "@/sharedComponents/customCursor";
 import { screenHandler } from "./index/functions/scroll";
-import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./index/functions/mouse";
+import { cursorHandler, mouseMove, mouseEnter, mouseLeave, projectMouseEnter, projectMouseLeave } from "./index/functions/mouse";
 
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
@@ -22,14 +22,15 @@ export default function Home() {
   const handleMouseMove = useCallback(mouseMove, [])
   const handleMouseEnter = useCallback(mouseEnter, [])
   const handleMouseLeave = useCallback(mouseLeave, [])
-  cursorHandler(  handleMouseMove, handleMouseEnter, handleMouseLeave)
+
+  cursorHandler(handleMouseMove, handleMouseEnter, handleMouseLeave)
 
   return (
     <Layout background={background[color]}
- scroll={scrollPosition} setActiveMouse={setActiveMouse}  screen={screen}>
-      <CustomCursor activeMouse={activeMouse}  />
+      scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
+      <CustomCursor activeMouse={activeMouse} />
       <div >
-        {data.map((e, i) => <Sections key={i} sticky={sticky} setSticky={setSticky} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i}  color={color} setBackground={setBackground} />)}
+        {data.map((e, i) => <Sections key={i} sticky={sticky} setSticky={setSticky} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i} color={color} setBackground={setBackground} />)}
       </div>
       <How scroll={scrollPosition} />
     </Layout>

@@ -17,7 +17,6 @@ export default function How({ scroll }) {
         }
 
         container.current.style.height = `${counter + (window.innerHeight * 0.2)}px`
-        console.log(counter)
         //
     }, []);
     useEffect(() => {
@@ -26,16 +25,13 @@ export default function How({ scroll }) {
             const children = ref.current.children;
 
 
-            console.log()
 
             if ((scroll) - (container.current.offsetTop - (window.innerHeight * 0.2)) <= container.current.clientHeight && (scroll) - (container.current.offsetTop) <= container.current.clientHeight - (window.innerHeight * 0.7)) {
                 for (let i = 0; children.length > i; i++) {
                     children[i].style.transform = `translateX(calc(40vw - ${(scroll) - (container.current.offsetTop - (window.innerHeight * 0.2))}px))`
                 }
             }
-        } else {
-            console.log(false)
-        }
+        } 
 
     }, [scroll])
 

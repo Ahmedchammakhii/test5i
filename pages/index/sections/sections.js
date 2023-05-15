@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useCallback } from "react";
+import { projectMouseEnter, projectMouseLeave } from "../functions/mouse"
 export default function sections({ sticky, setSticky, preLast, last, element, index, scroll, background, setBackground, color, screen }) {
 
     const styles = {
@@ -15,7 +16,9 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
             zIndex: 5 + Number("-" + index), position: last && sticky ? "sticky" : "fixed", top: "50%", transform: "translate(0, -50%)", width: "100%",
             width: last && sticky ? "100%" : `calc(${screen === "tablet" ? "78%" : "62%"} / 2)`, height: `calc(100vw * ${screen === "tablet" ? "0.78" : "0.62"} / 2)`, objectFit: "cover", borderRadius: "11%"
         },
-        h2: { fontSize: "0.5rem", color: element.color, fontWeight: "500" }
+        h2: { fontSize: "0.5rem", color: element.color, fontWeight: "500" },
+        btn_container: {  width: "250px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: "center", height: "150px" },
+        btn: { transition: "0.3s", fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent", pointerEvents: "none" }
     };
 
     useEffect(() => {
@@ -30,6 +33,8 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
             setSticky(false)
         }
     }, [scroll]);
+    const mousE = useCallback(projectMouseEnter, [])
+    const mouseL = useCallback(projectMouseLeave, [])
 
     return (
         <div style={styles.father_contaier}>
@@ -38,8 +43,8 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
                     <h2 style={styles.h2}>Vimcosmo.com</h2>
                     <h1 style={styles.h1}>Beauty brand, e-commerce</h1>
                     <p style={{ fontSize: "0.45rem" }}>Branding, Website, Design, Development</p>
-                    <div style={{ background: "black", width: "200px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: "center", height: "100px" }}>
-                        <button style={{ transform: `translate3d(-15px, -15px, 0)`, fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent" }}>
+                    <div onMouseEnter={mousE} onMouseLeave={mouseL} className="project-container" style={styles.btn_container}>
+                        <button style={styles.btn}>
                             View more
                         </button>
                     </div>
@@ -47,7 +52,7 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
                 <div style={styles.right_side}>
                     <img style={styles.img} src={element.img} />
                 </div>
-            </div>  
+            </div>
         </div>
     )
 }

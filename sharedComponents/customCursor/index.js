@@ -1,5 +1,5 @@
 
-export const CustomCursor = ({ primaryCursor, activeMouse }) => {
+export const CustomCursor = ({ activeMouse }) => {
 
 
     return (
