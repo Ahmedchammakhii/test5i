@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 let scale = "0";
+let header = false
 let project = false
 
 export const mouseMove = (event) => {
@@ -30,7 +31,7 @@ export const mouseMove = (event) => {
         const maxTranslateY = projectContainer.clientHeight / 20;
 
         let translateX = (clientX - left) - projectContainer.clientWidth / 2;
-        let translateY = (clientY - ((window.innerHeight*(window.scrollY / window.innerHeight).toFixed())+ top )) - projectContainer.clientHeight / 2;
+        let translateY = (clientY - ((window.innerHeight * (window.scrollY / window.innerHeight).toFixed()) + top)) - projectContainer.clientHeight / 2;
 
         if (translateX < minTranslateX) {
             translateX = minTranslateX;
@@ -45,6 +46,32 @@ export const mouseMove = (event) => {
         }
 
         projectButton.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+    } else if (header) {
+        const headerButton = document.querySelector('.header-button');
+        const headerContainer = document.querySelector('.header-container');
+        const { left, top } = headerContainer.getBoundingClientRect();
+
+        const minTranslateX = -headerContainer.clientWidth / 15;
+        const maxTranslateX = headerContainer.clientWidth / 15;
+        const minTranslateY = -headerContainer.clientHeight / 15;
+        const maxTranslateY = headerContainer.clientHeight / 15;
+
+        let translateX = (clientX - left) - headerContainer.clientWidth / 2;
+        let translateY = (clientY - (top)) - headerContainer.clientHeight / 2;
+
+        if (translateX < minTranslateX) {
+            translateX = minTranslateX;
+        } else if (translateX > maxTranslateX) {
+            translateX = maxTranslateX;
+        }
+
+        if (translateY < minTranslateY) {
+            translateY = minTranslateY;
+        } else if (translateY > maxTranslateY) {
+            translateY = maxTranslateY;
+        }
+
+        headerButton.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
     }
     const primaryCursor = document.querySelector('.primary-cursor');
 
@@ -87,14 +114,48 @@ export const mouseLeave = (event) => {
 
 export const projectMouseEnter = (event) => {
     event.target.children[0].classList.add("project-button");
-    project = true
-}
-export const projectMouseLeave = (event) => {
+    event.target.children[0].children[0].style.top = "50%";
+    event.target.children[0].children[0].style.borderRadius = "0";
 
+    event.target.children[0].children[1].style.marginTop = "-40px",
+        event.target.children[0].children[1].style.opacity = 0,
+        event.target.children[0].children[1].style.color = "white"
+
+    event.target.children[0].children[2].style.opacity = 1,
+        event.target.children[0].children[2].style.marginTop = "0",
+        event.target.children[0].children[2].style.color = "white"
+    project = true;
+}
+
+export const projectMouseLeave = (event) => {
     event.target.children[0].classList.remove("project-button")
-    project = false
+    project = false;
+    event.target.children[0].children[0].style.top = "150%";
+    event.target.children[0].children[0].style.borderRadius = "100%"
+
+    event.target.children[0].children[1].style.marginTop = "0",
+        event.target.children[0].children[1].style.opacity = 1,
+        event.target.children[0].children[1].style.color = "black"
+
+    event.target.children[0].children[2].style.opacity = 0,
+        event.target.children[0].children[2].style.marginTop = "50px",
+        event.target.children[0].children[2].style.color = "black"
+
+
     event.target.children[0].style.transform = `translate3d(0, 0, 0)`;
 }
+
+export const headerMouseEnter = (event) => {
+    event.target.children[0].classList.add("header-button");
+    header = true
+}
+export const headerMouseLeave = (event) => {
+
+    event.target.children[0].classList.remove("header-button")
+    header = false
+    event.target.children[0].style.transform = `translate3d(0, 0, 0)`;
+}
+
 
 export const cursorHandler = (
     handleMouseMove,

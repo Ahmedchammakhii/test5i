@@ -18,7 +18,7 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
         },
         h2: { fontSize: "0.5rem", color: element.color, fontWeight: "500" },
         btn_container: { width: "250px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: "center", height: "150px" },
-        btn: { transition: "0.3s", fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent", pointerEvents: "none" }
+        btn: { position: "relative", overflow: "hidden", transition: "0.3s", fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent", pointerEvents: "none" }
     };
 
     useEffect(() => {
@@ -45,7 +45,23 @@ export default function sections({ sticky, setSticky, preLast, last, element, in
                     <p style={{ fontSize: "0.45rem" }}>Branding, Website, Design, Development</p>
                     <div onMouseEnter={mousE} onMouseLeave={mouseL} className="project-container" style={styles.btn_container}>
                         <button style={styles.btn}>
-                            View more
+                            <div style={{
+                                width: "100%",
+                                height: "100%",
+                                background: "black",
+                                color: "white",
+                                position: "absolute", transform: "translate(-50%,-50%)",
+                                top: "-50%", left: "50%", transition: "0.6s",
+                                borderRadius: "100%", pointerEvents: "none", zIndex: -1
+                            }} />
+                            <div style={{
+                                transition: "1s", color: "black", position: "absolute", left: "50%",
+                                top: "50%", transform: "translate(-50%, -50%)", width: "100%"
+                            }}>View more</div>
+                            <div style={{
+                                transition: "1s", color: "transparent", position: "absolute", left: "50%",
+                                top: "50%", transform: "translate(-50%, -50%)", width: "100%", marginTop:"30px"
+                            }}>View more</div>
                         </button>
                     </div>
                 </div>
