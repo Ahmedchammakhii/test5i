@@ -1,16 +1,13 @@
 import Header from './header/header'
 import Footer from './footer/footer'
-export default function layout({ background, mainContainer, containerRef, innerContainerRef, innerRef, innerInnerRef, scroll, children, screen, setActiveMouse }) {
+export default function layout({ scroll, children, screen }) {
 
     return (
-        <div style={{ background, transition: "background 2s" }}
+        <div
             className="main-container">
-            <Header screen={screen} />
+            <Header scroll={scroll} screen={screen} />
             {children}
-            <Footer containerRef={containerRef}
-                innerContainerRef={innerContainerRef}
-                innerRef={innerRef}
-                innerInnerRef={innerInnerRef} scroll={scroll} />
+            <Footer scroll={scroll} />
         </div>
     )
 }
