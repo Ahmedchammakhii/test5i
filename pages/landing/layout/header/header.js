@@ -9,7 +9,7 @@ export default function navbar({ screen, scroll }) {
 
 
   useEffect(() => {
-    console.log(headerMouseLeave)
+   console.log(headerMouseLeave)
   }, [])
   return (
     <>
@@ -56,9 +56,9 @@ export default function navbar({ screen, scroll }) {
 
               <div style={{ ...right_side, fontSize: screen === "mobile" ? "3rem" : "2.4rem", textAlign: screen === "mobile" ? "center" : "left" }}>
                 {screen === "mobile" ? null : <div style={menu_title}>menu</div>}
-                <div onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Services</div>
-                <div onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Blogs</div>
-                <div onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Contact</div>
+                <div style={{fontSize:"1.4rem"}} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Services</div>
+                <div style={{fontSize:"1.4rem"}} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Blogs</div>
+                <div style={{fontSize:"1.4rem"}} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Contact</div>
                 {screen === "mobile" ? <div style={mobile_button}>
                   Estimate Project
                 </div> : null}
