@@ -1,9 +1,6 @@
-import { useEffect, useState, useRef } from 'react'
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect, useRef } from 'react'
 
-export default function how({ background, scroll }) {
+export default function How({ scroll }) {
     const ref = useRef(null);
     const container = useRef(null);
     const innerContainer = useRef(null);
@@ -20,7 +17,6 @@ export default function how({ background, scroll }) {
         }
 
         container.current.style.height = `${counter + (window.innerHeight * 0.2)}px`
-        console.log(counter)
         //
     }, []);
     useEffect(() => {
@@ -28,16 +24,11 @@ export default function how({ background, scroll }) {
 
             const children = ref.current.children;
 
-
-            console.log()
-
             if ((scroll) - (container.current.offsetTop - (window.innerHeight * 0.2)) <= container.current.clientHeight && (scroll) - (container.current.offsetTop) <= container.current.clientHeight - (window.innerHeight * 0.7)) {
                 for (let i = 0; children.length > i; i++) {
                     children[i].style.transform = `translateX(calc(40vw - ${(scroll) - (container.current.offsetTop - (window.innerHeight * 0.2))}px))`
                 }
             }
-        } else {
-            console.log(false)
         }
 
     }, [scroll])
@@ -53,19 +44,12 @@ export default function how({ background, scroll }) {
                 alignItems: "center", position: "sticky", top: "20%"
             }} ref={innerContainer}>
                 <h1 ref={title} style={{ fontWeight: "500", paddingBottom: "100px", fontSize: "1.7rem" }}>How it works</h1>
-                <div ref={blogs} style={{
-                    width: "100%", display: "flex", flexWrap: "nowrap"
+                <div ref={blogs} style={{ width: "100%", display: "flex", flexWrap: "nowrap" }}>
 
 
-                }}>
-
-
-                    <div ref={ref} style={{
-                        height: "300px", flexWrap: "nowrap",
-                        display: "flex", overflow: "hidden", position: "relative", top: "50px"
-                    }}>
+                    <div ref={ref} style={{ height: "300px", flexWrap: "nowrap", display: "flex", overflow: "hidden", position: "relative", top: "50px" }}>
                         {data.map((e, i) => {
-                            return <div className="box" style={{ marginLeft: i ? '50px' : 0, boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.75", background: "#fff", boxShadow: "0 3px 30px 0 rgba(0,0,0,.02)", borderRadius: "40px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", transition: "0.6s ease-out", transform: `translateX(calc(100vw / 2.5))`, height: "230px", minWidth: "calc(100vw / 5)", borderRadius: "40px" }} >
+                            return <div key={i} style={{ marginLeft: i ? '50px' : 0, boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.75", background: "#fff", boxShadow: "0 3px 30px 0 rgba(0,0,0,.02)", borderRadius: "40px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", transition: "0.6s ease-out", transform: `translateX(calc(100vw / 2.5))`, height: "230px", minWidth: "calc(100vw / 5)", borderRadius: "40px" }} >
                                 <div style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
                                     <h4 style={{ width: "calc(100% - 90px)", fontSize: "23px", fontWeight: "500" }}>Send brief</h4>
                                     <p style={{ width: "calc(100% - 90px)", fontSize: "13.84px", marginTop: "15px", letterSpacing: ".15px", lineHeight: "1.64" }}>Send us a complete brief along with documents & requirements to estimate the project & get started</p>
