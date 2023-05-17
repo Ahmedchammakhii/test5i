@@ -1,8 +1,8 @@
 import Layout from "./landing/layout/layout"
 import Sections from "./landing/sections/sections";
 import How from "./landing/how/how";
+import BlackSection from "./landing/black-section/BlackSection"
 import { useState, useCallback, useEffect } from "react"
-import data from "./landing/data";
 import { CustomCursor } from "@/sharedComponents/customCursor";
 import { screenHandler } from "./landing/functions/scroll";
 import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
@@ -30,7 +30,8 @@ export default function Home() {
     <Layout
       scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
       <CustomCursor activeMouse={activeMouse} />
-      <div>{data.map((e, i) => <Sections key={i} preLast={i === data.length - 2} last={i + 1 === data.length} screen={screen} scroll={scrollPosition} element={e} index={i} color={color} setBackground={setBackground} />)}</div>
+      <Sections screen={screen} scrollPosition={scrollPosition} color={color} setBackground={setBackground} />
+      <BlackSection scroll={scrollPosition} />
       <How scroll={scrollPosition} />
     </Layout>
   )
