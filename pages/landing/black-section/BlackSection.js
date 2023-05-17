@@ -53,6 +53,25 @@ export default function BlackSection({ scroll }) {
                 leftContainer={leftContainer}
                 rightContainer={rightContainer} />
             <MediaBand scroll={scroll} />
+            <Potential />
         </div>
     )
+}
+
+
+
+
+
+
+
+
+
+
+const Potential = () => {
+    return (<>            <div style={{ color: "black", top: "0", width: "50%", display: "flex", alignItems: "center", flexDirection: "column", float: "right" }}>
+        <h1 style={{ fontWeight: "400", fontSize: "85px", color: "gray", lineHeight: "1", textAlign: "left", marginLeft: "-42.5px" }} >unlock your</h1>
+        <h1 style={{ fontWeight: "400", fontSize: "85px", textAlign: "left" }}>super power</h1>
+    </div>
+        <br />
+    </>)
 }

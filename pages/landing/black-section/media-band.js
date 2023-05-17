@@ -19,7 +19,11 @@ export default function MediaBand({ scroll }) {
 
     }, [scroll])
     return (
-        <div style={{ paddingBottom: "0%", height: 'calc((100vw / 2.9) * 1.1)', paddingTop: "14%" }}>
+        <div style={{ paddingBottom: "0%", height: 'calc((100vw / 2.9) * 1.48)', paddingTop: "14%" }}>
+            <div style={{ color: "white",  top: "0", width: "50%", display: "flex", alignItems: "center", flexDirection: "column" }}>
+                    <h1 style={{ fontWeight: "400", fontSize: "85px", color: "gray", lineHeight: "1", textAlign: "left", marginLeft: "-42.5px" }} >unlock your</h1>
+                    <h1 style={{ fontWeight: "400", fontSize: "85px", textAlign: "left" }}>super power</h1>
+            </div>
             <div ref={container} style={{ transform: "rotate(345deg)", width: "100%", height: "calc(100vw / 2.9)", gap: "80px", display: "flex", whiteSpace: "nowrap" }}>
                 <img style={{ transition: "0.1s", objectFit: "cover", width: "450px", height: "100%", borderRadius: "75px" }} src={"https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b201b4481e4c4ebf2e944_slide1-p-800.jpg"} />
                 <img style={{ transition: "0.1s", objectFit: "cover", width: "450px", height: "100%", borderRadius: "75px" }} src={"https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d2e6bc211d52461d466_sc4.jpg"} />
