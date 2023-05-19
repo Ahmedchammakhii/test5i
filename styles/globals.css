@@ -9,11 +9,12 @@ a {
   font-style: normal;
   list-style: none;
   text-decoration: none;
-}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 *::-webkit-scrollbar {
@@ -21,6 +22,6 @@ a {
 }
 
 html {
-  font-size: calc(0.95rem + 1vw);
+  font-size: calc(.95rem + 1vw);
   transition: background 2s;
 }
