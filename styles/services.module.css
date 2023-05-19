@@ -3,7 +3,7 @@
   transition: all 1s ease;
 }
 .FirstSection {
-  height: 570vh;
+  height: 600vh;
   width: 100vw;
   overflow: hidden;
   position: relative;
@@ -19,10 +19,11 @@
   width: 100vw;
   background: rgb(2, 0, 36);
   color: #000000;
+  transition: all ease 2s;
 }
 .FourthSection {
   height: auto;
-  min-height: 350vh;
+  min-height: 200vh;
   width: 100vw;
   background-color: #ffffff;
   color: #ffffff;

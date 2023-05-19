@@ -13,6 +13,7 @@ export default function services() {
  
   const sectionRef = useRef(null);
 
+  const firstRef= useRef(null);
   
   
   useEffect(() => {
@@ -27,11 +28,11 @@ export default function services() {
        
       },
     });
-  
+
     timeline
       .fromTo(
-        "."+styles.ThirdSection,{background:'#fff',transition:"background-color ease 2s"},{  background:
-          " linear-gradient(180deg,rgba(36, 0, 26, 0) 0%,rgb(255, 224, 224) 30%,rgba(255, 234, 224, 0) 100%)"})
+        "."+styles.ThirdSection,{background: " linear-gradient(180deg,rgba(36, 0, 26, 0) 0%,rgb(255, 224, 224) 30%,rgba(255, 234, 224, 0) 50%)",transition:"all ease 2s"},{  background:
+          " linear-gradient(180deg,rgba(36, 0, 26, 0) 0%,rgb(255, 224, 224) 30%,rgba(255, 234, 224, 0) 100%)",transition:"all ease 2s"})
       
     return () => {
       timeline.kill();
@@ -39,7 +40,7 @@ export default function services() {
   }, []);
   return (
     <main className={styles.main} style={{overflow:"hidden"}}>
-      <section className={styles.FirstSection}>
+      <section className={styles.FirstSection} ref={firstRef}>
 <FirstSection/>
 </section>
 <section className={styles.SecondSection} >

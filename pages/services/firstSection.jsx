@@ -31,23 +31,23 @@ export const FirstSection = () => {
       .to(gridBlocks, { duration: 0.1, autoAlpha: 1 }, 0.001)
       .fromTo(
         gridLayer,
-        { scale: 1.2, ease: 'none' },
-        { scale:2, ease: 'none' }
+        { scale: 1.2, ease: 'none',duration:.5 },
+        { scale:2, ease: 'none',duration:.5}
        
       ).to(".textheader",{
-top:300,
-right:250,
+top:"40%",
+right:"22%",
 ease:"power3.out",
 color:"#fff",
 fontSize:35,
 width:"60%",  
 webkitTextStrokeColor:"#000",
 webkitTextStrokeWidth:".4px",
-duration:.5,
+duration:.05,
 background:'#000',
 zIndex:3
 
-      },-.2)
+      },0)
 
     return () => {
       timeline.kill();
@@ -77,9 +77,7 @@ everything covered.</h1>
 
             </div>
           </div>
-          <div className={styles.gridLayer}>
-            <div className={styles.gridBlock}></div>
-          </div>
+    
          
           <div className={styles.gridLayer}>
             <div className={styles.gridBlock}></div>
