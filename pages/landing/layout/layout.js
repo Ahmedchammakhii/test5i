@@ -3,7 +3,7 @@ import Footer from './footer/footer'
 export default function layout({ scroll, children, screen }) {
 
     return (
-        <div
+        <div style={{ display: "flex", flexDirection: "column" }}
             className="main-container">
             <Header scroll={scroll} screen={screen} />
             {children}

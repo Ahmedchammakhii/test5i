@@ -4,20 +4,25 @@ export default function About({ container, leftContainer, rightContainer }) {
 
 
     return (
-        <>
+        <div>
 
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", position: "absolute", zIndex: 5 }}>
                 <div style={{ width: "45%", height: "500px", marginTop: "14%" }}>
                     <h1 style={{ fontWeight: "500", fontSize: "50px", color: "white", position: "relative", left: "20%" }}>About</h1>
                 </div>
                 <div style={{ width: "75%", marginTop: "14%", display: "flex", justifyContent: "center" }}>
                     <div style={{ fontSize: "1.58em", fontWeight: "400", color: "white", lineHeight: "2.1", color: "#808080", width: "80%" }}>
-                        We elevate  <span style={{ color: "white" }}>phenomenal</span>  solutions for growth by translating their future potential into a strategic brand narrative and authentic digital presence.
+                        We elevate  <span style={{
+                            backgroundImage: 'url(https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg)',
+                            backgroundPosition: "50% 100%",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "contain", color: "white", paddingBottom:"15px"
+                        }}>phenomenal</span>  solutions for growth by translating their future potential into a strategic brand narrative and authentic digital presence.
                     </div>
                 </div>
             </div>
-
-            <div ref={container} style={{ height: "100vh", display: "flex", marginTop: "14%", overflow: "hidden", paddingTop:"50px" }}>
+            <div style={{ height: "100vh" }} />
+            <div ref={container} style={{ height: "100vh", display: "flex", marginTop: "14%", overflow: "hidden", paddingTop: "50px" }}>
                 <div ref={leftContainer} style={{
                     willChange: "transform",
                     width: "calc(69% / 2)", position: "relative", transformStyle: "preserve-3d",
@@ -83,6 +88,6 @@ export default function About({ container, leftContainer, rightContainer }) {
                     }} src={"https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1e9cc0fb34d5e7819b2f_card2-p-800.jpg"} />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
