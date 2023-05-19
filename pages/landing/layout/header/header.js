@@ -8,9 +8,7 @@ export default function navbar({ screen, scroll }) {
   const mouseL = useCallback(headerMouseLeave, [])
 
 
-  useEffect(() => {
-   console.log(headerMouseLeave)
-  }, [])
+
   return (
     <>
       <div style={main_container}>

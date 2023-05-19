@@ -33,7 +33,7 @@ export default function How({ scroll }) {
 
     }, [scroll])
 
-    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const data = [1, 2, 3, 4,]
     return (
         <div ref={container} style={{
             marginTop: "10%",
@@ -45,8 +45,6 @@ export default function How({ scroll }) {
             }} ref={innerContainer}>
                 <h1 ref={title} style={{ fontWeight: "500", paddingBottom: "100px", fontSize: "1.7rem" }}>How it works</h1>
                 <div ref={blogs} style={{ width: "100%", display: "flex", flexWrap: "nowrap" }}>
-
-
                     <div ref={ref} style={{ height: "300px", flexWrap: "nowrap", display: "flex", overflow: "hidden", position: "relative", top: "50px" }}>
                         {data.map((e, i) => {
                             return <div key={i} style={{ marginLeft: i ? '50px' : 0, boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.75", background: "#fff", boxShadow: "0 3px 30px 0 rgba(0,0,0,.02)", borderRadius: "40px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", transition: "0.6s ease-out", transform: `translateX(calc(100vw / 2.5))`, height: "230px", minWidth: "calc(100vw / 5)", borderRadius: "40px" }} >
