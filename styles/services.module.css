@@ -1,8 +1,33 @@
+.main {
+  background-color: #fff;
+  transition: all 1s ease;
+}
 .FirstSection {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 570vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+.SecondSection {
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+}
+.ThirdSection {
+  padding: 100px 0;
+  height: 110vh;
+  width: 100vw;
+  background: rgb(2, 0, 36);
+  color: #000000;
+}
+.FourthSection {
+  height: auto;
+  min-height: 350vh;
+  width: 100vw;
+  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #000000;
+  border-top-right-radius: 150px;
+  overflow: hidden;
+  border-top-left-radius: 150px;
 }
