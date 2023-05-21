@@ -38,12 +38,20 @@ export default function Cards({ scroll, containerRef }) {
 
 
 
-        
+
         if (containerRef) {
             scrollTrigger(container, (v, ref) => {
                 containerRef.style.background = `rgba(0, 0, 0, ${v[0]})`
-                console.log(containerRef.style.background)
-            }, [[1, 0]], containerRef.style.background !== "rgba(0, 0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 1)")
+                if (v[0] < 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "white") {
+                    document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
+                    document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
+                    document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
+                } else if (v[0] >= 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
+                    document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
+                    document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
+                    document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
+                }
+            }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
 
         }
     }, [scroll])

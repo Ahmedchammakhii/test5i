@@ -14,6 +14,7 @@ export default function Home() {
   const [color, setBackground] = useState("#fae1ee");
   const [activeMouse, setActiveMouse] = useState(true);
   const background = ["#fae1ee", "#e0f0ff", "#ffede0", "#d3d6f0", "#ffeae0", "#f5f5f7"];
+  const [menuClicked, setMenuClicked] = useState(false);
 
   const handleScroll = useCallback(() => { setScrollPosition(window.scrollY) }, []);
   const handleResize = useCallback((setScreen) => { setScreen(window.innerWidth < 764 ? "mobile" : window.innerWidth < 1112 ? "tablet" : "desktop") }, []);
@@ -28,10 +29,10 @@ export default function Home() {
 
 
   return (
-    <Layout scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
+    <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
       <CustomCursor activeMouse={activeMouse} />
       <Sections screen={screen} scrollPosition={scrollPosition} color={color} setBackground={setBackground} />
-      <BlackSection scroll={scrollPosition} />
+      <BlackSection menuClicked={menuClicked} scroll={scrollPosition} />
       <How scroll={scrollPosition} />
     </Layout>
   )
