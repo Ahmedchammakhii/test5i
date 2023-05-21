@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import About from './about'
 import Cards from './cards'
+import Catalogue from './catalogue'
 import MediaBand from './media-band'
 import Services from './services'
 import Wow from './wow'
@@ -75,7 +76,7 @@ export default function BlackSection({ scroll, menuClicked }) {
                 document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
                 document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
                 setTimeout(() => {
-                    if(document.getElementsByClassName('header_lines_btn')[1].style.background === "white"){
+                    if (document.getElementsByClassName('header_lines_btn')[1].style.background === "white") {
                         document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
                     }
                 }, 500);
@@ -90,6 +91,7 @@ export default function BlackSection({ scroll, menuClicked }) {
             borderRadius: "150px",
         }}>
             <About scroll={scroll} container={container} leftContainer={leftContainer} rightContainer={rightContainer} />
+            <Catalogue scroll={scroll} />
             <MediaBand scroll={scroll} />
             <Wow scroll={scroll} />
             <Services scroll={scroll} />
