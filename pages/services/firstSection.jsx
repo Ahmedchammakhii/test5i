@@ -1,89 +1,72 @@
-
-
-import React, { useEffect, useRef } from 'react';
-import styles from './sections.module.css';
+import React, { useEffect, useRef } from 'react'
+import style from "./sections.module.css"
+import Image from 'next/image'
+import firsta from '../../assets/shape.svg'
+import sec from '../../assets/3orsa.png'
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import img from '../../assets/3.png';
-
 export const FirstSection = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
+  const first = useRef(null);
+  useEffect(()=>{
+    const timeline=gsap.timeline() ; 
+    timeline.from("."+style.firstleft+' h1', {
+      duration: 1.5,
+      delay: .3,
+      scale: 0,
+      stagger: {
+        amount: 1.3,
+      },
+     ease:"Elastic.easeOut"
+    }).from("."+style.firstright+' h1', {
+      duration: 1.5,
+      delay: 0,
+      scale: 0,
+      stagger: {
+        amount: 1.3,
+      },
+     ease:"Elastic.easeOut"
+    },"-=.8").from(".parag",{x:-1000},"-=1").from("."+style.blurparent,{scale:0})
     gsap.registerPlugin(ScrollTrigger);
 
-    const section = sectionRef.current;
-    const gridBlocks = section.querySelectorAll('.' + styles.gridBlock + ':not(.' + styles.centerBlock + ')');
-    const gridLayer = section.querySelectorAll('.' + styles.gridLayer);
-
-    const timeline = gsap.timeline({
+  
+    const timelin1 = gsap.timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: first.current,
         start: 'top top',
-        end: () => window.innerHeight * 5,
+        end:()=>innerHeight,
         scrub: true,
-        pin: '.' + styles.grid,
-        anticipatePin: 1,
+       
       },
     });
-
-    timeline
-      .to(gridBlocks, { duration: 0.1, autoAlpha: 1 }, 0.001)
+  
+    timelin1
+      
       .fromTo(
-        gridLayer,
-        { scale: 1.2, ease: 'none',duration:.5 },
-        { scale:2, ease: 'none',duration:.5}
+        '.'+style.glass,
+      {y:0,transition:"all ease 1s",duration:2
+      },{y:200,transition:"all ease 1s",duration:2}
        
-      ).to(".textheader",{
-top:"40%",
-right:"22%",
-ease:"power3.out",
-color:"#fff",
-fontSize:35,
-width:"60%",  
-webkitTextStrokeColor:"#000",
-webkitTextStrokeWidth:".4px",
-duration:.05,
-background:'#000',
-zIndex:3
+      )
 
-      },0)
-
-    return () => {
-      timeline.kill();
-    };
-  }, []);
-
+  })
   return (
-    <>
-      <div className={styles.grid_container} ref={sectionRef}>
-        <div className={styles.grid}>
-        <p style={{transform:"rotate(-90deg)",position:"absolute",top:200,color:"#000",fontSize:40,margin:0,padding:0}}>services</p>
-        <h1 className='textheader' style={{zIndex:-3,fontSize:"20px",color:"#000",position:"absolute",right:"-150px",top:200,width:"30%",textAlign:"center",fontWeight:"500"}}>Branding, design concept &
-web developments, we've got
-everything covered.</h1>
-          <div className={styles.gridLayer}>
-            <div className={styles.gridBlock}></div>
-          </div>
-          <div className={styles.gridLayer}>
-            <div className={styles.gridBlock}></div>
-          </div>
-          <div className={styles.gridLayer}>
-            <div className={styles.gridBlock}></div>
-          </div>
-          <div className={`${styles.gridLayer} ${styles.centerPiece}`}>
-            <div className={`${styles.gridBlock} ${styles.centerBlock}`}>
-     
+    <div className={style.FirstSection} ref={first}>
+      <div className={style.firstleft}>
+      <h1>Unleashing Creative Potential</h1></div>
+      <div className={style.firstright}>
+      <div className={style.blurparent}>
+      <div className={style.blur}></div> </div>
+      <h1 style={{zIndex:2}}>Building Powerful Brands
+</h1>  
+</div>
+<div className={style.glass}>
+  
+</div>
+<div className='parag' style={{position:'absolute',bottom:'11vh',left:"8%",width:"35vw",display:"flex",gap:"10px"}}>
+  <Image style={{width:"25%",height:"auto"}} src={sec}></Image>
+ <p>Delivering strategic branding and distinctive app development, we elevate businesses to their apex potential. With a meticulous emphasis on problem-solving, we foster growth and establish industry leadership for technology-forward organizations worldwide, including yours.
 
-            </div>
-          </div>
-    
-         
-          <div className={styles.gridLayer}>
-            <div className={styles.gridBlock}></div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+</p></div>
+    </div>
+  )
+}
