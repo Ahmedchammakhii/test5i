@@ -1,4 +1,4 @@
-const {getUsers,createUser,getOneUser,deleteUser} = require('../models/clients_model')
+const {getUsers,createUser,getOneUser,deleteUser,getMonthlyUsers} = require('../models/clients_model')
 
 
 exports.getClients=async(req,res)=>{
@@ -39,4 +39,14 @@ try {
 catch(e){
     res.status(500).json({message:e})
 }
+}
+
+exports.getMonthlyProspects=async(req,res)=>{
+    try {
+        let monthly=await getMonthlyUsers()
+        res.status(200).json(monthly)
+    }
+    catch(e){
+        res.status(500).json({message:e})
+    }
 }

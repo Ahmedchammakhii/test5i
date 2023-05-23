@@ -1,3 +1,4 @@
+
 import Layout from "./landing/layout/layout"
 import Sections from "./landing/sections/sections";
 import How from "./landing/how/how";
@@ -7,6 +8,7 @@ import { useState, useCallback, useEffect } from "react"
 import { CustomCursor } from "@/sharedComponents/customCursor";
 import { screenHandler } from "./landing/functions/scroll";
 import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
+
 
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
