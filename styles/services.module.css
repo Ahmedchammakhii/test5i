@@ -3,10 +3,11 @@
   transition: all 1s ease;
 }
 .FirstSection {
-  height: 570vh;
+  height: 110vh;
   width: 100vw;
   overflow: hidden;
   position: relative;
+  padding: 0 50px;
 }
 .SecondSection {
   height: 100vh;
@@ -17,12 +18,18 @@
   padding: 100px 0;
   height: 110vh;
   width: 100vw;
-  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(36, 0, 26, 0) 0%,
+    rgb(239, 239, 239) 20%,
+    rgba(255, 234, 224, 0) 100%
+  );
   color: #000000;
+  transition: all ease 2s;
 }
 .FourthSection {
   height: auto;
-  min-height: 350vh;
+  min-height: 200vh;
   width: 100vw;
   background-color: #ffffff;
   color: #ffffff;

@@ -8,6 +8,14 @@ export default function layout({ isClicked, setIsClicked, scroll, children, scre
             <Header isClicked={isClicked} setIsClicked={setIsClicked} scroll={scroll} screen={screen} />
             {children}
             <Footer scroll={scroll} />
+
+
+            <style>{`
+            html {
+                font-size: calc(0.95rem + 1vw);
+                transition: background 2s;
+              }
+            `}</style>
         </div>
     )
 }
