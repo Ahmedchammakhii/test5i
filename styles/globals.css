@@ -20,7 +20,3 @@ a {
   display: none;
 }
 
-html {
-  /* font-size: calc(0.95rem + 1vw); */
-  transition: background 2s;
-}

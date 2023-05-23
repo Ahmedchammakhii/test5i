@@ -40,7 +40,7 @@ useEffect(() => {
     .fromTo(
       ".psycho",
       {bottom:-500,scale:1.6,duration: .05, opacity:0, ease: "none" },
-      { top:250,scale:1.6, duration: .05,opacity:0.1, ease: "none",rotate:18}
+      { top:250,scale:1.6, duration: .05,opacity:0.2, ease: "none",rotate:18}
      ,"-=.1")
   .fromTo(`.first`,{x:200,transition:"all ease 1s",delay:1},{x:0})
 .fromTo(".sec .textheader2",{paddingBottom:100},{paddingBottom:0})

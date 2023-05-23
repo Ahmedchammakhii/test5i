@@ -22,7 +22,7 @@ const kickstart = () => {
       },
     });
   
-    timeline.fromTo('.details',{x:-2000,transition:"all ease 2s",duration:2},{x:0,duration:2,transition:"all ease 2s"})
+    timeline.fromTo('.details',{opacity:0,transition:"all ease 2s",duration:2},{opacity:1,duration:2,transition:"all ease 2s"})
 
   })
 
@@ -34,7 +34,7 @@ const kickstart = () => {
       </div>
       <p style={{color:"#fff",paddingTop:50,fontSize:20}}>We start with strategy, ensuring clearly defined goals and a messaging framework
 that will serve as the brand’s foundation</p>
-      <div className="details" ref={sectionRef} style={{translate:"transformX(2000px)",width:"100%",marginTop:80,marginLeft:"100px"}}>
+      <div className="details" ref={sectionRef} style={{opacity:0,width:"100%",marginTop:80,marginLeft:"100px"}}>
 
 <p style={{color:"#fff",fontSize:30,fontWeight:"100"}}> Create </p>
 <p style={{color:"#fff",fontSize:20,fontWeight:"100",width:"60%"}}>We trigger impact on sight. We help you connect with your audience through a distinct
