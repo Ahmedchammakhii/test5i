@@ -1,5 +1,5 @@
 import Section from "./component"
-import data from "../data"
+import data from "../../../data"
 
 export default function Sections({ screen, scrollPosition, color, setBackground }) {
     return (

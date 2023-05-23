@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef } from "react";
-import { projectMouseEnter, projectMouseLeave } from "../functions/mouse"
+import { projectMouseEnter, projectMouseLeave } from "../../../functions/mouse"
 export default function Sections({ preLast, last, element, index, scroll, setBackground, color, screen }) {
     const styles = {
         father_contaier: { marginTop: index ? 0 : "80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", transition: "2s" },

@@ -5,7 +5,7 @@ import BlackSection from "./landing/black-section/BlackSection"
 
 import { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { CustomCursor } from "@/sharedComponents/customCursor";
-import { mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
+import { mouseMove, mouseEnter, mouseLeave } from "../functions/mouse";
 
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
@@ -17,7 +17,6 @@ export default function Home() {
 
   const handleScroll = useCallback(() => { setScrollPosition(window.scrollY) }, []);
   const handleResize = useCallback((setScreen) => { setScreen(window.innerWidth < 764 ? "mobile" : window.innerWidth < 1112 ? "tablet" : "desktop") }, []);
-  screenHandler(screen, setScreen, setScrollPosition, handleResize, handleScroll)
 
   const handleMouseMove = useCallback(mouseMove, [])
   const handleMouseEnter = useCallback(mouseEnter, [])
