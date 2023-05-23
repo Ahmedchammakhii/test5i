@@ -5,8 +5,7 @@ import BlackSection from "./landing/black-section/BlackSection"
 
 import { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { CustomCursor } from "@/sharedComponents/customCursor";
-import { screenHandler } from "./landing/functions/scroll";
-import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
+import { mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
 
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
@@ -44,7 +43,16 @@ export default function Home() {
   }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
   useEffect(() => { document.querySelector('html').style.background = background[color] }, [color])
 
+  useLayoutEffect(() => {
+    handleResize(setScreen);
+    window.addEventListener('resize', () => { handleResize(setScreen) });
+    window.addEventListener('scroll', () => { handleScroll(setScrollPosition) });
 
+    return () => {
+      window.removeEventListener('resize', () => { handleResize(setScreen) });
+      window.removeEventListener('scroll', () => { handleScroll(setScrollPosition) });
+    };
+  }, [screen]);
   return (
     <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
       <CustomCursor activeMouse={activeMouse} />
