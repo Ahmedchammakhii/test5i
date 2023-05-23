@@ -31,7 +31,7 @@ useEffect(()=>{
     <div className={style.blogs} ref={ref}>
        
         <main className={style.main}>
-           <h1>BLOG</h1>
+           <h1>BLOGS</h1>
            <p>Filters</p>
            <div className="allbuttons"  style={{display:"flex",justifyContent:"space-between"}} >
            <div className="buttons" style={{display:"flex",gap:"10px"}}>
@@ -61,7 +61,7 @@ useEffect(()=>{
         </div>
         </div>
        <div className={style.listingblogs}>
-        <div className={style.oneblog} style={{background:"#a7ddf0"}}> <div className={style.blogdetails}>
+        <div className={style.oneblog} style={{}}> <div className={style.blogdetails}>
     <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:15,borderBottomRightRadius:'5rem',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
 <p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>e eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>
@@ -76,7 +76,7 @@ useEffect(()=>{
     <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:15,borderBottomRightRadius:'5rem',borderTopRightRadius:"20rem 3rem"}}>5i on red</h1>
 <p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>mi, quia adipisci officiis accusantium aperiam sequi.</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>
-  </div></div>       <div className={style.oneblog} style={{background:"#a7ddf0"}}> <div className={style.blogdetails}>
+  </div></div>       <div className={style.oneblog} style={{}}> <div className={style.blogdetails}>
     <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:15,borderBottomRightRadius:'5rem',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
 <p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>e eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>

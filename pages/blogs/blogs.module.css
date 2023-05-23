@@ -71,6 +71,8 @@
   background-color: hsl(220, 5%, 78%);
   overflow: hidden;
 
+  background-image: url("../../assets/15.jpg");
+  background-position: 50%;
   cursor: pointer;
 }
 .secimage {
@@ -83,6 +85,7 @@
   background-color: #db4437;
   overflow: hidden;
   cursor: pointer;
+  background-image: url("../../assets/16.png");
 }
 .blogdetails {
   position: absolute;
@@ -105,4 +108,5 @@
   background-color: hsl(0, 0%, 67%);
   overflow: hidden;
   cursor: pointer;
+  background-image: url("../../assets/5.png");
 }
