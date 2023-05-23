@@ -37,6 +37,7 @@ export default function Sections({ preLast, last, element, index, scroll, setBac
                 lastImg.style.width = `calc(${screen === "tablet" ? "78%" : "62%"} / 2)`
             }
         }
+        console.log(color)
     }, [scroll]);
     const mousE = useCallback(projectMouseEnter, [])
     const mouseL = useCallback(projectMouseLeave, [])

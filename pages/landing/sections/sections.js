@@ -34,6 +34,7 @@ const data = [
 ]
 
 export default function Sections({ screen, scrollPosition, color, setBackground }) {
+    if (color === undefined) return
     return (
         <div style={{ position: "relative" }}>{data.map((e, i) => <Section key={i} preLast={i === data.length - 2} last={i + 1 === data.length}
             screen={screen}
