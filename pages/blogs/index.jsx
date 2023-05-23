@@ -24,13 +24,43 @@ useEffect(()=>{
 
   timeline
     .fromTo("."+style.blogs,{y:0},{y:-200})
+    
+  let mouse = {
+    x: undefined,
+    y: undefined
+  };
+  let posX;
+  let posY;
+  let degX;
+  let degY;
+  let sensibility = 10;
+  
+  document.addEventListener('mousemove', function() {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+  
+    posX =  ( mouse.x - (window.innerWidth/2) ) / (window.innerWidth/2) * 100;
+    posY =  ( mouse.y - (window.innerHeight/2) ) / (window.innerHeight/2) * 100;
+  
+    degX = posX/sensibility;
+    degY = posY/sensibility;
+  
+    refce.current.style && (refce.current.style.transform = "rotateX("+ -degY +"deg) rotateY("+ degX +"deg) translateZ(-100px)")
+  
+  
+  });
+  return () => {
+    timeline.kill();
+    document.removeEventListener('mousemove')
+  };
 })
+const refce=useRef(null)
   return (
     <>
     <Header></Header>
     <div className={style.blogs} ref={ref}>
        
-        <main className={style.main}>
+        <main className={style.main} ref={refce}>
            <h1>BLOGS</h1>
            <p>Filters</p>
            <div className="allbuttons"  style={{display:"flex",justifyContent:"space-between"}} >
@@ -47,14 +77,14 @@ useEffect(()=>{
         <div className={style.displayblogs}>
 <div className={style.firstimage} >
   <div className={style.blogdetails}>
-    <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:15,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
+    <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:20,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
 <p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. In adipisci quam vero ratione eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>
   </div>
         </div>
         <div className={style.secimage} >
         <div className={style.blogdetails}>
-    <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:15,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
+    <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:20,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
 <p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. In adipisci quam vero ratione eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>
   </div>

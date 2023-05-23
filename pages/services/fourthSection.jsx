@@ -21,7 +21,7 @@ const [pack,setpack]=useState({first:true,sec:false,last:false})
 const sectionRef = useRef(null);
 const [scroll,setscroll]=useState(undefined)
 const [click,setclick]=useState({first:false,sec:false,third:false,frth:false})
-
+const packs = useRef(null)
 
 useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
@@ -47,8 +47,37 @@ useEffect(() => {
   .fromTo(`.third`,{x:-200,transition:"all ease 1s",delay:1},{x:0})
   .fromTo('.images',{y:-1000,opacity:0},{y:0,paddingTop:"10px",opacity:1,transition:"all ease 1s"})
   .fromTo('.textheader2',{fontSize:"40px",transition:"all ease .2s",textAlign:"center"},{fontSize:"20px"})
+  
+ 
+  let mouse = {
+    x: undefined,
+    y: undefined
+  };
+  let posX;
+  let posY;
+  let degX;
+  let degY;
+  let sensibility = 10;
+  
+  document.addEventListener('mousemove', function() {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+  
+    posX =  ( mouse.x - (window.innerWidth/2) ) / (window.innerWidth/2) * 100;
+    posY =  ( mouse.y - (window.innerHeight/2) ) / (window.innerHeight/2) * 100;
+  
+    degX = posX/sensibility;
+    degY = posY/sensibility;
+  
+    packs.current.style && (packs.current.style.transform = "rotateX("+ -degY +"deg) rotateY("+ degX +"deg) translateZ(-100px)")
+  
+  
+  });
+  
+ 
   return () => {
     timeline.kill();
+    document.removeEventListener('mousemove')
   };
 }, []);
   return (
@@ -62,7 +91,7 @@ useEffect(() => {
         <h1><span>CHOOSE THE ONE THAT SUITS YOU</span><span>*</span><span>CHOOSE THE ONE THAT SUITS YOU</span><span>*</span><span>CHOOSE THE ONE THAT SUITS YOU</span><span>*</span><span>CHOOSE THE ONE THAT SUITS YOU</span><span>*</span></h1>
         </div>
         <p style={{fontSize:"40px",width:"100%",textAlign:"center "}}>We elevate phenomenal solutions for growth by translating their future potential into a strategic brand narrative</p>
-<div className={style.pack}> 
+<div className={style.pack} ref={packs}> 
 <div className="first">
  <div className={style.border}>
 <div className={style.first}>
