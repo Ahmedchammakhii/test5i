@@ -8,6 +8,9 @@ import {useRef,useEffect} from 'react'
 import { gsap } from 'gsap'
 import img from "../../assets/web.png"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import Header from '../landing/layout/header/header'
+
+import Footer from '../landing/layout/footer/footer'
 export default function services() {
  
   const sectionRef = useRef(null);
@@ -18,6 +21,8 @@ export default function services() {
 
   return (
     <main className={styles.main} style={{overflow:"hidden"}}>
+       <Header scroll={null} screen={null} />
+            
       <section className={styles.FirstSection} ref= {firstRef}>
 <FirstSection/>
 </section>
@@ -28,6 +33,7 @@ export default function services() {
 <section className={styles.FourthSection}>
 <FourthSection/>
 </section>
+<Footer ></Footer>
     </main>
   );
 }
