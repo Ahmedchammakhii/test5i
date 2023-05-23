@@ -1,6 +1,26 @@
 import { useEffect, useCallback, useRef } from "react";
 import { projectMouseEnter, projectMouseLeave } from "../../../functions/mouse"
 export default function Sections({ preLast, last, element, index, scroll, setBackground, color, screen }) {
+    useEffect(() => {
+        if (color === undefined || !element) return;
+        const lastImg = document.getElementsByClassName('project-img')[document.getElementsByClassName('project-img').length - 1]
+        if ((scroll > (window.innerHeight * (0.25)) + (window.innerHeight * index)) && (scroll < (window.innerHeight * (0.25)) + (window.innerHeight * (index + 1))) && color !== index + 1) {
+            setBackground(index + 1)
+        } else if (window.innerHeight * 0.5 > scroll) {
+            setBackground(0)
+        }
+        if (preLast && (100 - (((window.innerHeight * 0.70) - (scroll - window.innerHeight * index)) / 292) * 100) > 99 && lastImg.style.position === "fixed") {
+            lastImg.style.position = "sticky"
+            lastImg.style.width = "100%"
+
+        } else if (preLast && (100 - (((window.innerHeight * 0.70) - (scroll - window.innerHeight * index)) / 292) * 100) < 99 && lastImg.style.position === "sticky") {
+            lastImg.style.position = "fixed"
+            lastImg.style.width = `calc(${screen === "tablet" ? "78%" : "62%"} / 2)`
+        }
+        console.log(color)
+    }, [scroll, color, element, setBackground, index, preLast, last, screen]);
+   
+   
     if (color === undefined || !element || !element.color) return null;
 
     const styles = {
@@ -22,24 +42,6 @@ export default function Sections({ preLast, last, element, index, scroll, setBac
         btn: { cursor: "pointer", position: "relative", overflow: "hidden", transition: "0.8s", fontSize: "0.48rem", width: "150px", height: "55px", borderRadius: "50px", border: `1px solid ${element.color}`, background: "transparent" }
     };
 
-    useEffect(() => {
-        if (color === undefined || !element) return;
-        const lastImg = document.getElementsByClassName('project-img')[document.getElementsByClassName('project-img').length - 1]
-        if ((scroll > (window.innerHeight * (0.25)) + (window.innerHeight * index)) && (scroll < (window.innerHeight * (0.25)) + (window.innerHeight * (index + 1))) && color !== index + 1) {
-            setBackground(index + 1)
-        } else if (window.innerHeight * 0.5 > scroll) {
-            setBackground(0)
-        }
-        if (preLast && (100 - (((window.innerHeight * 0.70) - (scroll - window.innerHeight * index)) / 292) * 100) > 99 && lastImg.style.position === "fixed") {
-            lastImg.style.position = "sticky"
-            lastImg.style.width = "100%"
-
-        } else if (preLast && (100 - (((window.innerHeight * 0.70) - (scroll - window.innerHeight * index)) / 292) * 100) < 99 && lastImg.style.position === "sticky") {
-            lastImg.style.position = "fixed"
-            lastImg.style.width = `calc(${screen === "tablet" ? "78%" : "62%"} / 2)`
-        }
-        console.log(color)
-    }, [scroll, color, element, setBackground, index, preLast, last, screen]);
 
     const mousE = useCallback(projectMouseEnter, [])
     const mouseL = useCallback(projectMouseLeave, [])
