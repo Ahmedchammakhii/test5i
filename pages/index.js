@@ -3,7 +3,7 @@ import Sections from "./landing/sections/sections";
 import How from "./landing/how/how";
 import BlackSection from "./landing/black-section/BlackSection"
 
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { CustomCursor } from "@/sharedComponents/customCursor";
 import { screenHandler } from "./landing/functions/scroll";
 import { cursorHandler, mouseMove, mouseEnter, mouseLeave } from "./landing/functions/mouse";
@@ -24,7 +24,24 @@ export default function Home() {
   const handleMouseEnter = useCallback(mouseEnter, [])
   const handleMouseLeave = useCallback(mouseLeave, [])
 
-  cursorHandler(handleMouseMove, handleMouseEnter, handleMouseLeave);
+  useLayoutEffect(() => {
+    const innerContainerRef = document.querySelector('.footer-inner-container');
+    const mainContainer = document.querySelector('.main-container');
+
+    mainContainer.addEventListener("mousemove", handleMouseMove);
+
+    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      mainContainer.removeEventListener("mousemove", handleMouseMove);
+
+      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
+
+
+    };
+  }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
   useEffect(() => { document.querySelector('html').style.background = background[color] }, [color])
 
 

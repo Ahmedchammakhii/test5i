@@ -16,7 +16,7 @@ export default function About({ container, leftContainer, rightContainer }) {
                             backgroundImage: 'url(https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg)',
                             backgroundPosition: "50% 100%",
                             backgroundRepeat: "no-repeat",
-                            backgroundSize: "contain", color: "white", paddingBottom:"15px"
+                            backgroundSize: "contain", color: "white", paddingBottom: "15px"
                         }}>phenomenal</span>  solutions for growth by translating their future potential into a strategic brand narrative and authentic digital presence.
                     </div>
                 </div>
@@ -28,7 +28,7 @@ export default function About({ container, leftContainer, rightContainer }) {
                     width: "calc(69% / 2)", position: "relative", transformStyle: "preserve-3d",
                     transform: "translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-0deg) skew(0deg, 0deg)",
                 }}>
-                    <img style={{
+                    <img alt="#" style={{
                         borderRadius: "60px",
                         objectFit: "cover",
                         height: "80vh",
@@ -38,7 +38,7 @@ export default function About({ container, leftContainer, rightContainer }) {
                         right: "15px",
                         top: "7px",
                     }} src={"https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1e9294c46d4ca88d0fc3_card1-p-800.jpg"} />
-                    <img style={{
+                    <img alt="#" style={{
                         willChange: "transform",
                         borderRadius: "60px",
                         objectFit: "cover",
@@ -64,7 +64,7 @@ export default function About({ container, leftContainer, rightContainer }) {
                     position: "relative", transformStyle: "preserve-3d",
                     position: "relative",
                 }}>
-                    <img style={{
+                    <img alt="#" style={{
                         borderRadius: "60px",
                         objectFit: "cover",
                         height: "80vh",
@@ -75,7 +75,7 @@ export default function About({ container, leftContainer, rightContainer }) {
                         top: "7px",
 
                     }} src={"https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/642071c9b4f0d2f23c0d0fd3_stewart-maclean-Zs1WKNa4Oy0-unsplash-p-800.jpg"} />
-                    <img style={{
+                    <img alt="#" style={{
                         willChange: "transform",
                         borderRadius: "60px",
                         objectFit: "cover",

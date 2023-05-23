@@ -1,7 +1,7 @@
 import Section from "./component"
 import data from "../data"
 
-export default function sections({ screen, scrollPosition, color, setBackground }) {
+export default function Sections({ screen, scrollPosition, color, setBackground }) {
     return (
         <div style={{ position: "relative" }}>{data.map((e, i) => <Section key={i} preLast={i === data.length - 2} last={i + 1 === data.length}
             screen={screen}

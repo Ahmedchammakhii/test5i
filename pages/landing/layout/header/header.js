@@ -1,7 +1,7 @@
 import { lines, lines_btn, main_container, nav_sides, quote, quote_container, links, links_container, G_father_container, father_container, container, menu, left_side, right_side, menu_title, mobile_button, mobile_button_hover, mobile_button_leave } from "./style"
 import { useState, useCallback, useEffect } from "react"
 import { headerMouseEnter, headerMouseLeave } from "../../functions/mouse";
-export default function navbar({ isClicked, setIsClicked, screen, scroll }) {
+export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
   const mousE = useCallback(headerMouseEnter, [])
   const mouseL = useCallback(headerMouseLeave, [])

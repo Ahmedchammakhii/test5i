@@ -37,7 +37,7 @@ export default function Services({ scroll }) {
         <div ref={container} style={{ width: "100%", marginTop: "200px", height: "150vh" }}>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "30%", }}>
-                    <img ref={left_img}
+                    <img alt="#" ref={left_img}
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d0ee5569e00035865a5_sc3-p-500.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(1.7em, -2em, 0px) rotateX(0deg) rotateZ(-30deg)",
@@ -74,7 +74,7 @@ export default function Services({ scroll }) {
                     </div>
                 </div>
                 <div style={{ width: "30%", }}>
-                    <img ref={right_img}
+                    <img alt="#" ref={right_img}
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1cf36bc2117bb361cf7d_sc1.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(-1.8em, -2em, 0px)  rotateX(0deg) rotateZ(20deg)",
@@ -85,7 +85,7 @@ export default function Services({ scroll }) {
             </div>
 
             <div style={{ width: "100%", display: "flex", justifyContent: "center", height: "530px" }}>
-                <img ref={bottom_img} src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d01ba675235f7da86e3_main.jpg'
+                <img alt="#" ref={bottom_img} src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d01ba675235f7da86e3_main.jpg'
                     style={{
                         width: "530px", height: "530px", objectFit: "cover", marginTop: "100px",
                         transform: "translate3d(0px, 8em, 0px) rotateY(0deg) rotateZ(-15deg) ",

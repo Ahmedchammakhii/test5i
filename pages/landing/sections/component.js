@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef } from "react";
 import { projectMouseEnter, projectMouseLeave } from "../functions/mouse"
-export default function sections({ preLast, last, element, index, scroll, setBackground, color, screen }) {
+export default function Sections({ preLast, last, element, index, scroll, setBackground, color, screen }) {
     const styles = {
         father_contaier: { marginTop: index ? 0 : "80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", transition: "2s" },
         container: { width: screen === "tablet" ? "78%" : "62%", justifyContent: "center", display: "flex", position: "relative" },
@@ -69,7 +69,7 @@ export default function sections({ preLast, last, element, index, scroll, setBac
                     </div>
                 </div>
                 <div style={styles.right_side}>
-                    <img className="project-img" style={styles.img} src={element.img} />
+                    <img alt="#" className="project-img" style={styles.img} src={element.img} />
                 </div>
             </div>
         </div>

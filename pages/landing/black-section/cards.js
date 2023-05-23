@@ -103,18 +103,19 @@ export default function Cards({ scroll, containerRef }) {
                     ref.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
                 }, cardsMovements[clicked.current - 1]);
 
-                console.log(i)
-                clicked.current = i + 1
-                container.current.children[i].children[0].style.transition = "0.5s"
-                container.current.children[i].children[0].style.transform = `translate3d(${left - 20}%,${top - 30}%, 0px)${' rotateZ(0.85deg)'}`;
-                container.current.children[i].style.zIndex = 6
+                // console.log(i)
+                // clicked.current = i + 1
+                 clicked.current = - 1
+                // container.current.children[i].children[0].style.transition = "0.5s"
+                // container.current.children[i].children[0].style.transform = `translate3d(${left - 20}%,${top - 30}%, 0px)${' rotateZ(0.85deg)'}`;
+                // container.current.children[i].style.zIndex = 6
             }
         }
     }
     return (
         <div ref={container} style={{ width: "100%", height: '200vh', display: "flex", justifyContent: "center", position: "relative" }}>
             <div style={{ zIndex: 0, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 4.5))" }}>
-                <img onClick={() => {
+                <img alt='#' onClick={() => {
                     handleClick(0)
                 }} style={{
                     ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
@@ -122,7 +123,7 @@ export default function Cards({ scroll, containerRef }) {
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d744379a3bfb50eb8f0_sc5-p-800.jpg" />
             </div>
             <div style={{ zIndex: 1, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 3.1))" }}>
-                <img onClick={() => {
+                <img alt='#' onClick={() => {
                     handleClick(1)
                 }} style={{
                     ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
@@ -130,7 +131,7 @@ export default function Cards({ scroll, containerRef }) {
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d7c4481e4143bf2c422_sc6-p-800.jpg" />
             </div>
             <div style={{ zIndex: 2, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 2.08))" }}>
-                <img onClick={(e) => {
+                <img alt='#' onClick={(e) => {
                     handleClick(2)
                 }} style={{
                     ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
@@ -138,7 +139,7 @@ export default function Cards({ scroll, containerRef }) {
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/642071c9b4f0d2f23c0d0fd3_stewart-maclean-Zs1WKNa4Oy0-unsplash.jpg" />
             </div>
             <div style={{ zIndex: 3, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * 0.12))", left: "calc(50% + ((550px * 0.49) - 550px * 0.153))" }}>
-                <img onClick={() => {
+                <img alt='#' onClick={() => {
                     handleClick(3)
                 }} style={{
                     ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
@@ -146,7 +147,7 @@ export default function Cards({ scroll, containerRef }) {
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1db490971b1346e686fc_sc8-p-800.jpg" />
             </div>
             <div style={{ zIndex: 4, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50%)", left: "calc(50% + (550px * 0.49))" }}>
-                <img onClick={() => {
+                <img alt='#' onClick={() => {
                     handleClick(4)
                 }} style={{
                     ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
