@@ -10,7 +10,7 @@ import { mouseMove, mouseEnter, mouseLeave } from "../functions/mouse";
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [color, setBackground] = useState("#fae1ee");
+  const [color, setBackground] = useState(0);
   const [activeMouse, setActiveMouse] = useState(true);
   const background = ["#fae1ee", "#e0f0ff", "#ffede0", "#d3d6f0", "#ffeae0", "#f5f5f7"];
   const [menuClicked, setMenuClicked] = useState(false);
