@@ -1,7 +1,6 @@
 import { useEffect, useCallback, useRef } from "react";
 import { projectMouseEnter, projectMouseLeave } from "../../../functions/mouse"
 export default function Sections({ preLast, last, element, index, scroll, setBackground, color, screen }) {
-    if (color === undefined || !element) return null
     const styles = {
         father_contaier: { marginTop: index ? 0 : "80px", width: "100vw", display: "flex", justifyContent: "center", height: "100vh", transition: "2s" },
         container: { width: screen === "tablet" ? "78%" : "62%", justifyContent: "center", display: "flex", position: "relative" },
@@ -22,6 +21,7 @@ export default function Sections({ preLast, last, element, index, scroll, setBac
     };
 
     useEffect(() => {
+        if (color === undefined || !element) return null
             const lastImg = document.getElementsByClassName('project-img')[document.getElementsByClassName('project-img').length - 1]
             if ((scroll > (window.innerHeight * (0.25)) + (window.innerHeight * index)) && (scroll < (window.innerHeight * (0.25)) + (window.innerHeight * (index + 1))) && color !== index + 1) {
                 setBackground(index + 1)
@@ -37,9 +37,12 @@ export default function Sections({ preLast, last, element, index, scroll, setBac
                 lastImg.style.width = `calc(${screen === "tablet" ? "78%" : "62%"} / 2)`
             }
         console.log(color)
-    }, [scroll]);
+    }, [scroll, color, element, setBackground, index, preLast, last, screen]);
+
     const mousE = useCallback(projectMouseEnter, [])
     const mouseL = useCallback(projectMouseLeave, [])
+    if (color === undefined || !element) return null
+
     return (
         <div style={styles.father_contaier}>
             <div style={styles.container}>
