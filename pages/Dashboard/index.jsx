@@ -115,15 +115,17 @@ const Dashboard = () => {
     setTimestamp(event.target.value);
   };
 
+  
 
   return (
-    <div> <div className={styles.dashboard}>
+    <div className={styles.elpapa}> <div className={styles.dashboard}>
 
 
       <div className={styles.tablecontainer}>
         <div >
           <h2>All Users</h2>
           <table className={styles.table}>
+            
             <thead>
               <tr>
                 <th >Nr</th>
@@ -131,7 +133,7 @@ const Dashboard = () => {
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Created At</th>
-                <th>Manage users</th>
+                {/* <th>Manage users</th> */}
               </tr>
             </thead>
             <tbody>
@@ -142,8 +144,8 @@ const Dashboard = () => {
                   <td >{user.data.last_name}</td>
                   <td >{user.data.email}</td>
                   <td >{new Date(user.data.created_at.seconds * 1000).toLocaleString()}</td>
-                  <td><button type='button' >delete</button>
-                    <button>update</button></td>
+                  {/* <td><button type='button' >delete</button>
+                    <button>update</button></td> */}
                 </tr>
 
               ))}

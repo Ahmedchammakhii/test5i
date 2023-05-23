@@ -1,4 +1,4 @@
-const { getFirestore, collection, getDocs, getDoc, doc, deleteDoc, addDoc,query,where } = require('firebase/firestore');
+const { getFirestore, collection, getDocs, getDoc, doc, deleteDoc, addDoc,query,where,serverTimestamp } = require('firebase/firestore');
 const app = require("../firebase")
 const db = getFirestore(app);
 
@@ -12,8 +12,13 @@ exports.getUsers = async () => {
   return clientsList;
 }
 exports.createUser = async (user) => {
+
   const clientsCol = collection(db, 'clients');
-  const newUserRef = await addDoc(clientsCol, user);
+  const userWithTimestamp = {
+    ...user,
+    created_at: serverTimestamp()
+  };
+  const newUserRef = await addDoc(clientsCol, userWithTimestamp);
   console.log(`User created with ID: ${newUserRef.id}`);
 }
 
