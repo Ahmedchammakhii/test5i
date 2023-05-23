@@ -20,7 +20,9 @@ export default function Sections({ preLast, last, element, index, scroll, setBac
         console.log(color)
     }, [scroll, color, element, setBackground, index, preLast, last, screen]);
    
-   
+    const mousE = useCallback(projectMouseEnter, [])
+    const mouseL = useCallback(projectMouseLeave, [])
+
     if (color === undefined || !element || !element.color) return null;
 
     const styles = {
@@ -43,8 +45,6 @@ export default function Sections({ preLast, last, element, index, scroll, setBac
     };
 
 
-    const mousE = useCallback(projectMouseEnter, [])
-    const mouseL = useCallback(projectMouseLeave, [])
 
     return (
         <div style={styles.father_contaier}>
