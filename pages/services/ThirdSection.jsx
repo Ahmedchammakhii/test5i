@@ -2,35 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from "./sections.module.css"
 import bullet from "../../assets/bullet.svg"
 import Image from 'next/image'
-import firstimg from '../../assets/brand.png'
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import secimg from '../../assets/brand2.png'
+
 export const ThirdSection = () => {
     const [leftclicked,setclicked]=useState(true);
     const sectionRef = useRef(null);
-useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  
-  const timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: sectionRef.current,
-      start: 'top top',
-      end:'end end',
-      scrub: true,
-     
-    },
-  });
-
-  timeline
-    
-    .fromTo(
-      '.sex',
-    {y:0,transition:"all ease 1s",duration:2
-    },{y:-450,x:"-80vw",transition:"all ease 1s",duration:2}
-     
-    )})
   
   
   return (
@@ -77,10 +52,7 @@ useEffect(() => {
 <div className={styles.choice}><Image src={bullet} alt="+"></Image> <p>Dez Takhtef</p></div>
 <div className={styles.choice}><Image src={bullet} alt="+"></Image> <p>Sameness</p></div>
  </div>
- <Image  style={{width:200,height:'auto',position:"absolute",bottom:0,right:0}} src={secimg}></Image>
-   
- <Image className='sex' style={{width:200,height:'auto',position:"absolute",bottom:0,right:0}} src={firstimg}></Image>
-    
+
     </div>
   )
 }

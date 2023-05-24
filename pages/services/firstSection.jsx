@@ -62,8 +62,8 @@ export const FirstSection = () => {
 <div className={style.glass}>
   
 </div>
-<div className='parag' style={{position:'absolute',bottom:'11vh',left:"8%",width:"35vw",display:"flex",gap:"10px"}}>
-  <Image style={{width:"25%",height:"auto"}} src={sec}></Image>
+<div className={style.parag} style={{position:'absolute',bottom:'11vh',left:"8%",width:"40vw",display:"flex",gap:"10px",overflow:"hidden",height:"20vh",justifyContent:"center",alignItems:"center"}}>
+  <Image style={{width:"15%",height:"80%",objectFit:"contain"}} src={sec}></Image>
  <p>Delivering strategic branding and distinctive app development, we elevate businesses to their apex potential. With a meticulous emphasis on problem-solving, we foster growth and establish industry leadership for technology-forward organizations worldwide, including yours.
 
 </p></div>

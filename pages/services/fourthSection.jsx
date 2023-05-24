@@ -92,7 +92,7 @@ useEffect(() => {
         </div>
         <p style={{fontSize:"40px",width:"100%",textAlign:"center "}}>We elevate phenomenal solutions for growth by translating their future potential into a strategic brand narrative</p>
 <div className={style.pack} ref={packs}> 
-<div className="first">
+<div className="first" style={{}}>
  <div className={style.border}>
 <div className={style.first}>
 <div className="images" style={{position:"relative",overflow:"hidden"}}>
@@ -115,7 +115,7 @@ useEffect(() => {
   </div>
 </div>
 </div>
-<div className="sec" style={{zIndex:10000}}>
+<div className="sec" style={{zIndex:10000,}}>
 <div className={`${style.border} ${style.acolor}`}>
 <div className={style.first}>
 
@@ -141,7 +141,7 @@ useEffect(() => {
   </div>
 </div>
 </div>
-<div className="third">
+<div className="third" style={{}}>
 <div className={`${style.border} ${style.bcolor}`}>
 <div className={style.first}>
 <div className="images" style={{position:"relative",overflow:"hidden"}}>
