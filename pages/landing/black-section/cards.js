@@ -1,10 +1,13 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function Cards({ scroll, containerRef }) {
-    const container = useRef(null)
+    const container = useRef(null);
+    const timer = useRef(false)
+    const clicked = useRef(-1)
+
     const styles = {
         cards: {
-            position: "sticky", top: "600px", background: "red", marginTop: "15em",
+            position: "sticky", top: "600px", marginTop: "15em",
             height: "16em", width: "550px", height: "550px",
         }
     }
@@ -29,53 +32,125 @@ export default function Cards({ scroll, containerRef }) {
         [[-7, 26], [-50, -44], [0, 9]]
     ]
     useEffect(() => {
+
         cardsMovements.forEach((e, i) => {
             scrollTrigger(container, (v, ref) => {
+                ref.children[i].style.zIndex = i + 1
+
+                if (ref.children[i].children[0].style.transition && !timer.current) {
+                    timer.current = true;
+                    clicked.current = -1
+                    setTimeout(() => {
+                        if (clicked.current) {
+                            timer.current = false
+                            ref.children[i].children[0].style.transition = '';
+                        }
+                    }, 1000);
+                };
                 ref.children[i].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
-            }, e)
+            }, e);
         });
 
 
 
 
-        
-        if (containerRef) {
-            scrollTrigger(container, (v, ref) => {
-                containerRef.style.background = `rgba(0, 0, 0, ${v[0]})`
-                console.log(containerRef.style.background)
-            }, [[1, 0]], containerRef.style.background !== "rgba(0, 0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 1)")
 
+
+        if (containerRef) {
+            scrollTrigger(container, (v) => {
+                containerRef.style.background = `rgba(0, 0, 0, ${v[0]})`
+                if (v[0] < 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "white") {
+                    document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
+                    document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
+                    document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
+                    document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png'
+                } else if (v[0] >= 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
+                    document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
+                    document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
+                    document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
+                    document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
+                }
+            }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
         }
+        return () => {
+            clearTimeout(timer);
+        };
     }, [scroll])
+
+    function handleClick(index) {
+        for (let i = 0; i < 5; i++) {
+            const transform = container.current.children[i].children[0].style.transform
+            const left = transform.slice(transform.indexOf('(') + 1, transform.indexOf(',') - 1);
+            const top = transform.slice(transform.indexOf(',') + 1, transform.indexOf(')') - 6);
+
+            if (i === index && clicked.current === -1) {
+                clicked.current = i + 1
+                container.current.children[i].children[0].style.transition = "0.5s"
+                container.current.children[i].children[0].style.transform = `translate3d(${left - 20}%,${top - 30}%, 0px)${' rotateZ(0.85deg)'}`;
+                container.current.children[i].style.zIndex = 6
+            } else if (i === index && i === clicked.current - 1) {
+                scrollTrigger(container, (v, ref) => {
+                    if (ref.children[i].children[0].style.transition && !timer.current) {
+                        ref.children[i].style.zIndex = i
+                        clicked.current = -1
+                    }
+                    ref.children[i].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
+                }, cardsMovements[i]);
+            } else if (i === index && i !== clicked.current - 1 && clicked.current !== -1) {
+                scrollTrigger(container, (v, ref) => {
+                    if (ref.children[clicked.current - 1].children[0].style.transition && !timer.current) {
+                        ref.children[clicked.current - 1].style.zIndex = clicked.current - 1
+                    }
+                    ref.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
+                }, cardsMovements[clicked.current - 1]);
+
+                // clicked.current = i + 1
+                 clicked.current = - 1
+                // container.current.children[i].children[0].style.transition = "0.5s"
+                // container.current.children[i].children[0].style.transform = `translate3d(${left - 20}%,${top - 30}%, 0px)${' rotateZ(0.85deg)'}`;
+                // container.current.children[i].style.zIndex = 6
+            }
+        }
+    }
     return (
         <div ref={container} style={{ width: "100%", height: '200vh', display: "flex", justifyContent: "center", position: "relative" }}>
-            <div style={{ position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 4.5))" }}>
-                <img style={{
-                    ...styles.cards, objectFit: "cover", borderRadius: "1.8em", background: "purple",
+            <div style={{ zIndex: 0, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 4.5))" }}>
+                <img alt='#' onClick={() => {
+                    handleClick(0)
+                }} style={{
+                    ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
                     transform: "translate3d(-7%, -48%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-60deg) skew(0deg, 0deg)"
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d744379a3bfb50eb8f0_sc5-p-800.jpg" />
             </div>
-            <div style={{ position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 3.1))" }}>
-                <img style={{
-                    ...styles.cards, objectFit: "cover", borderRadius: "1.8em", background: "red",
+            <div style={{ zIndex: 1, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 3.1))" }}>
+                <img alt='#' onClick={() => {
+                    handleClick(1)
+                }} style={{
+                    ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
                     transform: "translate3d(-6%, -47%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg)"
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d7c4481e4143bf2c422_sc6-p-800.jpg" />
             </div>
-            <div style={{ position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 2.08))" }}>
-                <img style={{
-                    ...styles.cards, objectFit: "cover", borderRadius: "1.8em", background: "yellow",
+            <div style={{ zIndex: 2, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * (0.12 * 1.5  )))", left: "calc(50% + ((550px * 0.49) - (550px * 0.153) * 2.08))" }}>
+                <img alt='#' onClick={(e) => {
+                    handleClick(2)
+                }} style={{
+                    ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
                     transform: "translate3d(-4%, -46%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-30deg) skew(0deg, 0deg)"
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/642071c9b4f0d2f23c0d0fd3_stewart-maclean-Zs1WKNa4Oy0-unsplash.jpg" />
             </div>
-            <div style={{ position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * 0.12))", left: "calc(50% + ((550px * 0.49) - 550px * 0.153))" }}>
-                <img style={{
-                    ...styles.cards, objectFit: "cover", borderRadius: "1.8em", background: "white",
+            <div style={{ zIndex: 3, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50% , calc(-550px * 0.12))", left: "calc(50% + ((550px * 0.49) - 550px * 0.153))" }}>
+                <img alt='#' onClick={() => {
+                    handleClick(3)
+                }} style={{
+                    ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
                     transform: "translate3d(-5%, -47%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-15deg) skew(0deg, 0deg)"
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1db490971b1346e686fc_sc8-p-800.jpg" />
             </div>
-            <div style={{ position: "absolute", height: "100%", transform: "translate(-50%)", left: "calc(50% + (550px * 0.49))" }}>
-                <img style={{
-                    ...styles.cards, objectFit: "cover", borderRadius: "1.8em", background: "blue",
+            <div style={{ zIndex: 4, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50%)", left: "calc(50% + (550px * 0.49))" }}>
+                <img alt='#' onClick={() => {
+                    handleClick(4)
+                }} style={{
+                    ...styles.cards, pointerEvents: "auto", objectFit: "cover", borderRadius: "1.8em",
                     transform: "translate3d(-7%, -50%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)"
                 }} src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d01ba675235f7da86e3_main.jpg" />
             </div>

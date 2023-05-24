@@ -1,8 +1,7 @@
-import { lines, lines_btn, main_container, nav_sides, quote, quote_container, links, links_container, G_father_container, father_container, container, menu, left_side, right_side, menu_title, mobile_button, mobile_button_hover, mobile_button_leave } from "./style"
+import { lines, lines_btn, main_container, nav_sides, quote, quote_container, links, links_container, G_father_container, father_container, container, menu, left_side, right_side, menu_title, mobile_button, mobile_button_hover, mobile_button_leave } from "../../../../assets/styles/header"
 import { useState, useCallback, useEffect } from "react"
-import { headerMouseEnter, headerMouseLeave } from "../../functions/mouse";
-export default function navbar({ screen, scroll }) {
-  const [isClicked, setIsClicked] = useState(false);
+import { headerMouseEnter, headerMouseLeave } from "../../../../functions/mouse";
+export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
   const mousE = useCallback(headerMouseEnter, [])
   const mouseL = useCallback(headerMouseLeave, [])
@@ -14,7 +13,8 @@ export default function navbar({ screen, scroll }) {
       <div style={main_container}>
         <div style={nav_sides}>
           <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
-            logo
+            <img className="logo" style={{ height: "50%" }}
+              src="https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png" />
           </div>
         </div>
         <div style={nav_sides}>
@@ -27,13 +27,13 @@ export default function navbar({ screen, scroll }) {
           <div
             onMouseEnter={mousE} onMouseLeave={mouseL} className="header-container"
             style={quote_container}>
-            <div style={quote}>
+            <div className="quote" style={quote}>
               get a quote
             </div>
           </div>
           <div style={lines_btn} onClick={() => setIsClicked(!isClicked)}>
-            <div style={{ ...lines, transform: isClicked ? "rotate(45deg)" : "none" }} />
-            <div style={{ ...lines, transform: isClicked ? "rotate(-45deg)" : "none", marginTop: isClicked ? "-3px" : "5px" }} />
+            <div className="header_lines_btn" style={{ ...lines, transform: isClicked ? "rotate(45deg)" : "none" }} />
+            <div className="header_lines_btn" style={{ ...lines, transform: isClicked ? "rotate(-45deg)" : "none", marginTop: isClicked ? "-3px" : "5px" }} />
           </div>
         </div>
       </div>
@@ -54,9 +54,9 @@ export default function navbar({ screen, scroll }) {
 
               <div style={{ ...right_side, fontSize: screen === "mobile" ? "3rem" : "2.4rem", textAlign: screen === "mobile" ? "center" : "left" }}>
                 {screen === "mobile" ? null : <div style={menu_title}>menu</div>}
-                <div style={{fontSize:"1.4rem"}} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Services</div>
-                <div style={{fontSize:"1.4rem"}} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Blogs</div>
-                <div style={{fontSize:"1.4rem"}} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Contact</div>
+                <div style={{ fontSize: "1.4rem" }} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Services</div>
+                <div style={{ fontSize: "1.4rem" }} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Blogs</div>
+                <div style={{ fontSize: "1.4rem" }} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Contact</div>
                 {screen === "mobile" ? <div style={mobile_button}>
                   Estimate Project
                 </div> : null}
