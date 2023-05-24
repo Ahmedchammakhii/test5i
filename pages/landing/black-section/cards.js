@@ -89,7 +89,6 @@ export default function Cards({ scroll, containerRef }) {
             } else if (i === index && i === clicked.current - 1) {
                 scrollTrigger(container, (v, ref) => {
                     if (ref.children[i].children[0].style.transition && !timer.current) {
-                        console.log(timer, "aze")
                         ref.children[i].style.zIndex = i
                         clicked.current = -1
                     }
@@ -103,7 +102,6 @@ export default function Cards({ scroll, containerRef }) {
                     ref.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
                 }, cardsMovements[clicked.current - 1]);
 
-                // console.log(i)
                 // clicked.current = i + 1
                  clicked.current = - 1
                 // container.current.children[i].children[0].style.transition = "0.5s"

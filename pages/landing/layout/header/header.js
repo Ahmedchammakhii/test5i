@@ -13,7 +13,8 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
       <div style={main_container}>
         <div style={nav_sides}>
           <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
-            logo
+            <img className="logo" style={{ height: "50%" }}
+              src="https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png" />
           </div>
         </div>
         <div style={nav_sides}>

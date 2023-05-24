@@ -19,11 +19,13 @@ export default function BlackSection({ scroll, menuClicked }) {
             document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
             document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
             document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
+            document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
         } else if (scroll <= container.current.offsetTop - innerHeight * 0.5 && veil.style.opacity == 1) {
             veil.style.opacity = 0
             document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
             document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
             document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
+            document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png'
         }
         const start = container.current.offsetTop - innerHeight
         const end = container.current.offsetTop + container.current.children[0].clientHeight - innerHeight * 1.2
@@ -72,14 +74,16 @@ export default function BlackSection({ scroll, menuClicked }) {
                 document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
                 document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
                 document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
+                document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png'
+
             } else if (containerBg === 'rgb(0, 0, 0)' || number >= 0.6) {
-                document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
-                document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
+
                 setTimeout(() => {
-                    if (document.getElementsByClassName('header_lines_btn')[1].style.background === "white") {
-                        document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
-                    }
-                }, 500);
+                    document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
+                    document.getElementsByClassName('header_lines_btn')[0].style.background = "white"    
+                    document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
+                    document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
+                    }, 500);
             }
 
         }
