@@ -63,10 +63,12 @@ export default function Cards({ scroll, containerRef }) {
                     document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
                     document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
                     document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
+                    document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png'
                 } else if (v[0] >= 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
                     document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
                     document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
                     document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
+                    document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
                 }
             }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
         }
