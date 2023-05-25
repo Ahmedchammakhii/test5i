@@ -30,11 +30,15 @@ export default function Home() {
 
 
   return (
-    <Layout scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
+    <Layout scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen} >
+
       <CustomCursor activeMouse={activeMouse} />
       <Sections screen={screen} scrollPosition={scrollPosition} color={color} setBackground={setBackground} />
       <BlackSection scroll={scrollPosition} />
       <How scroll={scrollPosition} />
+
     </Layout>
+   
+
   )
 }

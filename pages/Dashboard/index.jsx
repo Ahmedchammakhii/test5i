@@ -10,7 +10,6 @@ import {
 } from "chart.js";
 import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget';
 import { Cloudinary } from "@cloudinary/url-gen";
-// import { useRouter } from 'next/router';
 import axios from 'axios';
 import styles from "./dashboard.module.css"
 ChartJS.register(BarElement, CategoryScale, LinearScale, PointElement, ...registerables);
