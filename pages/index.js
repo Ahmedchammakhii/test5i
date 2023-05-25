@@ -7,6 +7,7 @@ import BlackSection from "./landing/black-section/BlackSection"
 import { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { CustomCursor } from "@/sharedComponents/customCursor";
 import { mouseMove, mouseEnter, mouseLeave } from "../functions/mouse";
+import Hero from "./landing/hero";
 
 
 export default function Home() {
@@ -25,24 +26,23 @@ export default function Home() {
   const handleMouseLeave = useCallback(mouseLeave, [])
 
   useLayoutEffect(() => {
-    const innerContainerRef = document.querySelector('.footer-inner-container');
-    const mainContainer = document.querySelector('.main-container');
+    // const innerContainerRef = document.querySelector('.footer-inner-container');
+    // const mainContainer = document.querySelector('.main-container');
 
-    mainContainer.addEventListener("mousemove", handleMouseMove);
+    // mainContainer.addEventListener("mousemove", handleMouseMove);
 
-    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
-    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
+    // innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+    // innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      mainContainer.removeEventListener("mousemove", handleMouseMove);
+      // mainContainer.removeEventListener("mousemove", handleMouseMove);
 
-      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
-      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
+      // innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+      // innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
 
 
     };
   }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
-  useEffect(() => { document.querySelector('html').style.background = background[color] }, [color])
 
   useLayoutEffect(() => {
     handleResize(setScreen);
@@ -56,10 +56,11 @@ export default function Home() {
   }, [screen]);
   return (
     <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
+      <Hero />
       <CustomCursor activeMouse={activeMouse} />
-      <Sections screen={screen} scrollPosition={scrollPosition} color={color} setBackground={setBackground} />
-      <BlackSection menuClicked={menuClicked} scroll={scrollPosition} />
-      <How scroll={scrollPosition} />
+      <Sections screen={screen} scroll={scrollPosition} color={color} setBackground={setBackground} />
+      {/* <BlackSection menuClicked={menuClicked} scroll={scrollPosition} />
+      <How scroll={scrollPosition} /> */}
     </Layout>
   )
 }
