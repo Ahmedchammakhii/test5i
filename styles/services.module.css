@@ -3,11 +3,10 @@
   transition: all 1s ease;
 }
 .FirstSection {
-  height: 110vh;
+  height: auto;
   width: 100vw;
   overflow: hidden;
   position: relative;
-  padding: 0 50px;
 }
 .SecondSection {
   height: 100vh;
@@ -31,20 +30,79 @@
   height: auto;
   min-height: 200vh;
   width: 100vw;
-  background-color: #ffffff;
   color: #ffffff;
   background-color: #000000;
   border-top-right-radius: 150px;
   overflow: hidden;
   border-top-left-radius: 150px;
+  translate: 0 -150px;
+}
+@media screen and (min-width: 1900px) {
+  .FirstSection {
+    padding: 5vw;
+  }
 }
 @media screen and (max-width: 1000px) {
   .ThirdSection {
     height: 130vh;
   }
 }
-@media screen and (max-width: 700px) {
-  .ThirdSection {
-    height: 140vh;
+@media screen and (max-width: 750px) {
+  .FourthSection {
+    height: 400vh;
   }
+}
+
+@media screen and (max-height: 700px) and (min-width: 1000px) {
+  .ThirdSection {
+    height: 200vh;
+  }
+}
+@media screen and (max-height: 748px) and (max-width: 800px) {
+  .ThirdSection {
+    height: 200vh;
+  }
+  .FourthSection {
+    height: 450vh;
+  }
+}
+@media screen and (max-width: 1229px) {
+  .FourthSection {
+    height: 300vh;
+  }
+}
+@media screen and (min-height: 700px) {
+  .ThirdSection {
+    height: 130vh;
+  }
+}
+@media screen and (min-height: 1100px) {
+  .ThirdSection {
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 850px) {
+  .FourthSection {
+    height: 420vh;
+    border-top-right-radius: 100px;
+
+    border-top-left-radius: 100px;
+  }
+}
+@media screen and (max-height: 750px) {
+  .FourthSection {
+    min-height: 550vh;
+  }
+}
+@media screen and (min-height: 730px) and (max-width: 560px) {
+  .FourthSection {
+    min-height: 450vh;
+  }
+}
+.blacklayer {
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  position: absolute;
+ bottom: 0;
 }

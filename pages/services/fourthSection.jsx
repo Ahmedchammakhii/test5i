@@ -26,6 +26,7 @@ const packs = useRef(null)
 useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
 
+ if (window.innerWidth > 750) {
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: sectionRef.current,
@@ -35,7 +36,7 @@ useEffect(() => {
      
     },
   });
-
+ 
   timeline
     .fromTo(
       ".psycho",
@@ -47,7 +48,26 @@ useEffect(() => {
   .fromTo(`.third`,{x:-200,transition:"all ease 1s",delay:1},{x:0})
   .fromTo('.images',{y:-1000,opacity:0},{y:0,paddingTop:"10px",opacity:1,transition:"all ease 1s"})
   .fromTo('.textheader2',{fontSize:"40px",transition:"all ease .2s",textAlign:"center"},{fontSize:"20px"})
-  
+}
+else {
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionRef.current,
+      start: 'top -30%',
+      end:'end end',
+      scrub: true,
+     
+    },
+  });
+  timeline.fromTo(
+    ".psycho",
+    {bottom:-500,right:-100,scale:1.6,duration: .05, opacity:0, ease: "none" },
+    { top:250,scale:1.6, duration: .05,opacity:0.2, ease: "none"}
+   ,"-=.1")
+.fromTo(`.first`,{x:2000,transition:"all ease 1s",delay:2},{x:0,delay:1,transition:'all ease 1s'})
+.fromTo(`.third`,{x:-2000,transition:"all ease 1s",delay:1},{x:0})
+.fromTo('.sec',{y:1000,opacity:0},{y:0,paddingTop:"10px",opacity:1,transition:"all ease 1s"})
+}
  
   let mouse = {
     x: undefined,
@@ -83,7 +103,6 @@ useEffect(() => {
   return (
     <div className={style.fourth } ref={sectionRef}  >       
       <Image className='psycho' src={banner} alt='psycho' style={{position:"absolute",right:-650,opacity:.2,transition:"all 1s linear"}}></Image>
-
       <div className={style.pack_container}>
         <div className={style.text_animated}>
        
@@ -102,14 +121,14 @@ useEffect(() => {
 <p style={{color:"#fff",padding:0,margin:0,fontSize:"25px",marginTop:"10px"}} className='textheader2'>KICKSTART YOUR BRAND</p>
   <button className={style.interested}>Interested ?</button>
   <div className={style.texts}>
-    <p style={{fontSize:"15px",padding:14}}>brand development</p>
-    <p style={{fontSize:"15px",padding:14}}>Etude de faisabilité</p>
-    <p style={{fontSize:"15px",padding:14}}>Etude de collection</p>
-    <p style={{fontSize:"15px",padding:14}}>Prototypage</p>
-    <p style={{fontSize:"15px",padding:14}}>Production</p>
-    <p style={{fontSize:"15px",padding:14}}>Canaux de distribution</p>
-    <p style={{fontSize:"15px",padding:14}}>Logistics</p>
-   <a  href="kickstart"> <p style={{fontSize:"15px",textAlign:"center"}}>And a lot more</p>
+    <p style={{fontSize:"calc(1rem, .2vw)",padding:14}}>brand development</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de faisabilité</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de collection</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Prototypage</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Production</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Canaux de distribution</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Logistics</p>
+   <a  href="kickstart"> <p style={{fontSize:"calc(1rem, 2vw)",textAlign:"center"}}>And a lot more</p>
    </a>
   </div>
   </div>
@@ -128,14 +147,14 @@ useEffect(() => {
 <p style={{color:"#fff",padding:0,margin:0,fontSize:"25px",marginTop:"10px"}} className='textheader2'>FOR EXISTING BRAND</p>
 <button className={style.interested}>Interested ?</button>
 <div className={style.texts}>
-    <p style={{fontSize:"15px",padding:14}}>brand development</p>
-    <p style={{fontSize:"15px",padding:14}}>Etude de faisabilité</p>
-    <p style={{fontSize:"15px",padding:14}}>Etude de collection</p>
-    <p style={{fontSize:"15px",padding:14}}>Prototypage</p>
-    <p style={{fontSize:"15px",padding:14}}>Production</p>
-    <p style={{fontSize:"15px",padding:14}}>Canaux de distribution</p>
-    <p style={{fontSize:"15px",padding:14}}>Logistics</p>
-    <p style={{fontSize:"15px",textAlign:"center"}}>And a lot more</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>brand development</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de faisabilité</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de collection</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Prototypage</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Production</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Canaux de distribution</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Logistics</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",textAlign:"center"}}>And a lot more</p>
 
   </div>
   </div>
@@ -152,14 +171,14 @@ useEffect(() => {
 <p style={{color:"#fff",padding:0,margin:0,fontSize:"25px",marginTop:"10px"}} className='textheader2'>BUSINESS SOLUTIONS</p>
 <button className={style.interested}>Interested ?</button>
 <div className={style.texts}>
-    <p style={{fontSize:"15px",padding:14}}>brand development</p>
-    <p style={{fontSize:"15px",padding:14}}>Etude de faisabilité</p>
-    <p style={{fontSize:"15px",padding:14}}>Etude de collection</p>
-    <p style={{fontSize:"15px",padding:14}}>Prototypage</p>
-    <p style={{fontSize:"15px",padding:14}}>Production</p>
-    <p style={{fontSize:"15px",padding:14}}>Canaux de distribution</p>
-    <p style={{fontSize:"15px",padding:14}}>Logistics</p>
-    <p style={{fontSize:"15px",textAlign:"center"}}>And a lot more</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>brand development</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de faisabilité</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de collection</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Prototypage</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Production</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Canaux de distribution</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Logistics</p>
+    <p style={{fontSize:"calc(1rem, 2vw)",textAlign:"center"}}>And a lot more</p>
 
   </div>
 

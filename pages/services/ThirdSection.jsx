@@ -15,9 +15,9 @@ export const ThirdSection = () => {
         <h2>We will challenge you, we will change you, and you just might change the world.</h2> 
     <h2 style={{background:"#fff",padding:10}}>We help startups create emotional brands that not only get their audience to buy—but <span>“buy-in”.</span> </h2>
   
-<div className={styles.boxchoice} style={leftclicked ?{transition: "all 1px ease",background:"linear-gradient(to left, #0000 50%, #ffffff 50%)",color:"#fff"}: {transition: "all 1px ease",background:"linear-gradient(to right, #0000 50%, #ffffff 50%)",color:"#fff"}}>
- <h1 style={leftclicked ? {color:"#000"}:{color:"#000"}} onClick={e=>setclicked(true)}>What we DO</h1>
-    <h1  style={leftclicked ? {color:"#000"}:{color:"#000"}} onClick={e=>setclicked(false)}>What we maha2ah</h1>
+<div className={styles.boxchoice} style={leftclicked ?{transition: "all 1px ease",background:"linear-gradient(to left, #0000 50%, #000 50%)",color:"#fff",border:"1px solid #000"}: {transition: "all 1px ease",background:"linear-gradient(to right, #0000 50%, #000 50%)",color:"#fff",border:"1px solid #000"}}>
+ <h1 style={leftclicked ? {color:"#fff"}:{color:"#000"}} onClick={e=>setclicked(true)}>What we DO</h1>
+    <h1  style={leftclicked ? {color:"#000"}:{color:"#fff"}} onClick={e=>setclicked(false)}>What we DON'T</h1>
 </div>
 <div className={styles.whatwedo} style={leftclicked ? {visibility:"visible", transition: "visibility 0s linear 300ms"} :{visibility:"hidden",display:"none", transition: "visibility 0s linear 300ms"} }>
 <div className={styles.choice}><Image src={bullet} alt="+"></Image> <p>Brand Strategy</p></div>
