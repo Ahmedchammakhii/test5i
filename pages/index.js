@@ -1,6 +1,6 @@
 
 import Layout from "./landing/layout/layout"
-import Sections from "./landing/sections/sections";
+import Sections from "./landing/projects/projects";
 import How from "./landing/how/how";
 import BlackSection from "./landing/black-section/BlackSection"
 
@@ -59,8 +59,11 @@ export default function Home() {
       <Hero />
       <CustomCursor activeMouse={activeMouse} />
       <Sections screen={screen} scroll={scrollPosition} color={color} setBackground={setBackground} />
-      {/* <BlackSection menuClicked={menuClicked} scroll={scrollPosition} />
-      <How scroll={scrollPosition} /> */}
+      <BlackSection screen={{
+        tablet: screen === "tablet",
+        mobile: screen === "mobile"
+      }} menuClicked={menuClicked} scroll={scrollPosition} />
+      {/* <How scroll={scrollPosition} /> */}
     </Layout>
   )
 }
