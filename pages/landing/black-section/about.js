@@ -1,17 +1,16 @@
 import React, { useEffect, useRef } from 'react'
 
-export default function About({ container, leftContainer, rightContainer }) {
-
+export default function About({ screen, container, leftContainer, rightContainer }) {
 
     return (
         <div>
 
-            <div style={{ display: "flex", position: "absolute", zIndex: 5 }}>
-                <div style={{ width: "45%", height: "500px", marginTop: "14%" }}>
-                    <h1 style={{ fontWeight: "500", fontSize: "50px", color: "white", position: "relative", left: "20%" }}>About</h1>
+            <div style={{ display: "flex", zIndex: 5, flexDirection: screen.mobile ? "column" : "row" }}>
+                <div style={{ width: "45%", height: "auto", marginTop: "14%" }}>
+                    <h1 style={{ fontWeight: "500", fontSize: "2em", color: "white", position: "relative", left: "20%" }}>About</h1>
                 </div>
-                <div style={{ width: "75%", marginTop: "14%", display: "flex", justifyContent: "center" }}>
-                    <div style={{ fontSize: "1.58em", fontWeight: "400", color: "white", lineHeight: "2.1", color: "#808080", width: "80%" }}>
+                <div style={{ width: screen.mobile ? "100%" : "75%", marginTop: screen.mobile ? 0 : "14%", display: "flex", justifyContent: "center" }}>
+                    <div style={{ fontSize: screen.mobile ? "0.9em" : "1.58em", fontWeight: "400", color: "white", lineHeight: "2.1", color: "#808080", width: "80%" }}>
                         We elevate  <span style={{
                             backgroundImage: 'url(https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg)',
                             backgroundPosition: "50% 100%",
@@ -21,7 +20,6 @@ export default function About({ container, leftContainer, rightContainer }) {
                     </div>
                 </div>
             </div>
-            <div style={{ height: "100vh" }} />
             <div ref={container} style={{ height: "100vh", display: "flex", marginTop: "14%", overflow: "hidden", paddingTop: "50px" }}>
                 <div ref={leftContainer} style={{
                     willChange: "transform",
@@ -51,7 +49,7 @@ export default function About({ container, leftContainer, rightContainer }) {
                     }} src={"https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d0ee5569e00035865a5_sc3-p-800.jpg"} />
                 </div>
                 <div style={{ width: "31%", color: "white", textAlign: "center", display: "flex", alignItems: "center", flexDirection: "column", marginTop: "3%" }}>
-                    <h1 style={{ width: "80%", textAlign: "center", fontWeight: "500", fontSize: "90px", color: "#d9d9d9" }}>
+                    <h1 style={{ width: "80%", textAlign: "center", fontWeight: "500", fontSize: screen.tablet ? "2em" : screen.mobile ? "1em" : "3em", color: "#d9d9d9" }}>
                         We’re
                         Shaping
                         Industry
