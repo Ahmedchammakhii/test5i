@@ -6,7 +6,7 @@ import MediaBand from './media-band'
 import Services from './services'
 import Wow from './wow'
 
-export default function BlackSection({ scroll, menuClicked }) {
+export default function BlackSection({ screen, scroll, menuClicked }) {
     const container = useRef(null)
     const leftContainer = useRef(null)
     const rightContainer = useRef(null)
@@ -16,6 +16,7 @@ export default function BlackSection({ scroll, menuClicked }) {
         if (scroll >= container.current.offsetTop - innerHeight * 0.5 && veil.style.opacity == 0) {
             veil.style.opacity
             veil.style.opacity = 1
+
             document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
             document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
             document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
@@ -56,6 +57,7 @@ export default function BlackSection({ scroll, menuClicked }) {
                 rightContainer.current.style.transform = transform
             }
         }
+
     }, [scroll])
 
 
@@ -68,7 +70,6 @@ export default function BlackSection({ scroll, menuClicked }) {
         const numberString = containerBg.substring(startIndex, endIndex);
         const number = parseFloat(numberString);
 
-
         if (scroll >= start && scroll <= end) {
             if (document.getElementsByClassName('header_lines_btn')[0].style.background === "white" && menuClicked) {
                 document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
@@ -80,10 +81,10 @@ export default function BlackSection({ scroll, menuClicked }) {
 
                 setTimeout(() => {
                     document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
-                    document.getElementsByClassName('header_lines_btn')[0].style.background = "white"    
+                    document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
                     document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
                     document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
-                    }, 500);
+                }, 500);
             }
 
         }
@@ -92,15 +93,14 @@ export default function BlackSection({ scroll, menuClicked }) {
         <div ref={container} style={{
             width: "100vw",
             background: "rgba(0, 0, 0, 1)",
-            borderRadius: "150px",
+            borderRadius: "150px", zIndex: 50
         }}>
-            <About scroll={scroll} container={container} leftContainer={leftContainer} rightContainer={rightContainer} />
-            <Catalogue scroll={scroll} />
-            <MediaBand scroll={scroll} />
+            <About screen={screen} scroll={scroll} container={container} leftContainer={leftContainer} rightContainer={rightContainer} />
+            <Catalogue screen={screen} scroll={scroll} />
+            <MediaBand screen={screen} scroll={scroll} />
             <Wow scroll={scroll} />
-            <Services scroll={scroll} />
-            <Cards containerRef={container.current} scroll={scroll} />
-
+            <Services screen={screen} scroll={scroll} />
+            {/* <Cards containerRef={container.current} scroll={scroll} /> */}
         </div>
     )
 }
