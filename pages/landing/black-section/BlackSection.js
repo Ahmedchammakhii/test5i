@@ -93,14 +93,15 @@ export default function BlackSection({ screen, scroll, menuClicked }) {
         <div ref={container} style={{
             width: "100vw",
             background: "rgba(0, 0, 0, 1)",
-            borderRadius: "150px", zIndex: 50
+            borderRadius: "150px", zIndex: 50,
+            paddingBottom: screen.mobile ? "50vh" : 0
         }}>
             <About screen={screen} scroll={scroll} container={container} leftContainer={leftContainer} rightContainer={rightContainer} />
             <Catalogue screen={screen} scroll={scroll} />
             <MediaBand screen={screen} scroll={scroll} />
             <Wow scroll={scroll} />
             <Services screen={screen} scroll={scroll} />
-            {/* <Cards containerRef={container.current} scroll={scroll} /> */}
+            <Cards screen={screen} containerRef={container.current} scroll={scroll} />
         </div>
     )
 }

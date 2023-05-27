@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function How({ scroll }) {
+export default function How({ screen, scroll }) {
     const ref = useRef(null);
     const container = useRef(null);
     const innerContainer = useRef(null);
@@ -36,7 +36,7 @@ export default function How({ scroll }) {
     const data = [1, 2, 3, 4,]
     return (
         <div ref={container} style={{
-            marginTop: "10%",
+            marginTop: screen.mobile ? "-40vh" : "10%",
             marginBottom: "250px", position: "relative"
         }}>
             <div style={{

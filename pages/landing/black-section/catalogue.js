@@ -9,7 +9,6 @@ export default function Catalogue({ screen, scroll }) {
         let start = ref.current.offsetTop - innerHeight;
         let end = start + ref.current.clientHeight - (innerHeight * 0.2);
         if (screen.mobile) {
-            console.log(true)
             start += (innerHeight * 0.4)
             end += (innerHeight * 0.4)
         }

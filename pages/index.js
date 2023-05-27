@@ -59,11 +59,8 @@ export default function Home() {
       <Hero />
       <CustomCursor activeMouse={activeMouse} />
       <Sections screen={screen} scroll={scrollPosition} color={color} setBackground={setBackground} />
-      <BlackSection screen={{
-        tablet: screen === "tablet",
-        mobile: screen === "mobile"
-      }} menuClicked={menuClicked} scroll={scrollPosition} />
-      {/* <How scroll={scrollPosition} /> */}
+      <BlackSection screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} menuClicked={menuClicked} scroll={scrollPosition} />
+      <How screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} scroll={scrollPosition} />
     </Layout>
   )
 }

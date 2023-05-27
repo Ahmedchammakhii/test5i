@@ -19,7 +19,6 @@ export default function Services({ scroll, screen }) {
             f(percentages, ref.current)
         }
     }
-    console.log(screen)
     useEffect(() => {
         scrollTrigger(container, (v) => {
             right_img.current.style.transform = `translate3d(-1.8em, ${v[0]}em, 0px)   rotateY(${v[1]}deg) rotateZ(${v[2]}deg)`
@@ -34,7 +33,7 @@ export default function Services({ scroll, screen }) {
     }, [scroll])
 
     return (
-        <div ref={container} style={{ width: "100%", marginTop: "200px", height: "150vh", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh" }}>
+        <div ref={container} style={{ width: "100%", marginTop: "200px", height: screen.mobile ? "100vh" :"150vh", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh" }}>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "30%", }}>
                     <img alt="#" ref={left_img}
