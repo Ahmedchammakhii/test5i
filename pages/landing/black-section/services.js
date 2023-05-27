@@ -33,7 +33,7 @@ export default function Services({ scroll, screen }) {
     }, [scroll])
 
     return (
-        <div ref={container} style={{ width: "100%", marginTop: "200px", height: screen.mobile ? "100vh" :"150vh", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh" }}>
+        <div ref={container} style={{ width: "100%", marginTop: "200px", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh", paddingBottom: screen.mobile ? 0 : "40vh" }}>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "30%", }}>
                     <img alt="#" ref={left_img}
