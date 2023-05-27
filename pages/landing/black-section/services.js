@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 
-export default function Services({ scroll }) {
+export default function Services({ scroll, screen }) {
     const container = useRef(null);
     const left_img = useRef(null);
     const right_img = useRef(null);
@@ -19,7 +19,7 @@ export default function Services({ scroll }) {
             f(percentages, ref.current)
         }
     }
-
+    console.log(screen)
     useEffect(() => {
         scrollTrigger(container, (v) => {
             right_img.current.style.transform = `translate3d(-1.8em, ${v[0]}em, 0px)   rotateY(${v[1]}deg) rotateZ(${v[2]}deg)`
@@ -34,14 +34,14 @@ export default function Services({ scroll }) {
     }, [scroll])
 
     return (
-        <div ref={container} style={{ width: "100%", marginTop: "200px", height: "150vh" }}>
+        <div ref={container} style={{ width: "100%", marginTop: "200px", height: "150vh", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh" }}>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "30%", }}>
                     <img alt="#" ref={left_img}
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d0ee5569e00035865a5_sc3-p-500.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(1.7em, -2em, 0px) rotateX(0deg) rotateZ(-30deg)",
-                            transformStyle: "preserve-3d", width: "380px", height: "380px", objectFit: "cover", borderRadius: "65px",
+                            transformStyle: "preserve-3d", width: "9.6em", height: "9.6em", objectFit: "cover", borderRadius: "65px",
                             float: "right", transition: "0.2s"
                         }} />
 
@@ -49,11 +49,11 @@ export default function Services({ scroll }) {
                 <div style={{
                     width: "40%", display: "flex", justifyContent: "center"
                 }}>
-                    <div style={{ width: "50%", marginTop: `150px` }}>
-                        <h1 style={{ fontSize: "60px", fontWeight: "500", color: "gray" }}>Experience</h1>
-                        <h1 style={{ fontSize: "80px", fontWeight: "500", color: "white" }}>Excellence</h1>
+                    <div style={{ marginTop: screen.mobile || screen.tablet ? "270px" : `150px` }}>
+                        <h1 style={{ fontSize: "1.8em", fontWeight: "500", color: "gray" }}>Experience</h1>
+                        <h1 style={{ fontSize: "2.02em", fontWeight: "500", color: "white" }}>Excellence</h1>
                         <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "50px" }}>
-                            <h1 style={{ color: "gray", fontSize: "30px", fontWeight: "500" }}>
+                            <h1 style={{ color: "gray", fontSize: "1em", fontWeight: "500" }}>
                                 Check our <br /> <span style={{ color: "white" }}>Services</span>
                             </h1>
                             <div style={{
@@ -78,7 +78,7 @@ export default function Services({ scroll }) {
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1cf36bc2117bb361cf7d_sc1.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(-1.8em, -2em, 0px)  rotateX(0deg) rotateZ(20deg)",
-                            transformStyle: "preserve-3d", width: "436px", height: "436px", objectFit: "cover", borderRadius: "65px",
+                            transformStyle: "preserve-3d", width: "12.7em", height: "12.7em", objectFit: "cover", borderRadius: "65px",
                             float: "left", transition: "0.2s"
                         }} />
                 </div>
@@ -87,7 +87,7 @@ export default function Services({ scroll }) {
             <div style={{ width: "100%", display: "flex", justifyContent: "center", height: "530px" }}>
                 <img alt="#" ref={bottom_img} src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d01ba675235f7da86e3_main.jpg'
                     style={{
-                        width: "530px", height: "530px", objectFit: "cover", marginTop: "100px",
+                        width: "15.2em", height: "15.2em", objectFit: "cover", marginTop: "100px",
                         transform: "translate3d(0px, 8em, 0px) rotateY(0deg) rotateZ(-15deg) ",
                         borderRadius: "65px", transition: "0.2s"
                     }} />
