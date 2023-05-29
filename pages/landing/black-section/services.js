@@ -21,6 +21,11 @@ export default function Services({ scroll, screen }) {
     }
     useEffect(() => {
         scrollTrigger(container, (v) => {
+            if (document.querySelector('html').style.background !== "rgb(240, 240, 240)" && screen.mobile) {
+                document.querySelector('html').style.background = "rgb(240, 240, 240)"
+            } else if (document.querySelector('html').style.background !== "rgb(245, 245, 247)") {
+                document.querySelector('html').style.background = "rgb(245, 245, 247)"
+            }
             right_img.current.style.transform = `translate3d(-1.8em, ${v[0]}em, 0px)   rotateY(${v[1]}deg) rotateZ(${v[2]}deg)`
         }, [[-2, 5], [0, 23], [20, 27]]);
         scrollTrigger(container, (v) => {
@@ -40,7 +45,7 @@ export default function Services({ scroll, screen }) {
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d0ee5569e00035865a5_sc3-p-500.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(1.7em, -2em, 0px) rotateX(0deg) rotateZ(-30deg)",
-                            transformStyle: "preserve-3d", width: "9.6em", height: "9.6em", objectFit: "cover", borderRadius: "65px",
+                            transformStyle: "preserve-3d", width: screen.mobile ? "8em" : "9.6em", height: screen.mobile ? "8em" : "9.6em", objectFit: "cover", borderRadius: screen.mobile ? "35px" : "65px",
                             float: "right", transition: "0.2s"
                         }} />
 
@@ -53,7 +58,7 @@ export default function Services({ scroll, screen }) {
                         <h1 style={{ fontSize: "2.02em", fontWeight: "500", color: "white" }}>Excellence</h1>
                         <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "50px" }}>
                             <h1 style={{ color: "gray", fontSize: "1em", fontWeight: "500" }}>
-                                Check our <br /> <span style={{ color: "white" }}>Services</span>
+                                Check our <br /> <span style={{ color: "white" }}>Solutions</span>
                             </h1>
                             <div style={{
                                 height: "5vw",
@@ -77,7 +82,7 @@ export default function Services({ scroll, screen }) {
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1cf36bc2117bb361cf7d_sc1.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(-1.8em, -2em, 0px)  rotateX(0deg) rotateZ(20deg)",
-                            transformStyle: "preserve-3d", width: "12.7em", height: "12.7em", objectFit: "cover", borderRadius: "65px",
+                            transformStyle: "preserve-3d", width: screen.mobile ? "10em" : "12.7em", height: screen.mobile ? "10em" : "12.7em", objectFit: "cover", borderRadius: screen.mobile ? "35px" : "65px",
                             float: "left", transition: "0.2s"
                         }} />
                 </div>
@@ -86,9 +91,9 @@ export default function Services({ scroll, screen }) {
             <div style={{ width: "100%", display: "flex", justifyContent: "center", height: "530px" }}>
                 <img alt="#" ref={bottom_img} src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d01ba675235f7da86e3_main.jpg'
                     style={{
-                        width: "15.2em", height: "15.2em", objectFit: "cover", marginTop: "100px",
+                        width: screen.mobile ? "12em" : "15.2em", height: screen.mobile ? "12em" : "15.2em", objectFit: "cover", marginTop: "100px",
                         transform: "translate3d(0px, 8em, 0px) rotateY(0deg) rotateZ(-15deg) ",
-                        borderRadius: "65px", transition: "0.2s"
+                        borderRadius: screen.mobile ? "35px" : "65px", transition: "0.2s"
                     }} />
             </div>
         </div>

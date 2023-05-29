@@ -10,7 +10,7 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
   return (
     <>
-      <div style={main_container}>
+      <div style={{ ...main_container, height: screen === "mobile" ? "8vh" : "80px" }}>
         <div style={nav_sides}>
           <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
             <img className="logo" style={{ height: "50%" }}
@@ -26,7 +26,7 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
           <div
             onMouseEnter={mousE} onMouseLeave={mouseL} className="header-container"
-            style={quote_container}>
+            style={{ ...quote_container, display: screen === "mobile" ? "none" : "inherit" }}>
             <div className="quote" style={quote}>
               get a quote
             </div>

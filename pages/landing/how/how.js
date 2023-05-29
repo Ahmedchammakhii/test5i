@@ -45,7 +45,7 @@ export default function How({ screen, scroll }) {
             }} ref={innerContainer}>
                 <h1 ref={title} style={{ fontWeight: "500", paddingBottom: "100px", fontSize: "1.7rem" }}>How it works</h1>
                 <div ref={blogs} style={{ width: "100%", display: "flex", flexWrap: "nowrap" }}>
-                    <div ref={ref} style={{ background: "red", height: "300px", flexWrap: "nowrap", display: "flex", overflow: "hidden", position: "relative", top: "50px" }}>
+                    <div ref={ref} style={{  height: "300px", flexWrap: "nowrap", display: "flex", overflow: "hidden", position: "relative", top: "50px" }}>
                         {data.map((e, i) => {
                             return <div key={i} style={{ marginLeft: i ? '50px' : 0, boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.75", background: "#fff", boxShadow: "0 3px 30px 0 rgba(0,0,0,.02)", borderRadius: "40px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", transition: "0.6s ease-out", transform: `translateX(calc(100vw / 2.5))`, height: screen.mobile ? "10em" : "6.5em", minWidth: screen.mobile ? "10em" : "calc(100vw / 5)", borderRadius: "40px" }} >
                                 <div style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>

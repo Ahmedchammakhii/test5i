@@ -26,19 +26,19 @@ export default function Home() {
   const handleMouseLeave = useCallback(mouseLeave, [])
 
   useLayoutEffect(() => {
-    // const innerContainerRef = document.querySelector('.footer-inner-container');
-    // const mainContainer = document.querySelector('.main-container');
+    const innerContainerRef = document.querySelector('.footer-inner-container');
+    const mainContainer = document.querySelector('.main-container');
 
-    // mainContainer.addEventListener("mousemove", handleMouseMove);
+    mainContainer.addEventListener("mousemove", handleMouseMove);
 
-    // innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
-    // innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
+    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      // mainContainer.removeEventListener("mousemove", handleMouseMove);
+      mainContainer.removeEventListener("mousemove", handleMouseMove);
 
-      // innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
-      // innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
+      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
 
 
     };
