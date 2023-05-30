@@ -81,8 +81,11 @@ export default function Sections({ screen, scroll, color, setBackground }) {
 
             if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
                 document.querySelector('html').style.background = data[index + 1].background
+                document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
+
             } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
                 document.querySelector('html').style.background = data[index].background
+                document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
             }
 
 
@@ -127,7 +130,7 @@ export default function Sections({ screen, scroll, color, setBackground }) {
         left_child_wrapper: { width: screen === "tablet" ? "70%" : screen === "mobile" ? "100%" : "50%", float: "right", position: "relative", marginLeft: "50%", transform: "translateX(-50%)" },
         right_wrapper: { width: "50%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" },
         right_container: { width: "30vw", height: "30vw", position: "relative", gap: 0 },
-        img: { objectFit: "cover", width: "100%", height: "100%", position: "absolute", borderRadius: "50px" },
+        img: { cursor: "none", objectFit: "cover", width: "100%", height: "100%", position: "absolute", borderRadius: "50px" },
         left_img_container: { width: "80vw", height: "90vw", display: screen !== "mobile" ? "none" : "block" },
         left_img: { width: "100%", height: "90%", objectFit: "cover", borderRadius: "50px" }
     };
@@ -163,7 +166,34 @@ export default function Sections({ screen, scroll, color, setBackground }) {
                         </div>
 
                     </div>
-                    <div style={styles.right_wrapper}><div ref={rightContainer} style={styles.right_container}>{data.map((e, i) => <img key={i} style={{ ...styles.img, zIndex: 5 - i }} src={e.img} />)} </div> </div>
+                    <div style={styles.right_wrapper}><div ref={rightContainer} style={styles.right_container}>{data.map((e, i) => <img
+                        onMouseLeave={() => {
+                            scrollTrigger(container, (v) => {
+                                const index = parseInt(((v[1] * (data.length - 1)) / 100))
+
+                                if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
+                                    document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
+
+                                } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
+                                    document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
+                                }
+                                document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
+                                document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
+                                document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                                document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
+
+                            }, [[0, ((data.length - 1) * (innerHeight * 0.9))], [0, 100]])
+                        }}
+                        onMouseEnter={() => {
+                            document.getElementsByClassName("cursor-click")[0].textContent = "Click"
+                            document.getElementsByClassName("primary-cursor")[0].style.background = e.color
+                            document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
+                            document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
+                            document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                            document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
+
+                        }}
+                        key={i} style={{ ...styles.img, zIndex: 5 - i }} src={e.img} />)} </div> </div>
                 </div>
             </div>
             <div className="veil" style={styles.veil} />
