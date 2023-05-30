@@ -18,7 +18,8 @@ export default function Services({ scroll, screen }) {
             }
             f(percentages, ref.current)
         }
-    }
+    };
+
     useEffect(() => {
         scrollTrigger(container, (v) => {
             if (document.querySelector('html').style.background !== "rgb(240, 240, 240)" && screen.mobile) {
@@ -61,14 +62,14 @@ export default function Services({ scroll, screen }) {
                                 Check our <br /> <span style={{ color: "white" }}>Solutions</span>
                             </h1>
                             <div style={{
-                                height: "5vw",
-                                width: "5vw",
+                                height: screen.mobile ? "15vw" : "5vw",
+                                width: screen.mobile ? "15vw" : "5vw",
                                 background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
                                 position: "relative",
                                 borderRadius: "100%", right: "0"
                             }}>
                                 <div style={{ width: "96.8%", height: "96.8%", background: "linear-gradient(225deg,#73ffa2 14%,#000 52%)", borderRadius: "100%", position: "absolute", top: '2%', left: "2%", display: "flex", justifyContent: "center", alignItems: "center" }} >
-                                    <svg fill="white" width="60" height="30" viewBox="0 0 90 60">
+                                    <svg fill="white" width="50%" height="30" viewBox="0 0 90 60">
                                         <path d="M4 26C1.79086 26 0 27.7909 0 30C0 32.2091 1.79086 34 4 34V26ZM86.8284 32.8284C88.3905 31.2663 88.3905 28.7337 86.8284 27.1716L61.3726 1.71573C59.8105 0.153631 57.2778 0.153631 55.7157 1.71573C54.1536 3.27783 54.1536 5.81049 55.7157 7.37258L78.3431 30L55.7157 52.6274C54.1536 54.1895 54.1536 56.7222 55.7157 58.2843C57.2778 59.8464 59.8105 59.8464 61.3726 58.2843L86.8284 32.8284ZM4 34H84V26H4V34Z" />
                                     </svg>
 
