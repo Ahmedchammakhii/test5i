@@ -7,7 +7,7 @@ export default function layout({ isClicked, setIsClicked, scroll, children, scre
             className="main-container">
             <Header isClicked={isClicked} setIsClicked={setIsClicked} scroll={scroll} screen={screen} />
             {children}
-            <Footer scroll={scroll} />
+            <Footer screen={screen} scroll={scroll} />
 
 
             <style>{`
