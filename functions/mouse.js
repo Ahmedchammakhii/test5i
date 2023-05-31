@@ -43,9 +43,10 @@ export const mouseMove = (event) => {
         } else if (translateY > maxTranslateY) {
             translateY = maxTranslateY;
         }
-
         projectButton.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+
     } else if (header) {
+
         const headerButton = document.querySelector('.header-button');
         const headerContainer = document.querySelector('.header-container');
         const { left, top } = headerContainer.getBoundingClientRect();
@@ -172,4 +173,29 @@ export const headerMouseLeave = (event) => {
     }
 }
 
+export const btnParalax = (event, container, btn) => {
+    const { clientX, clientY } = event;
+    const { left, top } = container.getBoundingClientRect();
+    const minTranslateX = -container.clientWidth / 15;
+    const maxTranslateX = container.clientWidth / 15;
+    const minTranslateY = -container.clientHeight / 15;
+    const maxTranslateY = container.clientHeight / 15;
 
+    let translateX = (clientX - left) - container.clientWidth / 2;
+    let translateY = (clientY - (top)) - container.clientHeight / 2;
+
+    if (translateX < minTranslateX) {
+        translateX = minTranslateX;
+    } else if (translateX > maxTranslateX) {
+        translateX = maxTranslateX;
+    }
+
+    if (translateY < minTranslateY) {
+        translateY = minTranslateY;
+    } else if (translateY > maxTranslateY) {
+        translateY = maxTranslateY;
+    }
+
+    btn.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+
+}
