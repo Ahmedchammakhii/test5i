@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from "./contact.module.css";
 import emo from "../../assets/emo1.png";
 import Image from 'next/image';
 import axios from 'axios';
 import Header from '../landing/layout/header/header';
-import Footer from '../landing/layout/footer/footer'
+import CustomButton from './components/Custombutton';
+
 const Contact = () => {
   const needs = ["Branding", "Web design", "site from scratch", "UI/UX", "Web animation", "Application design", "Html/css", "clothes conception", "Branding1", "Web design1", "site from scratch1", "UI/UX1",];
   const budget = ["15-30k", "30-40k", '40-70k', "70-100k", "+100k"];
@@ -13,26 +14,33 @@ const Contact = () => {
   const [lastName, setLastName] = useState("");
   const [userNeeds, setUserNeeds] = useState([]);
   const [userBudget, setUserBudget] = useState("")
+  const [url,setUrl]=useState("")
 
 
+  const handleClick = (budget) => {
+    setUserBudget(prevBudget => (prevBudget === budget ? "" : budget))
+    console.log(userBudget);
+  };
   const handleContact = async () => {
-    let user = { fin: firstName, ln: lastName, email: email,needs:userNeeds,budget:userBudget }
-    console.log(user)
-    try {
-      let response = await axios.post('http://localhost:3000/api/clients/add/client', user);
-      console.log(response)
-      alert("request sent successfully")
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setUserNeeds([]);
-      setUserBudget("");
+    if (firstName && lastName && email) {
+      let user = { fin: firstName, ln: lastName, email: email, needs: userNeeds, budget: userBudget };
+      console.log(user);
+      try {
+        let response = await axios.post('http://localhost:3000/api/clients/add/client', user);
+        console.log(response);
+        alert("Request sent successfully");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setUserNeeds([]);
+        setUserBudget("");
+      } catch (e) {
+        console.log({ message: e });
+      }
+    } else {
+      alert("First name, last name, and email are required.");
     }
-    catch (e) {
-      console.log({ message: e })
-    }
-  }
-
+  };
 
   function handleInputChange(event) {
     const inputId = event.target.id;
@@ -52,19 +60,24 @@ const Contact = () => {
   }
 
   const addNeed = (need) => {
-    setUserNeeds([...userNeeds, need]);
+    if (!userNeeds.includes(need)) {
+      setUserNeeds([...userNeeds, need]);
+    } else {
+      setUserNeeds(userNeeds.filter(e => e !== need));
+    }
     console.log(userNeeds);
   };
-   const fileInputRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   const handleUpload = async () => {
     const file = fileInputRef.current.files[0];
     const fileUrl = URL.createObjectURL(file);
     if (file) {
       try {
-
         console.log('Selected file:', file);
         console.log('url', fileUrl);
+        setUrl(fileUrl)
+        console.log("hiii",url);
       } catch (error) {
         console.error('Error uploading file:', error);
       }
@@ -74,10 +87,25 @@ const Contact = () => {
   };
 
 
-
+  // const handleUpload = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       const fileUrl = reader.result;
+  //       console.log('Selected file:', file);
+  //       console.log('URL:', fileUrl);
+  //       setUrl(fileUrl);
+  //       console.log("hi",url);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   } else {
+  //     console.log('No file selected.');
+  //   }
+  // };
   return (
     <div className={styles.page}>
-<Header></Header>
+      <Header></Header>
       <div className={styles.contactContainer}>
         <h3>We are always happy to help!  <Image src={emo} alt="" style={{ width: "50px", height: "50px" }}></Image></h3>
 
@@ -85,9 +113,11 @@ const Contact = () => {
         <div > <h3>I need</h3> </div>
         <div className={styles.cerclescontainer}>
           {needs.map((need) => (
-            <div key={need} className={styles.cercle}>
-              <button type='button' onClick={() => addNeed(need)} > {need}</button>
-            </div>
+            <CustomButton
+              key={need}
+              label={need}
+              isActive={userNeeds.includes(need)}
+              onClick={() => addNeed(need)} />
           ))}
 
         </div>
@@ -97,23 +127,37 @@ const Contact = () => {
           <div><input id="email" type="email" placeholder='Your email' onChange={handleInputChange}></input><div className={styles.line} id="li"></div></div>
         </div>
         <div className={styles.attachement}>
-          <div> <input type="file" style={{ display: 'none' }} ref={fileInputRef} onChange={handleUpload} />
+          <div className={styles.cerclescontainer}>
+            <input ref={fileInputRef} type="file" style={{ display: 'none' }} onChange={handleUpload} />
+            <CustomButton
+              label="add attachement"
+              isActive={false}
+              onClick={() => fileInputRef.current.click()}
+            />
 
-            <button type="button" onClick={() => fileInputRef.current.click()}>add attachement</button></div>
+          </div>
         </div>
         <div className={styles.title}><h3>Budget (USD)</h3></div>
         <div className={styles.budcont}>
-
-          {budget.map((e) => (
-            <div key={e} className={styles.cercle}>
-              <button type='button' onClick={()=>{setUserBudget(e)
-              console.log("budget",userBudget);}}>{e}</button>
+          {budget.map((b) => (
+            <div className={styles.cerclescontainer} key={b}>
+              <CustomButton
+                label={b}
+                isActive={userBudget === b}
+                onClick={() =>
+                  handleClick(b)
+                }
+              />
             </div>
-
           ))}
         </div>
-        <div className={styles.attachement}>
-          <div className={styles.sendcont}><button type='button' onClick={handleContact}>Send request</button></div>
+        <div className={styles.attachement}  >
+          <div className={styles.cerclescontainer}>
+            <CustomButton
+              label="send request"
+              isActive={false}
+              onClick={handleContact}></CustomButton>
+          </div>
         </div>
       </div>
 

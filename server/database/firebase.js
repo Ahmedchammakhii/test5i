@@ -1,3 +1,4 @@
+const { getAuth } = require("firebase-admin/auth");
 const { initializeApp } = require("firebase/app");
 require('dotenv').config();
 
@@ -10,8 +11,9 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID,
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
   };
-const app = initializeApp(firebaseConfig);
 
+const app = initializeApp(firebaseConfig);
+module.exports=app
 
 
 

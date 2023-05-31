@@ -3,8 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    z-index: -1;
+    height: 200vh;
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
@@ -19,16 +18,6 @@
     position: relative;
     overflow: hidden;
 }
-
-/* .line3 {
-    height: 1px;
-    width: 234%;
-    background-color: rgb(0, 0, 0);
-    z-index: 4;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-} */
 
 .contactContainer {
     position: absolute;
@@ -55,48 +44,11 @@ font-size: larger;
     flex-wrap: wrap;
     display: flex;
     gap: 5px;
-    
-    /* background-color: black; */
 }
 
 
 
-.cercle{
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    width: 150px;
-    height: 70px;
-    border-radius: 20% 20% 20% 20% / 45% 45% 45% 45%;;
-    cursor: pointer;
-    flex-wrap: wrap;
-    padding: 4px;
-    border-color: rgba(0, 0, 0, 0.486);
-    background: black;
-    transition: 0.3s ease-in;
-    overflow: hidden;
-    background-color: transparent;
-    /* background: linear-gradient(transparent, black); */
-      transition: background-position 0.5s;
-}
-.cercle button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    border-radius: 20% 20% 20% 20% / 45% 45% 45% 45%;;
-    cursor: pointer;
-    flex-wrap: wrap;
-    border-color: rgba(0, 0, 0, 0.486);
-    background: transparent;
-    transition: 0.3s ease-in;
-    overflow: hidden;
-  
-    /* background: linear-gradient(transparent,white, black); */
-      transition: background-position 0.5s;
 
-}
 .contactForm {
     /* background-color: #fff; */
     position: relative;
@@ -123,10 +75,6 @@ font-size: larger;
     text-align: left;
 }
 
-.contactForm  .line:nth-child(3){
-    background-color: red;
-    
-}
 .attachement {
     display: flex;
     justify-content: center;
@@ -155,7 +103,6 @@ font-size: larger;
 }
 
 .budcont {
-    background-color: #fff;
     position: relative;
     max-width: 700px;
     margin-top: 1rem;
