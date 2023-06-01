@@ -110,11 +110,8 @@ export default function Cards({ screen, scroll, containerRef }) {
                     ref.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
                 }, cardsMovements[clicked.current - 1]);
 
-                // clicked.current = i + 1
+
                 clicked.current = - 1
-                // container.current.children[i].children[0].style.transition = "0.5s"
-                // container.current.children[i].children[0].style.transform = `translate3d(${left - 20}%,${top - 30}%, 0px)${' rotateZ(0.85deg)'}`;
-                // container.current.children[i].style.zIndex = 6
             }
         }
     }
