@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from "../components/customButton.module.css";
 
-const CustomButton = ({ label, isActive, onClick }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
+const CustomButton = ({ label, value, isActive, onClick }) => {
+  const handleMouseEnter = (event) => {
     if (!isActive) {
-      setIsHovered(true);
+      event.target.classList.add("project-button");
+      event.target.children[0].style.top = "50%";
+      event.target.children[0].style.borderRadius = "0";
+      event.target.children[1].style.marginTop = "-40px";
+      event.target.children[1].style.opacity = 0;
+      event.target.children[1].style.color = "white";
+      event.target.children[2].style.opacity = 1;
+      event.target.children[2].style.marginTop = "0";
+      event.target.children[2].style.color = "white";
+      event.target.style.border = "1px solid black";
     }
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (event) => {
     if (!isActive) {
-      setIsHovered(false);
+      event.target.children[0].style.top = "150%";
+      event.target.children[1].style.marginTop = "0";
+      event.target.children[1].style.opacity = 1;
+      event.target.children[2].style.opacity = 0;
+      event.target.children[2].style.marginTop = "50px";
+      event.target.children[1].style.color = "black";
+      event.target.children[2].style.color = "black";
+      event.target.style.transform = "none";
     }
   };
 
@@ -22,19 +36,7 @@ const CustomButton = ({ label, isActive, onClick }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
-        style={{
-          cursor: "pointer",
-          position: "relative",
-          overflow: "hidden",
-          fontWeight: "500",
-          transition: "0.8s",
-          fontSize: "0.8rem",
-          width: "150px",
-          height: "55px",
-          borderRadius: "20% 20% 20% 20%/45% 45% 45% 45% ",
-          border: `1px solid black`,
-          background: isActive ? "black" : "transparent",
-        }}
+    
       >
         <div
           style={{
@@ -43,8 +45,8 @@ const CustomButton = ({ label, isActive, onClick }) => {
             background: "black",
             color: "white",
             position: "absolute",
-            transform: isHovered ? "translate(-50%,-50%)" : "translate(-50%, 150%)",
-            top: "50%",
+            transform: "translate(-50%,-50%)",
+            top: "-50%",
             left: "50%",
             transition: "0.6s",
             borderRadius: "100%",
