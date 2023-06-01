@@ -10,6 +10,7 @@ import left from '../assets/left.png'
 import right from "../assets/right.png"
 
 import sec from "../assets/first.png"
+import CustomButton from './contact/components/CustomButton'
 const choices = () => {
   const [blur,setblur]=useState('0px')
   const [shown,setshown]=useState('flex')
@@ -34,8 +35,10 @@ gsap.from(".circle", {rotate:20,scale:0})
 <input required={true} style={{border:0,width:"50%",height:"5%",paddingLeft:10,background:"transparent",marginBottom:5,borderBottom:"1px solid #fff",color:"#fff"}} type="text" placeholder='Last Name' />
 <input required={true} style={{border:0,width:"50%",height:"5%",paddingLeft:10,background:"transparent",marginBottom:5,borderBottom:"1px solid #fff",color:"#fff"}} type="email" placeholder='Email' />
 <input style={{border:0,width:"50%",height:"5%",paddingLeft:10,background:"transparent",marginBottom:5,borderBottom:"1px solid #fff",color:"#fff"}} type="text" placeholder='Matricule fiscale' />
-<button onClick={e=>{setshown("none");setblur("0px")}}>Download our catalogues</button>
-
+<CustomButton
+              key={"btn01558"}
+              label={"Download"}
+              onClick={() => {setshown("none");setblur("0px")}} />
     </div>
    </div>
     <div style={{height:"100vh",width:"100vw",background:"#000",display:'flex',filter:`blur(${blur})`}}>
