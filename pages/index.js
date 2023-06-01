@@ -1,12 +1,13 @@
 
 import Layout from "./landing/layout/layout"
-import Sections from "./landing/sections/sections";
+import Sections from "./landing/projects/projects";
 import How from "./landing/how/how";
 import BlackSection from "./landing/black-section/BlackSection"
 
 import { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { CustomCursor } from "@/sharedComponents/customCursor";
 import { mouseMove, mouseEnter, mouseLeave } from "../functions/mouse";
+import Hero from "./landing/hero";
 
 
 export default function Home() {
@@ -42,7 +43,6 @@ export default function Home() {
 
     };
   }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
-  useEffect(() => { document.querySelector('html').style.background = background[color] }, [color])
 
   useLayoutEffect(() => {
     handleResize(setScreen);
@@ -56,10 +56,11 @@ export default function Home() {
   }, [screen]);
   return (
     <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
+      <Hero />
       <CustomCursor activeMouse={activeMouse} />
-      <Sections screen={screen} scrollPosition={scrollPosition} color={color} setBackground={setBackground} />
-      <BlackSection menuClicked={menuClicked} scroll={scrollPosition} />
-      <How scroll={scrollPosition} />
+      <Sections screen={screen} scroll={scrollPosition} color={color} setBackground={setBackground} />
+      <BlackSection screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} menuClicked={menuClicked} scroll={scrollPosition} />
+      <How screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} scroll={scrollPosition} />
     </Layout>
   )
 }

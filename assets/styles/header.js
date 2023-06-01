@@ -1,7 +1,7 @@
 const styles = {
     lines: { background: "black", height: "3px", marginLeft: "19px", marginRight: "5px", borderRadius: "50px", transition: "transform 0.5s, background 2s" },
     lines_btn: { width: "50px", height: "100%", flexDirection: "column", display: "flex", justifyContent: "center", cursor: "pointer", zIndex: 1002 },
-    main_container: { zIndex: 1111, height: "80px", marginLeft: "3.6%", marginRight: "3.6%", display: "flex", justifyContent: "space-between", position: "fixed", top: "0", width: "calc(100% - (3.6% * 2))", overflow: "hidden" },
+    main_container: { zIndex: 1111, marginLeft: "3.6%", marginRight: "3.6%", display: "flex", justifyContent: "space-between", position: "fixed", top: "0", width: "calc(100% - (3.6% * 2))", overflow: "hidden" },
     nav_sides: { display: "flex" },
     links: { fontSize: "15px", fontWeight: "600", color: "#6e6e73", marginLeft: "50px" },
 

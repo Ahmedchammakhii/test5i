@@ -19,7 +19,7 @@ export default function layout({
         screen={screen}
       />
       {children}
-      <Footer scroll={scroll} />
+      <Footer screen={screen} scroll={scroll} />
 
       <style>{`
             html {
