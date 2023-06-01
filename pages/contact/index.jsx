@@ -4,7 +4,7 @@ import emo from "../../assets/emo1.png";
 import Image from 'next/image';
 import axios from 'axios';
 import Header from '../landing/layout/header/header';
-import CustomButton from './components/Custombutton';
+import CustomButton from '../contact/components/CustomButton';
 
 const Contact = () => {
   const needs = ["Branding", "Web design", "site from scratch", "UI/UX", "Web animation", "Application design", "Html/css", "clothes conception", "Branding1", "Web design1", "site from scratch1", "UI/UX1",];

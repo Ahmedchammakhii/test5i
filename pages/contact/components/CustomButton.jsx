@@ -32,7 +32,19 @@ const CustomButton = ({ label, value, isActive, onClick }) => {
 
   return (
     <div className={styles.buttonsContainer}>
-      <button
+      <button style={{
+          cursor: "pointer",
+          position: "relative",
+          overflow: "hidden",
+          fontWeight: "500",
+          transition: "0.8s",
+          fontSize: "0.8rem",
+          width: "150px",
+          height: "55px",
+          borderRadius: "20% 20% 20% 20%/45% 45% 45% 45%" ,
+          border: "1px solid black",
+         background: isActive ? "black" : "transparent",
+      }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
@@ -85,7 +97,7 @@ const CustomButton = ({ label, value, isActive, onClick }) => {
         </div>
       </button>
     </div>
-  );
+  )
 };
 
 export default CustomButton;

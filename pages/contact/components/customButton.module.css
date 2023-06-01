@@ -17,5 +17,5 @@
      height: 55px;
      border-radius: 20% 20% 20% 20%/45% 45% 45% 45% ;
      border: 1px solid black;
-     /* background: isActive ? black : transparent; */
+     
 }
