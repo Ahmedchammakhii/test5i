@@ -1,8 +1,7 @@
-export default function App() {
-
+export default function Footer({ screen }) {
     return (
         <div>
-            <div className="footer-container" style={{ transform: "scale(0.7)", height: "700px", width: "100%" }}>
+            <div className="footer-container" style={{ transform: screen === "mobile" || screen === "tablet" ? "scale(0.4)" : "scale(0.7)", height: "700px", width: "100%" }}>
                 <div style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
                     <svg viewBox="0 0 700 700">
                         <defs>
@@ -50,8 +49,8 @@ export default function App() {
 
                 </div>
             </div>
-            <div style={{ width: "100%", height: "100px", display: "flex", justifyContent: "center" }}>
-                <div style={{ width: "600px", height: "100%", display: "flex", justifyContent: "space-between" }}>
+            <div style={{ width: screen === "mobile" ? "100vw" : "100%", height: "100px", display: "flex", justifyContent: "center" }}>
+                <div style={{ width: screen === "mobile" ? "90%" : "600px", height: "100%", display: "flex", justifyContent: "space-between" }}>
                     <div style={{ width: "50%" }}>
                         <div style={{ fontSize: ".48rem", position: "relative" }}>
                             <span style={{ borderBottom: "1px solid black" }}>info@info.co</span>
@@ -68,7 +67,7 @@ export default function App() {
                             </div>
                         </div>
                         <br />
-                        <p style={{ fontSize: "9.1px", color: "#6e6e73", marginTop: "-13px", float: "right", fontWeight: "600" }}>Privacy Policy</p>
+                        <p style={{ fontSize: "9.1px", color: "#6e6e73", marginTop: screen === "mobile" ? 0 : "-13px", float: "right", fontWeight: "600" }}>Privacy Policy</p>
                     </div>
                 </div>
             </div>
