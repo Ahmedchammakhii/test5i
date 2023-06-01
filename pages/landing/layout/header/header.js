@@ -19,9 +19,9 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
         </div>
         <div style={nav_sides}>
           <div style={{ ...links_container, opacity: isClicked || scroll ? 0 : 1, display: screen === "mobile" ? "none" : "inherit", marginTop: scroll ? "-80px" : 0 }}>
-            <a style={links}>Contact</a>
-            <a style={links}>Blogs</a>
-            <a style={links}>Services</a>
+            <a style={links} href="/contact">Contact</a>
+            <a style={links} href="/blogs">Blogs</a>
+            <a style={links} href="/services">Services</a>
           </div>
 
           <div

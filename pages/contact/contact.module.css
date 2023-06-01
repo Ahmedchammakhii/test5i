@@ -3,8 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    z-index: -1;
+    /* height: 200vh; */
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
@@ -14,21 +13,10 @@
     height: 1px;
     width: 100%;
     background-color: rgb(0, 0, 0);
-
     display: flex;
     position: relative;
     overflow: hidden;
 }
-
-/* .line3 {
-    height: 1px;
-    width: 234%;
-    background-color: rgb(0, 0, 0);
-    z-index: 4;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-} */
 
 .contactContainer {
     position: absolute;
@@ -39,9 +27,10 @@
     max-width: 700px;
     padding-top: 50rem;
 }
-.contactContainer h3{
-font-weight: 500;
-font-size: larger;
+
+.contactContainer h3 {
+    font-weight: 500;
+    font-size: larger;
 }
 
 
@@ -55,54 +44,17 @@ font-size: larger;
     flex-wrap: wrap;
     display: flex;
     gap: 5px;
-    
-    /* background-color: black; */
 }
 
 
 
-.cercle{
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    width: 150px;
-    height: 70px;
-    border-radius: 20% 20% 20% 20% / 45% 45% 45% 45%;;
-    cursor: pointer;
-    flex-wrap: wrap;
-    padding: 4px;
-    border-color: rgba(0, 0, 0, 0.486);
-    background: black;
-    transition: 0.3s ease-in;
-    overflow: hidden;
-    background-color: transparent;
-    /* background: linear-gradient(transparent, black); */
-      transition: background-position 0.5s;
-}
-.cercle button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    border-radius: 20% 20% 20% 20% / 45% 45% 45% 45%;;
-    cursor: pointer;
-    flex-wrap: wrap;
-    border-color: rgba(0, 0, 0, 0.486);
-    background: transparent;
-    transition: 0.3s ease-in;
-    overflow: hidden;
-  
-    /* background: linear-gradient(transparent,white, black); */
-      transition: background-position 0.5s;
 
-}
 .contactForm {
     /* background-color: #fff; */
     position: relative;
     max-height: 100vh;
     max-width: 700px;
-    width:100%;
+    width: 100%;
     margin-top: 5rem;
     margin-bottom: 3rem;
     justify-content: center;
@@ -110,23 +62,21 @@ font-size: larger;
     flex-wrap: wrap;
     display: flex;
     gap: 20px;
-   text-decoration: none;
-   /* font: ; */
+    text-decoration: none;
+    /* font: ; */
 }
-.cercle:hover{
+
+.cercle:hover {
     background-position: 0% 100%;
 }
+
 .contactForm input {
-    width:300px;
+    width: 300px;
     border: none;
     margin-bottom: 0;
     text-align: left;
 }
 
-.contactForm  .line:nth-child(3){
-    background-color: red;
-    
-}
 .attachement {
     display: flex;
     justify-content: center;
@@ -147,15 +97,15 @@ font-size: larger;
 .getin {
     font-size: 35px;
     margin-bottom: 8rem;
-    font-weight:lighter;
+    font-weight: lighter;
     font-family: "Poppins", sans-serif;
 }
-.getin h1{
+
+.getin h1 {
     font-weight: 500;
 }
 
 .budcont {
-    background-color: #fff;
     position: relative;
     max-width: 700px;
     margin-top: 1rem;
@@ -170,45 +120,52 @@ font-size: larger;
 
 .title {
     /* margin-top: 20px; */
-    margin:0;
+    margin: 0;
     padding: 0;
 }
 
 
 @media (max-width: 1000px) {
-   
+
     .getin {
-      font-size: 28px;
-      margin-bottom: 0rem;
+        font-size: 28px;
+        margin-bottom: 0rem;
     }
-    
+
     .contactForm input {
-      width: 250px;
+        width: 250px;
     }
-    
+
     .attachement button {
-      width: 180px;
-      height: 50px;
-    };
- 
-    
-  }
-  @media (max-width: 670px) {
-    .contactContainer{
-             
-             height: 150vh;
-        }
-    .contactForm input {
-      width: 250px;
+        width: 180px;
+        height: 50px;
     }
+
+    ;
+
+
+}
+
+@media (max-width: 670px) {
+    .contactContainer {
+
+        height: 150vh;
+    }
+
+    .contactForm input {
+        width: 250px;
+    }
+
     /* .cercle button{
         max-width: 800px;
     } */
-    
+
     .attachement button {
-      width: 180px;
-      height: 50px;
-    };
- 
-    
-  }
+        width: 180px;
+        height: 50px;
+    }
+
+    ;
+
+
+}

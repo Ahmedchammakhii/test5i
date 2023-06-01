@@ -10,9 +10,12 @@ import {
 } from "chart.js";
 import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget';
 import { Cloudinary } from "@cloudinary/url-gen";
-// import { useRouter } from 'next/router';
 import axios from 'axios';
 import styles from "./dashboard.module.css"
+import { useRouter } from 'next/router';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 ChartJS.register(BarElement, CategoryScale, LinearScale, PointElement, ...registerables);
 const Dashboard = () => {
   const [monthlyUsers, setMonthlyUsers] = useState(null);
@@ -22,7 +25,8 @@ const Dashboard = () => {
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState('')
   const [timestamp, setTimestamp] = useState(new Date());
-
+  const router = useRouter();
+  const { uid } = router.query;
 
   useEffect(() => {
     const url = 'http://localhost:3000/api/clients';
@@ -32,6 +36,7 @@ const Dashboard = () => {
   }, []);
   async function fetchData(url) {
     try {
+      console.log('uid',uid)
       const response = await axios.get(url);
       setMonthlyUsers(response.data);
       setUsers(response.data)

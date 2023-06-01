@@ -31,7 +31,7 @@ exports.deleteOneUser=async(req,res)=>{
     }
 }
 exports.addUser=async(req,res)=>{
-let user = {first_name:req.body.fin,last_name:req.body.ln,email:req.body.email}
+let user = {first_name:req.body.fin,last_name:req.body.ln,email:req.body.email,arrayField:req.body.needs,budget:req.body.budget}
 try {
     let addone=await createUser(user)
     res.status(200).json(addone)
