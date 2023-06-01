@@ -119,17 +119,10 @@ else {
 <Image className={style.invert} src={brain}></Image>
 </div>
 <p style={{color:"#fff",padding:0,margin:0,fontSize:"25px",marginTop:"10px"}} className='textheader2'>KICKSTART YOUR BRAND</p>
-  <button className={style.interested}>Interested ?</button>
+  <button className={style.interested}>Book an appointment</button>
   <div className={style.texts}>
-    <p style={{fontSize:"calc(1rem, .2vw)",padding:14}}>brand development</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de faisabilité</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de collection</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Prototypage</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Production</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Canaux de distribution</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Logistics</p>
-   <a  href="kickstart"> <p style={{fontSize:"calc(1rem, 2vw)",textAlign:"center"}}>And a lot more</p>
-   </a>
+   {"Etude de faisabilité.Développement de la marque (brand development).Etude de collection (fahsion teckpack).Etude de lancement .Prototypage.Production .Mise en place d’une plateforme logistique .Etablissement des canaux de distribution (E-commerce website, dépôt vente, point de vente).Marketing et communication.Shooting .Organisation d’événement de lancement".split(".").map( e=> <p style={{padding:15,paddingLeft:20}}>{e}</p>)}
+<p></p>
   </div>
   </div>
 </div>
@@ -145,22 +138,17 @@ else {
 </div>
 
 <p style={{color:"#fff",padding:0,margin:0,fontSize:"25px",marginTop:"10px"}} className='textheader2'>FOR EXISTING BRAND</p>
-<button className={style.interested}>Interested ?</button>
+<button className={style.interested}>Book an appointment</button>
 <div className={style.texts}>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>brand development</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de faisabilité</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de collection</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Prototypage</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Production</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Canaux de distribution</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Logistics</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",textAlign:"center"}}>And a lot more</p>
+{  "Rebranding .Accompagnement stratégique .Accompagnement technique .Fashion tech packs .Production management.Outsourcing services.Marketing .Shooting session.Packaging Design .Web Design .Event planning .Logistics plateform".split(".").map(e=>    <p style={{padding:14,paddingLeft:20}}>{e}</p>
+)}
+    <p></p>
 
   </div>
   </div>
 </div>
 </div>
-<div className="third" style={{}}>
+<div className={`third ${style.third}`} style={{}}>
 <div className={`${style.border} ${style.bcolor}`}>
 <div className={style.first}>
 <div className="images" style={{position:"relative",overflow:"hidden"}}>
@@ -169,17 +157,16 @@ else {
 
 </div>
 <p style={{color:"#fff",padding:0,margin:0,fontSize:"25px",marginTop:"10px"}} className='textheader2'>BUSINESS SOLUTIONS</p>
-<button className={style.interested}>Interested ?</button>
+<button className={style.interested}>Book an appointment</button>
 <div className={style.texts}>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>brand development</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de faisabilité</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Etude de collection</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Prototypage</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Production</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Canaux de distribution</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",padding:14}}>Logistics</p>
-    <p style={{fontSize:"calc(1rem, 2vw)",textAlign:"center"}}>And a lot more</p>
-
+    <p style={{padding:14}}>If your
+business needs a customized product to meet your requirements, we
+can offer you workwear that you need (uniforms, safety gears, 
+waistcoats, etc)</p>
+    <p style={{padding:14}}>Wholesale sourcing : Habillement au service des revendeurs. If you are 
+a retailer having one or more stores, we can provide custom products
+for your requirements</p>
+   <p></p>
   </div>
 
 

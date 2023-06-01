@@ -37,7 +37,7 @@ export const ThirdSection = () => {
  
  
  </div>    
- <div className={styles.whatwedo} style={!leftclicked ? {visibility:"visible",opacity:1,transition: "visibility 0s linear 300ms"} :{visibility:"hidden", opacity:0, display:"none", transition: "visibility 0s linear 300ms"} }>
+ <div className={styles.whatwedo} style={!leftclicked ? {gap:"40px",visibility:"visible",opacity:1,transition: "visibility 0s linear 300ms"} :{visibility:"hidden", opacity:0, display:"none", transition: "visibility 0s linear 300ms"} }>
 <div className={styles.choice}><Image src={bullet} alt="+"></Image> <p>“good enough”</p></div>
 
 <div className={styles.choice}><Image src={bullet} alt="+"></Image> <p>Be “Realistic”</p></div>

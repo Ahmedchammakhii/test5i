@@ -260,7 +260,7 @@
   align-items: center;
   padding: 3px;
   display: flex;
-  height: 100vh;
+  height: 140vh;
 
   width: 45vh;
   z-index: 500000;
@@ -290,14 +290,13 @@
   height: 100%;
   width: 100%;
   background-color: #000;
-  border-radius: 2em;
+  border-radius: 2.1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
 }
-.first > p {
-  text-align: center;
+.first p {
+  padding: 10px;
 }
 .image::before {
   content: "5i";
@@ -365,7 +364,30 @@
   .texts {
     font-size: calc(1vw + 0.2rem);
   }
+  .border {
+    width: 30vw;
+  }
 }
+@media screen and (max-width: 1050px) {
+  .border {
+    width: 31vw;
+  }
+
+  .texts {
+    font-size: calc(0.7vw + 0.2rem);
+  }
+}
+@media screen and (max-width: 1050px) and (min-height: 1300px) {
+  .border {
+    width: 40vw;
+    height: 80vh;
+  }
+
+  .texts {
+    font-size: calc(1.2vw + 0.2rem);
+  }
+}
+
 @media screen and (max-width: 850px) {
   .border {
     width: 65vw;
@@ -375,16 +397,67 @@
     font-size: calc(2.5vw + 0.2rem);
   }
 }
-@media screen and (max-width: 576px) {
+
+@media screen and (max-width: 520px) {
   .border {
-    width: 80vw;
-    height: 100vh;
+    width: 95vw;
+    height: 130vh;
   }
+}
+@media screen and (max-width: 576px) {
   .texts {
     font-size: calc(2.5vw + 0.2rem);
   }
+  .border {
+    width: 95vw;
+    height: 100vh;
+  }
 }
 
+@media screen and (max-width: 456px) {
+  .border {
+    width: 95vw;
+    height: 102vh;
+  }
+}
+@media screen and (min-height: 900px) and (max-width: 560px) {
+  .border {
+    height: 110vh;
+  }
+  .third .border {
+    height: 90vh;
+  }
+}
+@media screen and (min-height: 730px) and (max-width: 360px) {
+  .third .border {
+    height: 100vh;
+  }
+}
+@media screen and (min-height: 1200px) and (max-width: 1000px) {
+  .border {
+    width: 50vw;
+    height: 70vh;
+  }
+  .third .border {
+    height: 55vh;
+  }
+  .texts {
+    font-size: calc(1.2vw + 0.2rem);
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .border {
+    width: 95vw;
+    height: 108vh;
+  }
+}
+@media screen and (max-width: 396px) {
+  .border {
+    width: 95vw;
+    height: 123.5vh;
+  }
+}
 @media screen and (max-width: 1285px) {
   .border {
     scale: 0.9;
@@ -412,13 +485,96 @@
     scale: 1;
   }
 }
+@media screen and (max-width: 400px) and (min-height: 800px) {
+  .border {
+    width: 95vw;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 399px) and (min-height: 840px) {
+  .border {
+    width: 95vw;
+    height: 110vh;
+  }
+}
+@media screen and (min-width: 1024px) and (min-height: 950px) {
+  .border {
+    height: 90vh;
+  }
+}
 
+@media screen and (max-width: 2550px) and (min-width: 2000px) {
+  .border {
+    height: 190vh;
+  }
+}
+@media screen and (max-width: 350px) and (min-height: 560px) and (max-height: 700px) {
+  .border {
+    height: 155vh;
+  }
+  .interested {
+    font-size: calc(0.5vw + 1rem);
+  }
+}
+@media screen and (min-width: 1300px) and (min-height: 1300px) {
+  .border {
+    width: 430px;
+    height: 70vh;
+  }
+}
+@media screen and (min-width: 1024px) and (min-height: 1300px) and (max-height: 1450px) and (max-width: 1400px) {
+  .border {
+    height: 80vh;
+  }
+}
+@media screen and (min-width: 1700px) and (min-height: 950px) and (max-height: 2000px) and (max-width: 2000px) {
+  .border {
+    height: 150vh;
+  }
+}
+
+@media screen and (max-width: 550px) and (min-height: 700px) {
+  .border {
+    height: 120vh;
+  }
+}
+@media screen and (max-width: 550px) and (min-width: 540px) and (min-height: 700px) and (max-height: 720px) {
+  .border {
+    height: 140vh;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-height: 1020px) and (max-width: 830px) and (max-height: 1180px) {
+  .border {
+    height: 120vh;
+  }
+}
+@media screen and (min-width: 940px) and (min-height: 640px) and (max-width: 1000px) and (max-height: 800px) {
+  .border {
+    width: 40vw;
+  }
+}
 @media screen and (max-width: 800px) {
   .whatwedo {
     grid-template-columns: repeat(1, 1fr);
   }
   .boxchoice {
     scale: 1.4;
+  }
+}
+@media screen and (max-width: 790px) and (max-height: 750px) and (min-width: 700px) and (min-height: 700px) {
+  .border {
+    height: max-content;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 390px) and (min-height: 600px) and (max-height: 650px) {
+  .border {
+    height: max-content;
+    padding-bottom: 10px;
+  }
+  .third .border {
+    height: 100vh;
   }
 }
 @media screen and (max-width: 700px) {
@@ -498,7 +654,12 @@
     bottom: 40px;
   }
 }
-
+@media screen and (max-width: 380px) and (min-width: 365px) and (min-height: 660px) and (max-height: 670px) {
+  .border {
+    width: 95vw;
+    height: 130vh;
+  }
+}
 @media screen and (max-width: 350px) {
   .thirdsec h2 {
     font-size: calc(0.6rem + 0.2vw);
@@ -797,7 +958,7 @@
     height: 200px;
   }
 }
-@media (max-width: 411px) {
+@media (max-width: 421px) {
   .parag {
     rotate: 0deg;
     left: -30px;
