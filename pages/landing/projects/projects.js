@@ -1,51 +1,9 @@
-const data = [
-    {
-        t1: "Beauty brand, e-commerce",
-        link: "Vimcosmo.com",
-        tags: ["Branding", " Website", " Design", " Development"],
-        img: "https://deveb.co/static/media/vim.2c5e9ce4.jpg",
-        border: "#fea5d3",
-        color: "#e985b4",
-        background: "#fae1ee"
-    }, {
-        t1: "Furniture brand, Online store",
-        link: "DopeGood.com",
-        tags: ["Branding", " Website", " Design", " Development"],
-        img: "https://deveb.co/static/media/newdopegood.6e57b4b4.jpg",
-        border: "#a6d4ff",
-        color: "#78a9d9",
-        background: "#e0f0ff"
-    }, {
-        t1: "Architectural design studio",
-        link: "AM-ARC.com",
-        tags: ["Branding", " Website", " Design", " Development"],
-        img: "https://deveb.co/static/media/am-arc.0bba8786.jpg",
-        border: "#f2ab79",
-        color: "#f2ab79",
-        background: "#ffede0"
-    }, {
-        t1: "NFT digital marketplace",
-        link: "Dopop.net",
-        tags: ["Branding", " Website", " Design", " Development"],
-        img: "https://deveb.co/static/media/dopop2.3974e9e7.jpg",
-        border: "#a6afff",
-        color: "#7781d9",
-        background: "#d3d6f0"
-    }, {
-        t1: "Furniture brand, e-commerce",
-        link: "Old.DopeGood.com",
-        tags: ["Branding", " Website", " Design", " Development"],
-        img: "https://deveb.co/static/media/dopegood.b2cad70d.jpg",
-        border: "#ffb18c",
-        color: "#ffb18c",
-        background: "#ffeae0"
-    },
-]
+import data from "@/data/landing/projects"
 
 import { useEffect, useCallback, useRef } from "react"
 import { projectMouseEnter, projectMouseLeave } from "../../../functions/mouse"
 
-export default function Sections({ screen, scroll, color, setBackground }) {
+export default function Sections({ screen, scroll }) {
     const container = useRef(null)
     const leftContainer = useRef(null)
     const rightContainer = useRef(null)
@@ -62,9 +20,7 @@ export default function Sections({ screen, scroll, color, setBackground }) {
         }
         if (screen !== "mobile") {
             const imgs = rightContainer.current.children
-
             if (!percentages.length && start >= scroll && imgs[0].style.clipPath !== "inset(0px 0px 0%)") {
-
                 imgs[0].style.clipPath = "inset(0px 0px 0%)"
             } else if (scroll >= end && imgs[imgs.length - 2].style.clipPath !== "inset(0px 0px 100%)") {
                 imgs[imgs.length - 2].style.clipPath = "inset(0px 0px 100%)"
@@ -87,7 +43,6 @@ export default function Sections({ screen, scroll, color, setBackground }) {
                 document.querySelector('html').style.background = data[index].background
                 document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
             }
-
 
             const children = leftContainer.current.children
             for (let i = 0; children.length > i; i++) {
@@ -113,7 +68,7 @@ export default function Sections({ screen, scroll, color, setBackground }) {
     }, [scroll]);
 
     const styles = {
-        veil: { height: "calc(100% + 150px)", width: "100%", position: "absolute", top: 0, zIndex: 50, pointerEvents: "none", opacity: 0, transition: "2s", background: "black" },
+        veil: { height: "calc(100% + 150px + 90vh)", width: "100%", position: "absolute", top: "-90vh", zIndex: 50, pointerEvents: "none", opacity: 0, transition: "2s", background: "black" },
         h1: { fontSize: "1.302rem", fontWeight: "500", textAlign: screen === "mobile" ? "center" : "left" },
         h2: { fontSize: "0.45rem", fontWeight: "300", textAlign: screen === "mobile" ? "center" : "left" },
         btn_container: { width: "250px", marginLeft: "-25px", display: "flex", justifyContent: "center", alignItems: screen === "mobile" ? "start" : "center", top: screen === "mobile" ? "2vh" : 0, height: "150px", position: "relative", left: screen === "mobile" ? "60%" : 0, transform: screen === "mobile" ? "translateX(-50%)" : "none" },
