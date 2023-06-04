@@ -10,7 +10,7 @@ export default function Catalogue({ screen, scroll }) {
     const scrollTrigger = (ref, f, values, startCondition, endCondition, Start, End) => {
         let start = ref.current.offsetTop - innerHeight;
         let end = start + ref.current.clientHeight - (innerHeight * 0.2);
-        if (screen.mobile) {
+        if (screen === "mobile") {
             start += (innerHeight * 0.4)
             end += (innerHeight * 0.4)
         }
@@ -32,10 +32,10 @@ export default function Catalogue({ screen, scroll }) {
     }, [scroll])
     return (
         <>
-            <div ref={container} style={{ width: "100%", height: screen.mobile ? "50vh" : "100vh", display: "flex", justifyContent: "center", overflow: "hidden" }}>
-                <div style={{ display: "flex", flexDirection: screen.mobile ? "column-reverse" : "row", width: screen.mobile ? "90%" : "80%", height: "100%", alignItems: "center" }}>
+            <div ref={container} style={{ width: "100%", height: screen === "mobile" ? "50vh" : "100vh", display: "flex", justifyContent: "center", overflow: "hidden" }}>
+                <div style={{ display: "flex", flexDirection: screen === "mobile" ? "column-reverse" : "row", width: screen === "mobile" ? "90%" : "80%", height: "100%", alignItems: "center" }}>
                     <div style={{
-                        width: screen.mobile ? "50%" : "70%", height: "100%", display: "flex",
+                        width: screen === "mobile" ? "50%" : "70%", height: "100%", display: "flex",
                         flexDirection: "column", justifyContent: "center",
                     }} >
                         <div style={{ transition: "0.1s linear", transform: "translate3d(-40%, 0%, 0px)" }} ref={txt}>
@@ -53,8 +53,8 @@ export default function Catalogue({ screen, scroll }) {
                                     btnParalax(event, event.target, btn.current)
                                 }} style={{ cursor: "pointer", width: "35%", display: "flex", justifyContent: "center", alignItems: "center" }}>
                                     <Link href="/catalogues" ref={btn} style={{
-                                        height: screen.mobile ? "8vw" : "5vw",
-                                        width: screen.mobile ? "8vw" : "5vw",
+                                        height: screen === "mobile" ? "8vw" : "5vw",
+                                        width: screen === "mobile" ? "8vw" : "5vw",
                                         background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
                                         position: "absolute",
                                         borderRadius: "100%",
@@ -70,19 +70,19 @@ export default function Catalogue({ screen, scroll }) {
                             </h1>
 
                             <br />
-                            <h1 style={{ fontSize: screen.mobile ? "clamp(1em, 5vw, 1.5em)" : "clamp(1em, 5vw, 5em)", color: "white", fontWeight: "500", marginTop: screen.mobile ? "-1em" : "-50px" }}>
+                            <h1 style={{ fontSize: screen === "mobile" ? "clamp(1em, 5vw, 1.5em)" : "clamp(1em, 5vw, 5em)", color: "white", fontWeight: "500", marginTop: screen === "mobile" ? "-1em" : "-50px" }}>
                                 <span style={{ color: "gray" }}>Twin</span> Catalogues
                             </h1>
                         </div>
                         <br />
                     </div>
                     <div style={{
-                        width: screen.mobile ? "50%" : "30%", height: screen.mobile ? "50vw" : "100%", display: "flex",
+                        width: screen === "mobile" ? "50%" : "30%", height: screen === "mobile" ? "50vw" : "100%", display: "flex",
                         flexDirection: "column", justifyContent: "center"
                     }} >
                         <img alt='#' ref={img} style={{
-                            width: screen.mobile ? "40vw" : "25vw", height: "40vw", float: "right", transition: "0.1s linear",
-                            transform: "translate3d(100%, 0%, 0px)  rotateZ(15deg)", objectFit: "cover", borderRadius: screen.mobile ? "100%" : "300px"
+                            width: screen === "mobile" ? "40vw" : "25vw", height: "40vw", float: "right", transition: "0.1s linear",
+                            transform: "translate3d(100%, 0%, 0px)  rotateZ(15deg)", objectFit: "cover", borderRadius: screen === "mobile" ? "100%" : "300px"
                         }}
                             src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1cd48441822608c3eb49_newsletter.jpg' />
                     </div>

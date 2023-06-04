@@ -61,7 +61,7 @@ export default function BlackSection({ screen, scroll, menuClicked }) {
         <div ref={container} style={{
             width: "100vw",
             background: "rgba(0, 0, 0, 1)",
-            borderRadius: screen.mobile ? "50px" : "150px",
+            borderRadius: screen === "mobile" ? "50px" : "150px",
             zIndex: 50,
             paddingBottom: "50vh"
         }}>

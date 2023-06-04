@@ -55,11 +55,11 @@ export default function Home() {
     <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
       <Hero screen={screen} scroll={scrollPosition} />
       <CustomCursor activeMouse={activeMouse} />
-      <Sections screen={screen} scroll={scrollPosition}  />
-      <BlackSection screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} menuClicked={menuClicked} scroll={scrollPosition} />
-      <How screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} scroll={scrollPosition} />
+      <Sections screen={screen} scroll={scrollPosition} />
+      <BlackSection screen={screen} menuClicked={menuClicked} scroll={scrollPosition} />
+      <How screen={screen} scroll={scrollPosition} />
     </Layout>
-   
+
 
   )
 }

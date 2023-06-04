@@ -36,14 +36,14 @@ export default function Services({ scroll, screen }) {
     }, [scroll])
 
     return (
-        <div ref={container} style={{ width: "100%", marginTop: "200px", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh", paddingBottom: screen.mobile ? 0 : "40vh" }}>
+        <div ref={container} style={{ width: "100%", marginTop: "200px", overflow: "hidden", paddingTop: "15vh", marginTop: "-15vh", paddingBottom: screen === "mobile" ? 0 : "40vh" }}>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "30%", }}>
                     <img alt="#" ref={left_img}
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d0ee5569e00035865a5_sc3-p-500.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(1.7em, -2em, 0px) rotateX(0deg) rotateZ(-30deg)",
-                            transformStyle: "preserve-3d", width: screen.mobile ? "8em" : "9.6em", height: screen.mobile ? "8em" : "9.6em", objectFit: "cover", borderRadius: screen.mobile ? "35px" : "65px",
+                            transformStyle: "preserve-3d", width: screen === "mobile" ? "8em" : "9.6em", height: screen === "mobile" ? "8em" : "9.6em", objectFit: "cover", borderRadius: screen === "mobile" ? "35px" : "65px",
                             float: "right", transition: "0.2s"
                         }} />
 
@@ -51,7 +51,7 @@ export default function Services({ scroll, screen }) {
                 <div style={{
                     width: "40%", display: "flex", justifyContent: "center"
                 }}>
-                    <div style={{ marginTop: screen.mobile || screen.tablet ? "270px" : `150px` }}>
+                    <div style={{ marginTop: screen === "mobile" || screen === "tablet" ? "270px" : `150px` }}>
                         <h1 style={{ fontSize: "1.8em", fontWeight: "500", color: "gray" }}>Experience</h1>
                         <h1 style={{ fontSize: "2.02em", fontWeight: "500", color: "white" }}>Excellence</h1>
                         <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "50px" }}>
@@ -69,8 +69,8 @@ export default function Services({ scroll, screen }) {
                                 btnParalax(event, event.target, btn.current)
                             }} style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }}>
                                 <Link href="/services" ref={btn} style={{
-                                    height: screen.mobile ? "15vw" : "5vw",
-                                    width: screen.mobile ? "15vw" : "5vw",
+                                    height: screen === "mobile" ? "15vw" : "5vw",
+                                    width: screen === "mobile" ? "15vw" : "5vw",
                                     background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
                                     position: "relative",
                                     borderRadius: "100%", right: "0",
@@ -92,7 +92,7 @@ export default function Services({ scroll, screen }) {
                         src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1cf36bc2117bb361cf7d_sc1.jpg'
                         style={{
                             willChange: "transform", transform: "translate3d(-1.8em, -2em, 0px)  rotateX(0deg) rotateZ(20deg)",
-                            transformStyle: "preserve-3d", width: screen.mobile ? "10em" : "12.7em", height: screen.mobile ? "10em" : "12.7em", objectFit: "cover", borderRadius: screen.mobile ? "35px" : "65px",
+                            transformStyle: "preserve-3d", width: screen === "mobile" ? "10em" : "12.7em", height: screen === "mobile" ? "10em" : "12.7em", objectFit: "cover", borderRadius: screen === "mobile" ? "35px" : "65px",
                             float: "left", transition: "0.2s"
                         }} />
                 </div>
@@ -101,9 +101,9 @@ export default function Services({ scroll, screen }) {
             <div style={{ width: "100%", display: "flex", justifyContent: "center", height: "530px" }}>
                 <img alt="#" ref={bottom_img} src='https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640b1d01ba675235f7da86e3_main.jpg'
                     style={{
-                        width: screen.mobile ? "12em" : "15.2em", height: screen.mobile ? "12em" : "15.2em", objectFit: "cover", marginTop: "100px",
+                        width: screen === "mobile" ? "12em" : "15.2em", height: screen === "mobile" ? "12em" : "15.2em", objectFit: "cover", marginTop: "100px",
                         transform: "translate3d(0px, 8em, 0px) rotateY(0deg) rotateZ(-15deg) ",
-                        borderRadius: screen.mobile ? "35px" : "65px", transition: "0.2s"
+                        borderRadius: screen === "mobile" ? "35px" : "65px", transition: "0.2s"
                     }} />
             </div>
         </div>
