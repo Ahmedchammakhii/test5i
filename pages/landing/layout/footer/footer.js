@@ -3,7 +3,7 @@ export default function Footer({ screen }) {
     return (
         <div>
             <div className="footer-container" style={{ scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>
-                <Link href="/" style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
+                <Link href="/contact" style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
                     <svg viewBox="0 0 700 700">
                         <defs>
                             <clipPath id="clip">

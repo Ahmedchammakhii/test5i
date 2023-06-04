@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { btnParalax } from '@/functions/mouse'
-
+import Link from 'next/link';
 export default function Services({ scroll, screen }) {
     const container = useRef(null);
     const left_img = useRef(null);
@@ -68,7 +68,7 @@ export default function Services({ scroll, screen }) {
                             }} onMouseMove={(event) => {
                                 btnParalax(event, event.target, btn.current)
                             }} style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }}>
-                                <div ref={btn} style={{
+                                <Link href="/services" ref={btn} style={{
                                     height: screen.mobile ? "15vw" : "5vw",
                                     width: screen.mobile ? "15vw" : "5vw",
                                     background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
@@ -82,7 +82,7 @@ export default function Services({ scroll, screen }) {
                                         </svg>
 
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

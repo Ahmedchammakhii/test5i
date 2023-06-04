@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { btnParalax } from '@/functions/mouse'
+import Link from 'next/link'
 export default function Catalogue({ screen, scroll }) {
     const container = useRef(null)
     const img = useRef(null)
@@ -51,7 +52,7 @@ export default function Catalogue({ screen, scroll }) {
                                 }} onMouseMove={(event) => {
                                     btnParalax(event, event.target, btn.current)
                                 }} style={{ cursor: "pointer", width: "35%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                    <div ref={btn} style={{
+                                    <Link href="/catalogues" ref={btn} style={{
                                         height: screen.mobile ? "8vw" : "5vw",
                                         width: screen.mobile ? "8vw" : "5vw",
                                         background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
@@ -64,7 +65,7 @@ export default function Catalogue({ screen, scroll }) {
                                                 <path d="M4 26C1.79086 26 0 27.7909 0 30C0 32.2091 1.79086 34 4 34V26ZM86.8284 32.8284C88.3905 31.2663 88.3905 28.7337 86.8284 27.1716L61.3726 1.71573C59.8105 0.153631 57.2778 0.153631 55.7157 1.71573C54.1536 3.27783 54.1536 5.81049 55.7157 7.37258L78.3431 30L55.7157 52.6274C54.1536 54.1895 54.1536 56.7222 55.7157 58.2843C57.2778 59.8464 59.8105 59.8464 61.3726 58.2843L86.8284 32.8284ZM4 34H84V26H4V34Z" />
                                             </svg>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             </h1>
 
