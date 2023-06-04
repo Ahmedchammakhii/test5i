@@ -64,6 +64,11 @@ export default function Sections({ screen, scroll }) {
             }
         }, [[0, ((data.length - 1) * (innerHeight * 0.9))], [0, 100]])
 
+        if ((container.current.offsetTop > scroll && document.getElementsByClassName("primary-cursor")[0].style.width !== "10px") || (container.current.offsetTop + container.current.clientHeight - (innerHeight * 0.4) >= scroll && container.current.offsetTop + container.current.clientHeight - innerHeight <= scroll)) {
+            document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
+            document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
+            document.getElementsByClassName("cursor-click")[0].textContent = ""
+        }
 
     }, [scroll]);
 
@@ -123,6 +128,8 @@ export default function Sections({ screen, scroll }) {
                     </div>
                     <div style={styles.right_wrapper}><div ref={rightContainer} style={styles.right_container}>{data.map((e, i) => <img
                         onMouseLeave={(event) => {
+                            //  console.log((i === data.length - 1 && !event.target.style.clipPath) || (i === 0 && event.target.style.clipPath === 'inset(0px 0px 0%)'))
+
                             if ((i === data.length - 1 && !event.target.style.clipPath) || (i === 0 && event.target.style.clipPath === "inset(0px 0px 0%)")) {
                                 document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                                 document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
@@ -134,14 +141,13 @@ export default function Sections({ screen, scroll }) {
 
                                     if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
                                         document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
-
                                     } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
                                         document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
                                     }
                                     document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                                     document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                                     document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
+                                    document.getElementsByClassName("cursor-click")[0].textContent = ""
 
                                 }, [[0, ((data.length - 1) * (innerHeight * 0.9))], [0, 100]])
 
@@ -153,8 +159,20 @@ export default function Sections({ screen, scroll }) {
                             document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                             document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                             document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                            document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
+                            document.getElementsByClassName("cursor-click")[0].textContent = "Click"
+                            document.getElementsByClassName("cursor-click")[0].style.color = "white"
 
+                        }} onMouseMove={() => {
+                            if (document.getElementsByClassName("primary-cursor")[0].style.height !== "80px") {
+                                document.getElementsByClassName("cursor-click")[0].textContent = "Click"
+                                document.getElementsByClassName("primary-cursor")[0].style.background = e.color
+                                document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
+                                document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
+                                document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                                document.getElementsByClassName("cursor-click")[0].textContent = "Click"
+                                document.getElementsByClassName("cursor-click")[0].style.color = "white"
+
+                            }
                         }}
                         key={i} style={{ ...styles.img, zIndex: 5 - i }} src={e.img} />)} </div> </div>
                 </div>

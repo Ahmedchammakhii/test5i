@@ -18,17 +18,16 @@ export default function Hero({ scroll }) {
             document.getElementsByClassName("primary-cursor")[0].style.background = "linear-gradient(to bottom right, transparent, #3398ff 80%)"
 
         } else if (hero.current.offsetTop + (hero.current.clientHeight * 0.4) < scroll && hero.current.offsetTop + (hero.current.clientHeight * 0.5) >= scroll && document.querySelector('html').style.background !== data[0].background) {
-
             document.querySelector('html').style.background = data[0].background;
 
             veilNoise.current.style.opacity = 0
             document.getElementsByClassName("primary-cursor")[0].style.background = data[0].color
-
         }
+
     }, [scroll])
     return (
         <div ref={hero} style={{ width: "90vw", marginLeft: "5vw", height: "90vh", background: "transparent", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-            <div ref={veilNoise} style={{
+            <div className='veilNoise' ref={veilNoise} style={{
                 background: "url(https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png)",
                 width: "100vw",
                 height: "100vh",

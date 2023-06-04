@@ -15,7 +15,7 @@ export const CustomCursor = ({ activeMouse }) => {
         left: 0,
         top: 0,
         display: activeMouse ? "block" : "none",
-        transition: "width 0.5s, height 0.5s, transform 0.1s",
+        transition: "width 0.5s, height 0.5s, transform 0.1s linear",
         pointerEvents: "none", overflow: "hidden"
       }}
     >
@@ -30,7 +30,6 @@ export const CustomCursor = ({ activeMouse }) => {
           position: "absolute",
           left: "50%",
           top: "50%",
-          visibility: "hidden",
         }}
       />
     </div>

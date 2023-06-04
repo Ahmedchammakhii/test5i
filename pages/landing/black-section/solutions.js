@@ -24,11 +24,6 @@ export default function Services({ scroll, screen }) {
 
     useEffect(() => {
         scrollTrigger(container, (v) => {
-            if (document.querySelector('html').style.background !== "rgb(240, 240, 240)" && screen.mobile) {
-                document.querySelector('html').style.background = "rgb(240, 240, 240)"
-            } else if (document.querySelector('html').style.background !== "rgb(245, 245, 247)") {
-                document.querySelector('html').style.background = "rgb(245, 245, 247)"
-            }
             right_img.current.style.transform = `translate3d(-1.8em, ${v[0]}em, 0px)   rotateY(${v[1]}deg) rotateZ(${v[2]}deg)`
         }, [[-2, 5], [0, 23], [20, 27]]);
         scrollTrigger(container, (v) => {
@@ -63,24 +58,23 @@ export default function Services({ scroll, screen }) {
                             <h1 style={{ color: "gray", fontSize: "1em", fontWeight: "500" }}>
                                 Check our <br /> <span style={{ color: "white" }}>Solutions</span>
                             </h1>
-                            <div onMouseEnter={(event) => {
+                            <div onMouseEnter={() => {
                                 document.getElementsByClassName("primary-cursor")[0].style.display = "none"
                                 btn.current.style.scale = "1"
-                            }} onMouseLeave={(event) => {
+                            }} onMouseLeave={() => {
                                 btn.current.style.scale = "0.8"
                                 btn.current.style.transform = "none"
                                 document.getElementsByClassName("primary-cursor")[0].style.display = "block";
                             }} onMouseMove={(event) => {
                                 btnParalax(event, event.target, btn.current)
-                            }} style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            }} style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }}>
                                 <div ref={btn} style={{
                                     height: screen.mobile ? "15vw" : "5vw",
                                     width: screen.mobile ? "15vw" : "5vw",
                                     background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
                                     position: "relative",
                                     borderRadius: "100%", right: "0",
-                                    transition: "scale 0.5s, transform 0.3s linear",
-                                    cursor: "pointer"
+                                    transition: "scale 0.5s, transform 0.3s linear"
                                 }}>
                                     <div style={{ width: "95%", height: "95%", background: "linear-gradient(225deg,#73ffa2 14%,#000 52%)", borderRadius: "100%", position: "absolute", top: '2%', left: "2%", display: "flex", justifyContent: "center", alignItems: "center" }} >
                                         <svg fill="white" width="50%" height="30" viewBox="0 0 90 60">
