@@ -13,7 +13,7 @@ export default function Cards({ screen, scroll, containerRef }) {
     }
     const scrollTrigger = (ref, f, values, startCondition, endCondition, Start, End) => {
         const start = Start || ref.current.offsetTop - (innerHeight - (cardsDimension + (cardsDimension * 0.5)))
-        let end = End || start + ref.current.clientHeight - innerHeight;
+        let end = End || start + ref.current.clientHeight - (innerHeight * 0.5);
         if (screen.mobile) {
             end = start + ref.current.clientHeight
         }
@@ -62,6 +62,10 @@ export default function Cards({ screen, scroll, containerRef }) {
 
         if (containerRef) {
             scrollTrigger(container, (v) => {
+                if (document.querySelector('html').style.background !== "rgb(245, 245, 247)") {
+                    document.querySelector('html').style.background = "rgb(245, 245, 247)"
+                }
+
                 containerRef.style.background = `rgba(0, 0, 0, ${v[0]})`
                 if (v[0] < 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "white") {
                     document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
@@ -70,6 +74,7 @@ export default function Cards({ screen, scroll, containerRef }) {
                     document.getElementsByClassName("cursor-click")[0].style.color = "white"
                     document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
                     document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png'
+                    document.getElementsByClassName('veilNoise')[0].style.opacity = 1
                 } else if (v[0] >= 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
                     document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
                     document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
@@ -77,48 +82,102 @@ export default function Cards({ screen, scroll, containerRef }) {
                     document.getElementsByClassName("cursor-click")[0].style.color = "black"
                     document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
                     document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
+                    document.getElementsByClassName('veilNoise')[0].style.opacity = 0
                 }
             }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
         }
+
+        if (container.current.offsetTop - (innerHeight / 2) >= scroll && document.getElementsByClassName("primary-cursor")[0].style.width !== "10px") {
+            document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
+            document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
+            document.getElementsByClassName("cursor-click")[0].textContent = ""
+        }
+
+        const start = container.current.offsetTop - (innerHeight - (cardsDimension + (cardsDimension * 0.5)))
+        let end = start + container.current.clientHeight - (innerHeight * 0.5);
+        if (screen.mobile) {
+            end = start + container.current.clientHeight
+        }
+
         return () => {
             clearTimeout(timer);
         };
     }, [scroll])
 
     function handleClick(index) {
+        const start = container.current.offsetTop - (innerHeight - (cardsDimension + (cardsDimension * 0.5)))
+        let end = start + container.current.clientHeight - (innerHeight * 0.5);
+        if (screen.mobile) {
+            end = start + container.current.clientHeight
+        }
+
         for (let i = 0; i < 5; i++) {
             const transform = container.current.children[i].children[0].style.transform
             const left = transform.slice(transform.indexOf('(') + 1, transform.indexOf(',') - 1);
             const top = transform.slice(transform.indexOf(',') + 1, transform.indexOf(')') - 6);
-
             if (i === index && clicked.current === -1) {
                 clicked.current = i + 1
                 container.current.children[i].children[0].style.transition = "0.5s"
                 container.current.children[i].children[0].style.transform = `translate3d(${left - 20}%,${top - 30}%, 0px)${' rotateZ(0.85deg)'}`;
                 container.current.children[i].style.zIndex = 6
             } else if (i === index && i === clicked.current - 1) {
-                scrollTrigger(container, (v, ref) => {
-                    if (ref.children[i].children[0].style.transition && !timer.current) {
-                        ref.children[i].style.zIndex = i
+                if (end <= scroll) {
+                    const v = cardsMovements[clicked.current - 1]
+                    if (container.current.children[i].children[0].style.transition && !timer.current) {
+                        container.current.children[i].style.zIndex = i
                         clicked.current = -1
                     }
-                    ref.children[i].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
-                }, cardsMovements[i]);
-            } else if (i === index && i !== clicked.current - 1 && clicked.current !== -1) {
-                scrollTrigger(container, (v, ref) => {
-                    if (ref.children[clicked.current - 1].children[0].style.transition && !timer.current) {
-                        ref.children[clicked.current - 1].style.zIndex = clicked.current - 1
+                    container.current.children[i].children[0].style.transform = `translate3d(${v[0][1]}%, ${v[1][1]}%, 0px) rotateZ(${v[2][1]}deg)`
+
+                } else if (start >= scroll) {
+                    const v = cardsMovements[clicked.current - 1]
+                    if (container.current.children[i].children[0].style.transition && !timer.current) {
+                        container.current.children[i].style.zIndex = i
+                        clicked.current = -1
                     }
-                    ref.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
-                }, cardsMovements[clicked.current - 1]);
+                    container.current.children[i].children[0].style.transform = `translate3d(${v[0][0]}%, ${v[1][0]}%, 0px) rotateZ(${v[2][0]}deg)`
+
+                } else {
+                    scrollTrigger(container, (v, ref) => {
+                        if (ref.children[i].children[0].style.transition && !timer.current) {
+                            ref.children[i].style.zIndex = i
+                            clicked.current = -1
+                        }
+                        ref.children[i].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
+                    }, cardsMovements[i]);
+                }
+            } else if (i === index && i !== clicked.current - 1 && clicked.current !== -1) {
+                if (end <= scroll) {
+                    const v = cardsMovements[clicked.current - 1]
+                    if (container.current.children[clicked.current - 1].children[0].style.transition && !timer.current) {
+                        container.current.children[clicked.current - 1].style.zIndex = clicked.current - 1
+                    }
+                    container.current.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0][1]}%, ${v[1][1]}%, 0px) rotateZ(${v[2][1]}deg)`
+
+                } else if (start >= scroll) {
+                    const v = cardsMovements[clicked.current - 1]
+                    if (container.current.children[clicked.current - 1].children[0].style.transition && !timer.current) {
+                        container.current.children[clicked.current - 1].style.zIndex = clicked.current - 1
+                    }
+                    container.current.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0][0]}%, ${v[1][0]}%, 0px) rotateZ(${v[2][0]}deg)`
+
+                } else {
 
 
+
+                    scrollTrigger(container, (v, ref) => {
+                        if (ref.children[clicked.current - 1].children[0].style.transition && !timer.current) {
+                            ref.children[clicked.current - 1].style.zIndex = clicked.current - 1
+                        }
+                        ref.children[clicked.current - 1].children[0].style.transform = `translate3d(${v[0]}%, ${v[1]}%, 0px) rotateZ(${v[2]}deg)`
+                    }, cardsMovements[clicked.current - 1]);
+                }
                 clicked.current = - 1
             }
         }
     }
     return (
-        <div ref={container} style={{  width: "100%", height: screen.mobile ? '100vh' : '200vh', display: "flex", justifyContent: "center", position: "relative" }}>
+        <div ref={container} style={{ width: "100%", height: screen.mobile ? '100vh' : '200vh', display: "flex", justifyContent: "center", position: "relative" }}>
             <div style={{ zIndex: 0, pointerEvents: "none", position: "absolute", height: "100%", transform: `translate(-50% , calc(-${cardsDimension}px * (0.12 * 1.5  )))`, left: `calc(50% + ((${cardsDimension}px * 0.49) - (${cardsDimension}px * 0.153) * 4.5))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
@@ -127,23 +186,20 @@ export default function Cards({ screen, scroll, containerRef }) {
                         document.getElementsByClassName("cursor-click")[0].style.color = "white"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
                     } else {
                         document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                         document.getElementsByClassName("cursor-click")[0].textContent = "Click"
                         document.getElementsByClassName("cursor-click")[0].style.color = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "15px"
+                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                     document.getElementsByClassName("cursor-click")[0].textContent = ""
                     document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
+                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                     document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
 
                 }} alt='#' onClick={() => {
                     handleClick(0)
@@ -160,23 +216,20 @@ export default function Cards({ screen, scroll, containerRef }) {
                         document.getElementsByClassName("cursor-click")[0].style.color = "white"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
                     } else {
                         document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                         document.getElementsByClassName("cursor-click")[0].textContent = "Click"
                         document.getElementsByClassName("cursor-click")[0].style.color = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "15px"
+                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                     document.getElementsByClassName("cursor-click")[0].textContent = ""
                     document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
+                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                     document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
 
                 }} alt='#' onClick={() => {
                     handleClick(1)
@@ -193,23 +246,20 @@ export default function Cards({ screen, scroll, containerRef }) {
                         document.getElementsByClassName("cursor-click")[0].style.color = "white"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
                     } else {
                         document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                         document.getElementsByClassName("cursor-click")[0].textContent = "Click"
                         document.getElementsByClassName("cursor-click")[0].style.color = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "15px"
+                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                     document.getElementsByClassName("cursor-click")[0].textContent = ""
                     document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
+                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                     document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
 
                 }} alt='#' onClick={(e) => {
                     handleClick(2)
@@ -226,23 +276,20 @@ export default function Cards({ screen, scroll, containerRef }) {
                         document.getElementsByClassName("cursor-click")[0].style.color = "white"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
                     } else {
                         document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                         document.getElementsByClassName("cursor-click")[0].textContent = "Click"
                         document.getElementsByClassName("cursor-click")[0].style.color = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "15px"
+                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                     document.getElementsByClassName("cursor-click")[0].textContent = ""
                     document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
+                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                     document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
 
                 }} alt='#' onClick={() => {
                     handleClick(3)
@@ -259,23 +306,20 @@ export default function Cards({ screen, scroll, containerRef }) {
                         document.getElementsByClassName("cursor-click")[0].style.color = "white"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
                     } else {
                         document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                         document.getElementsByClassName("cursor-click")[0].textContent = "Click"
                         document.getElementsByClassName("cursor-click")[0].style.color = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "15px"
+                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                     document.getElementsByClassName("cursor-click")[0].textContent = ""
                     document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
+                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                     document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
 
                 }} alt='#' onClick={() => {
                     handleClick(4)
