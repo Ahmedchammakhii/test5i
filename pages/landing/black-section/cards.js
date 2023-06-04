@@ -87,17 +87,14 @@ export default function Cards({ screen, scroll, containerRef }) {
             }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
         }
 
-        if (container.current.offsetTop - (innerHeight / 2) >= scroll && document.getElementsByClassName("primary-cursor")[0].style.width !== "10px") {
-            document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-            document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-            document.getElementsByClassName("cursor-click")[0].textContent = ""
-        }
+        // if (container.current.offsetTop - (innerHeight / 2) >= scroll && document.getElementsByClassName("primary-cursor")[0].style.width !== "10px") {
+        //     document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
+        //     document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
+        //     document.getElementsByClassName("cursor-click")[0].textContent = ""
+        //     console.log("fired")
+        // }
 
-        const start = container.current.offsetTop - (innerHeight - (cardsDimension + (cardsDimension * 0.5)))
-        let end = start + container.current.clientHeight - (innerHeight * 0.5);
-        if (screen.mobile) {
-            end = start + container.current.clientHeight
-        }
+
 
         return () => {
             clearTimeout(timer);

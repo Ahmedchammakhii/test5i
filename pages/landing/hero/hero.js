@@ -23,7 +23,6 @@ export default function Hero({ scroll }) {
             veilNoise.current.style.opacity = 0
             document.getElementsByClassName("primary-cursor")[0].style.background = data[0].color
         }
-
     }, [scroll])
     return (
         <div ref={hero} style={{ width: "90vw", marginLeft: "5vw", height: "90vh", background: "transparent", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
@@ -37,6 +36,13 @@ export default function Hero({ scroll }) {
                 pointerEvents: "none"
             }}
             />
+
+            <div class="box">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <div style={{ fontWeight: "600", fontSize: "2.5em", maxWidth: "900px", textAlign: "center", lineHeight: "1.2", marginTop: "20vh" }} >
                 A branding agency with a twist
             </div>
@@ -59,11 +65,11 @@ export default function Hero({ scroll }) {
                         event.target.children[0].textContent = words[words.length - 1]
                         event.target.children[1].textContent = words[0]
                         rebelot = true
+
                     } else {
                         counter++
                         event.target.children[0].textContent = words[counter]
                         event.target.children[1].textContent = words[counter + 1]
-
                     };
 
 
@@ -89,6 +95,52 @@ export default function Hero({ scroll }) {
                     transform: translateY(-50%);
                   }
               }
+
+
+            .box{
+               margin-top:-20%;
+               position: absolute
+            }
+            
+            .box span{
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-bottom: 2px solid black;
+                border-right: 2px solid black;
+                transform: rotate(45deg);
+                margin: -10px;
+                animation: animate 20s infinite;
+            }
+            
+            .box span:nth-child(2)
+            {
+                animation-delay: -0.2s;
+            }
+            
+            .box span:nth-child(3)
+            {
+                animation-delay: -0.4s;
+            }
+            
+            @keyframes animate{
+                
+                0%{
+                    opacity: 0;
+                    transform: rotate(45deg) translate(-20px, -20px);
+                } 
+                5%{
+                    opacity: 0.2;
+                }
+                10%{
+                    opacity: 0;
+                    transform: rotate(45deg) translate(20px, 20px);
+                }  
+                100%{
+                    opacity: 0;
+                    transform: rotate(45deg) translate(20px, 20px);
+                }
+            }
             `}</style>
         </div>
     )

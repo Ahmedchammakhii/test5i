@@ -63,7 +63,7 @@ export default function BlackSection({ screen, scroll, menuClicked }) {
             background: "rgba(0, 0, 0, 1)",
             borderRadius: screen.mobile ? "50px" : "150px",
             zIndex: 50,
-            paddingBottom: screen.mobile ? "50vh" : 0
+            paddingBottom: "50vh"
         }}>
             <About screen={screen} scroll={scroll} container={container} />
             <Catalogue screen={screen} scroll={scroll} />

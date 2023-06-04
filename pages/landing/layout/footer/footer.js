@@ -1,8 +1,9 @@
+import Link from "next/link";
 export default function Footer({ screen }) {
     return (
         <div>
-            <div className="footer-container" style={{ transform: screen === "mobile" || screen === "tablet" ? "scale(0.4)" : "scale(0.7)", height: "700px", width: "100%" }}>
-                <div style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
+            <div className="footer-container" style={{ scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>
+                <Link href="/" style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
                     <svg viewBox="0 0 700 700">
                         <defs>
                             <clipPath id="clip">
@@ -47,7 +48,7 @@ export default function Footer({ screen }) {
                         </foreignObject>
                     </svg>
 
-                </div>
+                </Link>
             </div>
             <div style={{ width: screen === "mobile" ? "100vw" : "100%", height: "100px", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: screen === "mobile" ? "90%" : "600px", height: "100%", display: "flex", justifyContent: "space-between" }}>
@@ -89,7 +90,7 @@ export default function Footer({ screen }) {
                         document.getElementsByClassName("primary-cursor")[0].style.height = "70px";
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 1;
                         document.getElementsByClassName("primary-cursor")[0].style.mixBlendMode = "difference";
-                        document.getElementsByClassName("cursor-click")[0].textContent = ""
+                        document.getElementsByClassName("cursor-click")[0].textContent = "";
                     }} onMouseLeave={() => {
                         document.getElementsByClassName("primary-cursor")[0].style.background = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.width = "12px"
