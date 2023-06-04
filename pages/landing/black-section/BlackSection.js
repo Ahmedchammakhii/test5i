@@ -3,7 +3,7 @@ import About from './about'
 import Cards from './cards'
 import Catalogue from './catalogue'
 import MediaBand from './media-band'
-import Services from './services'
+import Services from './solutions'
 import Wow from './wow'
 
 export default function BlackSection({ screen, scroll, menuClicked }) {

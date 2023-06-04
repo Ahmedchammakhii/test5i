@@ -13,7 +13,6 @@ export default function Hero({ scroll }) {
     useEffect(() => {
         if (hero.current.offsetTop + (hero.current.clientHeight * 0.4) >= scroll && document.querySelector('html').style.background !== "rgba(241, 223, 213, 0.5)") {
 
-            console.log("1")
             document.querySelector('html').style.background = "rgba(241, 223, 213, 0.5)";
             veilNoise.current.style.opacity = 1
             document.getElementsByClassName("primary-cursor")[0].style.background = "linear-gradient(to bottom right, transparent, #3398ff 80%)"
@@ -21,7 +20,6 @@ export default function Hero({ scroll }) {
         } else if (hero.current.offsetTop + (hero.current.clientHeight * 0.4) < scroll && hero.current.offsetTop + (hero.current.clientHeight * 0.5) >= scroll && document.querySelector('html').style.background !== data[0].background) {
 
             document.querySelector('html').style.background = data[0].background;
-            console.log(document.querySelector('html').style.background, data[0].background)
 
             veilNoise.current.style.opacity = 0
             document.getElementsByClassName("primary-cursor")[0].style.background = data[0].color

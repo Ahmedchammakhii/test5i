@@ -122,22 +122,30 @@ export default function Sections({ screen, scroll }) {
 
                     </div>
                     <div style={styles.right_wrapper}><div ref={rightContainer} style={styles.right_container}>{data.map((e, i) => <img
-                        onMouseLeave={() => {
-                            scrollTrigger(container, (v) => {
-                                const index = parseInt(((v[1] * (data.length - 1)) / 100))
-
-                                if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
-                                    document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
-
-                                } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
-                                    document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
-                                }
+                        onMouseLeave={(event) => {
+                            if ((i === data.length - 1 && !event.target.style.clipPath) || (i === 0 && event.target.style.clipPath === "inset(0px 0px 0%)")) {
                                 document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
                                 document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
                                 document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
                                 document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
+                            } else {
+                                scrollTrigger(container, (v) => {
+                                    const index = parseInt(((v[1] * (data.length - 1)) / 100))
 
-                            }, [[0, ((data.length - 1) * (innerHeight * 0.9))], [0, 100]])
+                                    if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
+                                        document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
+
+                                    } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
+                                        document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
+                                    }
+                                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
+                                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
+                                    document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                                    document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
+
+                                }, [[0, ((data.length - 1) * (innerHeight * 0.9))], [0, 100]])
+
+                            }
                         }}
                         onMouseEnter={() => {
                             document.getElementsByClassName("cursor-click")[0].textContent = "Click"
