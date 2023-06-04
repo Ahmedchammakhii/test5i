@@ -7,6 +7,7 @@ import main from "../../assets/5.png"
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
 const index = () => {
   const ref=useRef(null)
 useEffect(()=>{
@@ -63,8 +64,8 @@ const refce=useRef(null)
         <main className={style.main} ref={refce}>
            <h1>BLOGS</h1>
            <p>Filters</p>
-           <div className="allbuttons"  style={{display:"flex",justifyContent:"space-between"}} >
-           <div className="buttons" style={{display:"flex",gap:"10px"}}>
+           <div className={style.allbuttons}  style={{display:"flex",justifyContent:"space-between"}} >
+           <div className={style.buttons} style={{display:"flex",gap:"10px"}}>
            <button className={style.selected}>All (20)</button>
            <button>Announcements</button>
            <button>News</button></div>
@@ -75,17 +76,18 @@ const refce=useRef(null)
            </div>
         </main>
         <div className={style.displayblogs}>
-<div className={style.firstimage} >
-  <div className={style.blogdetails}>
-    <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:20,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
-<p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. In adipisci quam vero ratione eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.</p>
+ <div className={style.firstimage} >
+ <a href="/blog" style={{color:"#000"}}> <div className={style.blogdetails}>
+    <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:20,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem",textAlign:"center",fontSize:"2.3rvw"}}>5i on red carpet</h1>
+<p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>{"Lorem ipsum dolor sit amet consectetur adipisicing elit. In adipisci quam vero ratione eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.".slice(0,80)+"..."}</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>
-  </div>
+  </div></a>
         </div>
+        
         <div className={style.secimage} >
         <div className={style.blogdetails}>
     <h1 style={{background:"#fff",borderRadius:"3rem",width:"max-content",borderBottomLeftRadius:0,padding:20,borderBottomRightRadius:'0',borderTopRightRadius:"20rem 3rem"}}>5i on red carpet</h1>
-<p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. In adipisci quam vero ratione eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.</p>
+<p style={{color:"GrayText",background:"#fff",borderRadius:"2rem",marginTop:"-25px",paddingTop:"10px",padding:20,borderTopLeftRadius:0}}>{"Lorem ipsum dolor sit amet consectetur adipisicing elit. In adipisci quam vero ratione eos repellendus debitis beatae dolores, nemo, totam eveniet amet! Repellat animi, quia adipisci officiis accusantium aperiam sequi.".slice(0,80)+"..."}</p>
   <p style={{background:"#fff",borderRadius:"3rem",width:"max-content",padding:10,marginTop:"-25px",borderTopLeftRadius:0,borderBottomRightRadius:"15rem 2rem"}}>23 mai 2022</p>
   </div>
         </div>

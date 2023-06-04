@@ -12,15 +12,16 @@ exports.getUsers = async () => {
   return clientsList;
 }
 exports.createUser = async (user) => {
-
   const clientsCol = collection(db, 'clients');
   const userWithTimestamp = {
     ...user,
-    created_at: serverTimestamp()
+    created_at: serverTimestamp(),
+    // needs: firebase.firestore.FieldValue.arrayUnion(...user.arrayField) // Assuming the array of strings is in user.arrayField
   };
   const newUserRef = await addDoc(clientsCol, userWithTimestamp);
   console.log(`User created with ID: ${newUserRef.id}`);
-}
+};
+
 
 
 exports.getOneUser = async (userId) => {

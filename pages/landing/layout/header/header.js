@@ -38,11 +38,7 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
               src="https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png" />
           </div>
         </div>
-        <div style={styles.nav_sides}>
-          <div style={{ ...styles.links_container, opacity: isClicked || scroll ? 0 : 1, display: screen === "mobile" ? "none" : "inherit", marginTop: scroll ? "-80px" : 0 }}>
-            <Link href='/contact' style={styles.links}>Contact</Link>
             <Link href='/blogs' style={styles.links}>Blogs</Link>
-            <Link href='/services' style={styles.links}>Services</Link>
           </div>
 
           <div

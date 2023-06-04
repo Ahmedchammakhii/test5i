@@ -14,10 +14,25 @@ import Footer from '../landing/layout/footer/footer'
 export default function services() {
  
   const sectionRef = useRef(null);
-
+  const thirdref=useRef(null)
   const firstRef= useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
   
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: thirdref.current,
+        start: 'top 50%',
+        end:'end end',
+        scrub: true,
+       
+      },
+    });
+    
+    timeline
+      .fromTo('.'+styles.blacklayer,{opacity:0},{opacity:1,duration:1,ease:"linear"}
   
+      ,"-=2s").to('.'+styles.FourthSection,{borderTopLeftRadius:0,borderTopRightRadius:"0"})})
 
   return (
     <main className={styles.main} style={{overflow:"hidden"}}>
@@ -26,11 +41,12 @@ export default function services() {
       <section className={styles.FirstSection} ref= {firstRef}>
 <FirstSection/>
 </section>
+<section className={styles.ThirdSection} style={{position:"relative"}} ref={sectionRef}>
+  <section className={styles.blacklayer}></section>
 
-<section className={styles.ThirdSection}ref={sectionRef}>
 <ThirdSection/>
 </section>
-<section className={styles.FourthSection}>
+<section className={styles.FourthSection} ref={thirdref}>
 <FourthSection/>
 </section>
 <Footer ></Footer>

@@ -8,6 +8,7 @@
     justify-content: center;
     position: relative;
     min-height: max-content;
+    min-width: 100vh;
     }
   
    
@@ -86,7 +87,7 @@
   }
  
   .dashboard canvas{
-    scale:0.8
+    scale:0.7
   }
   .tablecontainer h2{
    text-align: center;
@@ -102,6 +103,7 @@
       padding-top: 3rem;
       width:max-content;
       min-height: max-content;
+      font-size: larger;
     }
   
     .table {
@@ -111,7 +113,8 @@
   }
   @media screen and (max-width: 480px) {
     .dashboard {
-      padding-top: 2rem;
+      padding-top: 4rem;
+   
     }
   
     .table {
@@ -119,7 +122,18 @@
     }
   }
 
+/*   
+  @media screen and (max-width: 310px) {
+    .dashboard {
+      padding-top: 2rem;
+      width:min-content
+    }
   
- 
+    .table {
+      width: 10%;
+  
+    }
+  } */
+
   
   

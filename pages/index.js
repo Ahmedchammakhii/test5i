@@ -59,5 +59,7 @@ export default function Home() {
       <BlackSection screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} menuClicked={menuClicked} scroll={scrollPosition} />
       <How screen={{ tablet: screen === "tablet", mobile: screen === "mobile" }} scroll={scrollPosition} />
     </Layout>
+   
+
   )
 }
