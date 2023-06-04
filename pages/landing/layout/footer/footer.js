@@ -58,7 +58,6 @@ export default function Footer({ screen }) {
                                 document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
                                 document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
                                 document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
-                                document.getElementsByClassName("cursor-click")[0].style.visibility = "visible"
                                 setTimeout(() => {
                                     if (document.getElementsByClassName("cursor-click")[0].textContent !== "Copie") {
                                         document.getElementsByClassName("cursor-click")[0].textContent = "Copie"
@@ -69,7 +68,6 @@ export default function Footer({ screen }) {
                                 document.getElementsByClassName("primary-cursor")[0].style.width = "12px"
                                 document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
                                 document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                                document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
                                 document.getElementsByClassName("cursor-click")[0].textContent = ""
                             }}
                                 onClick={() => {
@@ -90,15 +88,13 @@ export default function Footer({ screen }) {
                         document.getElementsByClassName("primary-cursor")[0].style.width = "70px";
                         document.getElementsByClassName("primary-cursor")[0].style.height = "70px";
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 1;
-                        document.getElementsByClassName("primary-cursor")[0].style.mixBlendMode = "difference"
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "visible";
+                        document.getElementsByClassName("primary-cursor")[0].style.mixBlendMode = "difference";
                         document.getElementsByClassName("cursor-click")[0].textContent = ""
                     }} onMouseLeave={() => {
                         document.getElementsByClassName("primary-cursor")[0].style.background = "black"
                         document.getElementsByClassName("primary-cursor")[0].style.width = "12px"
                         document.getElementsByClassName("primary-cursor")[0].style.height = "12px"
                         document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
-                        document.getElementsByClassName("cursor-click")[0].style.visibility = "hidden"
                         document.getElementsByClassName("primary-cursor")[0].style.mixBlendMode = "normal"
 
                     }} style={{ width: "50%" }}>
