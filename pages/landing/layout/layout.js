@@ -6,6 +6,7 @@ export default function layout({
   scroll,
   children,
   screen,
+  htmlcss = null,
 }) {
   return (
     <div
@@ -20,13 +21,14 @@ export default function layout({
       />
       {children}
       <Footer screen={screen} scroll={scroll} />
-
-      <style>{`
+      {htmlcss === null && (
+        <style>{`
             html {
                 font-size: calc(0.95rem + 1vw);
                 transition: background 2s;
               }
             `}</style>
+      )}
     </div>
   );
 }
