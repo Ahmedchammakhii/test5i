@@ -9,7 +9,7 @@ import {
   registerables
 } from "chart.js";
 import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget';
-import { Cloudinary } from "@cloudinary/url-gen";
+// import { Cloudinary } from "@cloudinary/url-gen";
 import axios from 'axios';
 import styles from "./dashboard.module.css"
 import { useRouter } from 'next/router';
