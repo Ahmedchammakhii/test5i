@@ -16,7 +16,7 @@ import marketing from "../../assets/marketing.png"
 import { gsap } from 'gsap'
 import img from "../../assets/web.png"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-export const FourthSection = () => {
+ const FourthSection = () => {
 const [pack,setpack]=useState({first:true,sec:false,last:false})
 const sectionRef = useRef(null);
 const [scroll,setscroll]=useState(undefined)
@@ -182,3 +182,4 @@ for your requirements</p>
     </div>
   )
 }
+export default FourthSection

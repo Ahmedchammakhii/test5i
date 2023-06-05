@@ -1,9 +1,9 @@
-import { FirstSection } from "./firstSection";
+import  FirstSection  from "./firstSection";
 import styles from "../../styles/services.module.css"
 import Image from "next/image";
 import clouds from "../../assets/clouds.png"
-import { ThirdSection } from "./ThirdSection";
-import { FourthSection } from "./fourthSection";
+import  ThirdSection  from "./ThirdSection";
+import  FourthSection  from "./fourthSection";
 import {useRef,useEffect} from 'react'
 import { gsap } from 'gsap'
 import img from "../../assets/web.png"
