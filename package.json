@@ -20,6 +20,8 @@
     "gsap": "^3.11.5",
     "mongodb-atlas-api-client": "^3.10.0",
     "next": "13.3.2",
+    "next-auth": "^4.22.1",
+    "next-auth-client": "^1.5.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
