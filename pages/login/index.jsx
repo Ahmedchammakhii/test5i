@@ -3,6 +3,7 @@ import styles from "../login/login.module.css";
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+// import { getSession } from 'next-auth/client';
 
 const initialState = { email: '', password: '' } 
 const Login = () => {
@@ -22,23 +23,25 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
-      let login = await axios.post("http://localhost:3000/api/admin/signIn", input);
-      console.log("hiii", login.data.uid);
+      let response = await axios.post("http://localhost:3000/api/admin/signIn", input);
+      // console.log("hiii", login.data);
       
-      router.push({
-        pathname: '/Dashboard',
-        query: { uid: login.data.uid }
-      });
+      if (response.data.uid) {
+        router.push({
+          pathname: '/Dashboard',
+          query: { uid: response.data.uid }
+        });}
+  
     } catch (error) {
       if (error.response) {
-        console.log("Response status:", error.response.code);
-        console.log("Response data:", error.response.data);
+        // console.log("Response status:", error.response.code);
+        // console.log("Response data:", error.response.data);
         alert('Sign-in error');
       } else if (error.request) {
-        console.log("No response received:", error.request);
+        // console.log("No response received:", error.request);
         alert("No response received");
       } else {
-        console.log("Error setting up the request:", error.message);
+       alert("Error setting up the request:", error.message);
       }
     }
    

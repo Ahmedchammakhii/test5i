@@ -1,10 +1,12 @@
 import { useRef, useEffect } from 'react'
-
+import { btnParalax } from '@/functions/mouse'
+import Link from 'next/link';
 export default function Services({ scroll, screen }) {
     const container = useRef(null);
     const left_img = useRef(null);
     const right_img = useRef(null);
     const bottom_img = useRef(null);
+    const btn = useRef(null)
 
     const scrollTrigger = (ref, f, values) => {
         const start = ref.current.offsetTop - innerHeight
@@ -22,11 +24,6 @@ export default function Services({ scroll, screen }) {
 
     useEffect(() => {
         scrollTrigger(container, (v) => {
-            if (document.querySelector('html').style.background !== "rgb(240, 240, 240)" && screen.mobile) {
-                document.querySelector('html').style.background = "rgb(240, 240, 240)"
-            } else if (document.querySelector('html').style.background !== "rgb(245, 245, 247)") {
-                document.querySelector('html').style.background = "rgb(245, 245, 247)"
-            }
             right_img.current.style.transform = `translate3d(-1.8em, ${v[0]}em, 0px)   rotateY(${v[1]}deg) rotateZ(${v[2]}deg)`
         }, [[-2, 5], [0, 23], [20, 27]]);
         scrollTrigger(container, (v) => {
@@ -61,19 +58,31 @@ export default function Services({ scroll, screen }) {
                             <h1 style={{ color: "gray", fontSize: "1em", fontWeight: "500" }}>
                                 Check our <br /> <span style={{ color: "white" }}>Solutions</span>
                             </h1>
-                            <div style={{
-                                height: screen.mobile ? "15vw" : "5vw",
-                                width: screen.mobile ? "15vw" : "5vw",
-                                background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
-                                position: "relative",
-                                borderRadius: "100%", right: "0"
-                            }}>
-                                <div style={{ width: "96.8%", height: "96.8%", background: "linear-gradient(225deg,#73ffa2 14%,#000 52%)", borderRadius: "100%", position: "absolute", top: '2%', left: "2%", display: "flex", justifyContent: "center", alignItems: "center" }} >
-                                    <svg fill="white" width="50%" height="30" viewBox="0 0 90 60">
-                                        <path d="M4 26C1.79086 26 0 27.7909 0 30C0 32.2091 1.79086 34 4 34V26ZM86.8284 32.8284C88.3905 31.2663 88.3905 28.7337 86.8284 27.1716L61.3726 1.71573C59.8105 0.153631 57.2778 0.153631 55.7157 1.71573C54.1536 3.27783 54.1536 5.81049 55.7157 7.37258L78.3431 30L55.7157 52.6274C54.1536 54.1895 54.1536 56.7222 55.7157 58.2843C57.2778 59.8464 59.8105 59.8464 61.3726 58.2843L86.8284 32.8284ZM4 34H84V26H4V34Z" />
-                                    </svg>
+                            <div onMouseEnter={() => {
+                                document.getElementsByClassName("primary-cursor")[0].style.display = "none"
+                                btn.current.style.scale = "1"
+                            }} onMouseLeave={() => {
+                                btn.current.style.scale = "0.8"
+                                btn.current.style.transform = "none"
+                                document.getElementsByClassName("primary-cursor")[0].style.display = "block";
+                            }} onMouseMove={(event) => {
+                                btnParalax(event, event.target, btn.current)
+                            }} style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }}>
+                                <Link href="/services" ref={btn} style={{
+                                    height: screen.mobile ? "15vw" : "5vw",
+                                    width: screen.mobile ? "15vw" : "5vw",
+                                    background: "linear-gradient(297deg,#73ffa2 36%,#000 87%)",
+                                    position: "relative",
+                                    borderRadius: "100%", right: "0",
+                                    transition: "scale 0.5s, transform 0.3s linear"
+                                }}>
+                                    <div style={{ width: "95%", height: "95%", background: "linear-gradient(225deg,#73ffa2 14%,#000 52%)", borderRadius: "100%", position: "absolute", top: '2%', left: "2%", display: "flex", justifyContent: "center", alignItems: "center" }} >
+                                        <svg fill="white" width="50%" height="30" viewBox="0 0 90 60">
+                                            <path d="M4 26C1.79086 26 0 27.7909 0 30C0 32.2091 1.79086 34 4 34V26ZM86.8284 32.8284C88.3905 31.2663 88.3905 28.7337 86.8284 27.1716L61.3726 1.71573C59.8105 0.153631 57.2778 0.153631 55.7157 1.71573C54.1536 3.27783 54.1536 5.81049 55.7157 7.37258L78.3431 30L55.7157 52.6274C54.1536 54.1895 54.1536 56.7222 55.7157 58.2843C57.2778 59.8464 59.8105 59.8464 61.3726 58.2843L86.8284 32.8284ZM4 34H84V26H4V34Z" />
+                                        </svg>
 
-                                </div>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

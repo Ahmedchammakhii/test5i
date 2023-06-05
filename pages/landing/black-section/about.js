@@ -35,8 +35,6 @@ export default function About({ scroll, screen, container }) {
                 rightContainer.current.children[1].style.transform = `translate3d(${v[2]}%, ${v[4]}px, 0px) rotateZ(${v[3]}deg)`
             }, [[300, 150], [15, 15], [50, 0], [-15, -32], [-0, 30]], rightStart, rightEnd)
 
-            console.log(rightContainer.current.children[1].style.transform)
-
         } else {
             const start = container.current.offsetTop - innerHeight
             const end = container.current.offsetTop + container.current.children[0].clientHeight - innerHeight * 1.2

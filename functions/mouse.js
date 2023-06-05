@@ -43,9 +43,10 @@ export const mouseMove = (event) => {
         } else if (translateY > maxTranslateY) {
             translateY = maxTranslateY;
         }
-
         projectButton.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+
     } else if (header) {
+
         const headerButton = document.querySelector('.header-button');
         const headerContainer = document.querySelector('.header-container');
         const { left, top } = headerContainer.getBoundingClientRect();
@@ -89,6 +90,7 @@ export const mouseMove = (event) => {
 export const mouseEnter = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
     event.stopPropagation()
+    document.querySelector('.footer-container').style.scale = "0.8"
     const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {
@@ -100,6 +102,7 @@ export const mouseEnter = (event) => {
 export const mouseLeave = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
     event.stopPropagation()
+    document.querySelector('.footer-container').style.scale = "0.7"
     const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {
@@ -172,4 +175,66 @@ export const headerMouseLeave = (event) => {
     }
 }
 
+export const btnParalax = (event, container, btn) => {
+    const { clientX, clientY } = event;
+    const { left, top } = container.getBoundingClientRect();
+    const minTranslateX = -container.clientWidth / 15;
+    const maxTranslateX = container.clientWidth / 15;
+    const minTranslateY = -container.clientHeight / 15;
+    const maxTranslateY = container.clientHeight / 15;
 
+    let translateX = (clientX - left) - container.clientWidth / 2;
+    let translateY = (clientY - (top)) - container.clientHeight / 2;
+
+    if (translateX < minTranslateX) {
+        translateX = minTranslateX;
+    } else if (translateX > maxTranslateX) {
+        translateX = maxTranslateX;
+    }
+
+    if (translateY < minTranslateY) {
+        translateY = minTranslateY;
+    } else if (translateY > maxTranslateY) {
+        translateY = maxTranslateY;
+    }
+
+    btn.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+
+}
+
+
+
+
+
+
+
+
+
+// export const scrollTrigger = (ref, f, values, customStart, customEnd) => {
+//     return () => {
+//         let start = customStart || ref.current.offsetTop - window.innerHeight
+//         let end = customEnd || start + window.innerHeight + ref.current.clientHeight;
+//         if (window.scrollY <= end && start <= window.scrollY) {
+//             let percentages = []
+//             for (let i = 0; values.length > i; i++) {
+//                 percentages.push((((window.scrollY - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
+//             }
+//             f(percentages, ref.current)
+//         }
+//     }
+// };
+
+// export const scrollEvent = (f) => {
+
+//     return () => {
+//         window.addEventListener('scroll', () => {
+//             if (Array.isArray(f)) {
+//                 for (let i = 0; f.length > i; i++) {
+//                     f[i]()
+//                 }
+//             } else {
+//                 f()
+//             }
+//         });
+//     }
+// }

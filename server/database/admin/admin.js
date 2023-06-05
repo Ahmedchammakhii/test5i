@@ -46,10 +46,10 @@ async function signUpAsAdmin(email, password) {
 //     const passwordBuffer = Buffer.from(password, 'utf8');
 //     const scryptParams = { N: 16384, r: 8, p: 1, dkLen: 64, encoding: 'binary' };
 
-//     // Derive the password hash using scrypt
+//    
 //     const derivedKey = await scrypt(passwordBuffer, salt, scryptParams);
 
-//     // Store the derivedKey and salt in your user data collection or database
+//   
 //     const userRecord = await admin.auth().createUser({
 //       email: email,
 //       passwordHash: derivedKey.toString('base64'),
