@@ -10,6 +10,7 @@ import left from '../assets/left.png'
 import right from "../assets/right.png"
 
 import sec from "../assets/first.png"
+import CustomButton from './contact/components/CustomButton'
 const choices = () => {
   const [blur,setblur]=useState('0px')
   const [shown,setshown]=useState('flex')
@@ -34,16 +35,19 @@ gsap.from(".circle", {rotate:20,scale:0})
 <input required={true} style={{border:0,width:"50%",height:"5%",paddingLeft:10,background:"transparent",marginBottom:5,borderBottom:"1px solid #fff",color:"#fff"}} type="text" placeholder='Last Name' />
 <input required={true} style={{border:0,width:"50%",height:"5%",paddingLeft:10,background:"transparent",marginBottom:5,borderBottom:"1px solid #fff",color:"#fff"}} type="email" placeholder='Email' />
 <input style={{border:0,width:"50%",height:"5%",paddingLeft:10,background:"transparent",marginBottom:5,borderBottom:"1px solid #fff",color:"#fff"}} type="text" placeholder='Matricule fiscale' />
-<button onClick={e=>{setshown("none");setblur("0px")}}>Download our catalogues</button>
-
+<CustomButton
+              key={"btn01558"}
+              label={"Download"}
+              onClick={() => {setshown("none");setblur("0px")}} />
     </div>
    </div>
     <div style={{height:"100vh",width:"100vw",background:"#000",display:'flex',filter:`blur(${blur})`}}>
         <div className="rightonecontainer" style={{width:"50%",background:"#fff",display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}} onMouseOver={e=>{
             gsap.to(".rightonecontainer",{width:"100%"})
+
         }} onMouseLeave={e=> {gsap.to(".rightonecontainer",{width:"50%"})
         gsap.to(".thething",{rotate:0})
-    
+
       }}>
 <h1 style={{background:"#000",color:"#fff",padding:40,cursor:"grab",zIndex:4}}
 onMouseOver={e=>{
@@ -63,9 +67,12 @@ onMouseLeave={e=>{
         <div className="leftonecontainer"  onMouseOver={e=>{
             gsap.to(".leftonecontainer",{width:"100%"})
 gsap.to(".wave",{x:100})
+gsap.to(".wave1",{x:100,visibility:"visible"})
+
           }
             } onMouseLeave={e=>{ gsap.to(".leftonecontainer",{width:"50%"})
             gsap.to(".wave",{x:0})
+            gsap.to(".wave1",{x:0,visibility:"hidden"})
 
           }
             } style={{width:"50%",color:"#ffff",display:"flex",alignItems:"center",justifyContent:"center",position:'relative'}}>
@@ -84,6 +91,7 @@ onMouseLeave={e=>{
 <Image className={"onhoverimage1"} src={img2} style={{width:"100%",height:"100%",position:"absolute",objectFit:"cover",zIndex:2,opacity:0}} ></Image>
 
 <Image className='thething' src={sec} style={{position:"absolute",left:0,zIndex:3}}></Image>
+<Image className='wave1'  src={left} style={{position:"absolute",left:-100,zIndex:2,height:"100%"}}></Image>
 
         </div>
     </div>
