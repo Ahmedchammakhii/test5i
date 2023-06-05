@@ -10,46 +10,112 @@ import img from "../../assets/web.png"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Header from '../landing/layout/header/header'
 
-import Footer from '../landing/layout/footer/footer'
 export default function services() {
- 
+  const [screen, setScreen] = useState("mobile");
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [color, setBackground] = useState(0);
+  const [activeMouse, setActiveMouse] = useState(true);
+  const background = [
+    "#fae1ee",
+    "#e0f0ff",
+    "#ffede0",
+    "#d3d6f0",
+    "#ffeae0",
+    "#f5f5f7",
+  ];
+  const [menuClicked, setMenuClicked] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    setScrollPosition(window.scrollY);
+  }, []);
+  const handleResize = useCallback((setScreen) => {
+    setScreen(
+      window.innerWidth < 764
+        ? "mobile"
+        : window.innerWidth < 1112
+        ? "tablet"
+        : "desktop"
+    );
+  }, []);
+
+  const handleMouseMove = useCallback(mouseMove, []);
+  const handleMouseEnter = useCallback(mouseEnter, []);
+  const handleMouseLeave = useCallback(mouseLeave, []);
+
+  useLayoutEffect(() => {
+    const innerContainerRef = document.querySelector(".footer-inner-container");
+    const mainContainer = document.querySelector(".main-container");
+
+    mainContainer.addEventListener("mousemove", handleMouseMove);
+
+    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      mainContainer.removeEventListener("mousemove", handleMouseMove);
+
+      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
+
   const sectionRef = useRef(null);
-  const thirdref=useRef(null)
-  const firstRef= useRef(null);
+  const thirdref = useRef(null);
+  const firstRef = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-  
+
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: thirdref.current,
-        start: 'top 50%',
-        end:'end end',
+        start: "top 50%",
+        end: "end end",
         scrub: true,
-       
       },
     });
-    
+
     timeline
-      .fromTo('.'+styles.blacklayer,{opacity:0},{opacity:1,duration:1,ease:"linear"}
-  
-      ,"-=2s").to('.'+styles.FourthSection,{borderTopLeftRadius:0,borderTopRightRadius:"0"})})
+      .fromTo(
+        "." + styles.blacklayer,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "linear" },
+
+        "-=2s"
+      )
+      .to("." + styles.FourthSection, {
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: "0",
+      });
+  });
 
   return (
-    <main className={styles.main} style={{overflow:"hidden"}}>
-       <Header scroll={null} screen={null} />
-            
-      <section className={styles.FirstSection} ref= {firstRef}>
-<FirstSection/>
-</section>
-<section className={styles.ThirdSection} style={{position:"relative"}} ref={sectionRef}>
-  <section className={styles.blacklayer}></section>
+    <main className={styles.main} style={{ overflow: "hidden" }}>
+      <Layout
+        isClicked={menuClicked}
+        setIsClicked={setMenuClicked}
+        scroll={scrollPosition}
+        setActiveMouse={setActiveMouse}
+        screen={screen}
+        htmlcss={"yes"}
+      >
+        <CustomCursor activeMouse={activeMouse} />
 
-<ThirdSection/>
-</section>
-<section className={styles.FourthSection} ref={thirdref}>
-<FourthSection/>
-</section>
-<Footer ></Footer>
+        <section className={styles.FirstSection} ref={firstRef}>
+          <FirstSection />
+        </section>
+        <section
+          className={styles.ThirdSection}
+          style={{ position: "relative" }}
+          ref={sectionRef}
+        >
+          <section className={styles.blacklayer}></section>
+
+          <ThirdSection />
+        </section>
+        <section className={styles.FourthSection} ref={thirdref}>
+          <FourthSection />
+        </section>
+      </Layout>
     </main>
   );
 }

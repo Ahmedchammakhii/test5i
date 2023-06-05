@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 const { VerifyToken } = require('../middlewear/verifyToken');
 const scrypt = require('scrypt-js');
 require('dotenv').config()
-const serviceAccountKey = process.env.FIREBASE_CREDENTIAL["service_account_key"]
+// const serviceAccountKey = process.env.FIREBASE_CREDENTIAL["service_account_key"]
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: 'https://db5i-9ff89.firebaseio.com/'
