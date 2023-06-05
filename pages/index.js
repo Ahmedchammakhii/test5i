@@ -36,8 +36,6 @@ export default function Home() {
 
       innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
       innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
-
-
     };
   }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
 

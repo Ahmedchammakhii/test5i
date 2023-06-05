@@ -37,7 +37,7 @@ export default function Hero({ scroll }) {
             }}
             />
 
-            <div class="box">
+            <div className="box">
                 <span></span>
                 <span></span>
                 <span></span>
