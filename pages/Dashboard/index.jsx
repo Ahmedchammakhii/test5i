@@ -8,11 +8,11 @@ import {
   PointElement,
   registerables,
 } from "chart.js";
-import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget';
+import { WidgetLoader, Widget } from "react-cloudinary-upload-widget";
 // import { Cloudinary } from "@cloudinary/url-gen";
-import axios from 'axios';
-import styles from "./dashboard.module.css"
-import { useRouter } from 'next/router';
+import axios from "axios";
+import styles from "./dashboard.module.css";
+import { useRouter } from "next/router";
 // import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
 
@@ -45,7 +45,7 @@ const Dashboard = () => {
       // console.log('uid',uid)
       const response = await axios.get(url);
       setMonthlyUsers(response.data);
-      setUsers(response.data)
+      setUsers(response.data);
       // console.log(response.data);
     } catch (error) {
       console.error(error);
@@ -69,9 +69,11 @@ const Dashboard = () => {
   }
   async function fetchBlogs(url) {
     try {
-      const response = await axios.get(url)
+      const response = await axios.get(url);
       // console.log(response.data)
-      setBlogs(response.data)
+      setBlogs(response.data);
+    } catch (error) {
+      alert("Error posting blog:", error.message);
     }
   }
 
@@ -93,7 +95,7 @@ const Dashboard = () => {
       let refresh = await axios.get("http://localhost:3000/api/blogs");
       setBlogs(refresh.data);
     } catch (error) {
-      alert('Error posting blog:', error.message);
+      alert("Error posting blog:", error.message);
     }
   };
   const deleteBlog = async (id) => {
@@ -107,10 +109,7 @@ const Dashboard = () => {
     } catch (error) {
       console.error("Error deleting blog:", error.message);
     }
-    catch (error) {
-      alert('Error deleting blog:', error.message)
-    }
-  }
+  };
   const updateBlog = async (id) => {
     let updatedData = {
       title: blogTitle,
