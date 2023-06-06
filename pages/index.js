@@ -71,7 +71,6 @@ export default function Home() {
       setIsClicked={setMenuClicked}
       scroll={scrollPosition}
       setActiveMouse={setActiveMouse}
-      screen={screen}
     >
       <Hero screen={screen} scroll={scrollPosition} />
       <CustomCursor activeMouse={activeMouse} />

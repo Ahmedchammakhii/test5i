@@ -5,7 +5,6 @@ export default function layout({
   setIsClicked,
   scroll,
   children,
-  screen,
 }) {
   return (
     <div
@@ -16,12 +15,11 @@ export default function layout({
         isClicked={isClicked}
         setIsClicked={setIsClicked}
         scroll={scroll}
-        screen={screen}
       />
 
       {children}
 
-      <Footer screen={screen} scroll={scroll} />
+      <Footer scroll={scroll} />
       <style>{`
             html {
                 font-size: calc(0.95rem + 1vw);
