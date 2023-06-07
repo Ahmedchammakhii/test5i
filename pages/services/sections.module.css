@@ -129,7 +129,7 @@
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 20px !important;
 }
 .choice {
   display: flex;

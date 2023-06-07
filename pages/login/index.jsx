@@ -1,57 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import styles from "../login/login.module.css";
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { useRouter } from "next/router";
+import Link from "next/link";
+// import { getSession } from 'next-auth/client';
 
-const initialState = { email: '', password: '' } 
+const initialState = { email: "", password: "" };
 const Login = () => {
   const router = useRouter();
-  const[input,setInput]=useState(initialState)
+  const [input, setInput] = useState(initialState);
   const [uid, setUid] = useState(null);
-  useEffect(()=>{
-  
-  },[])
+  useEffect(() => {}, []);
   const handleChange = ({ target }) => {
-    setInput(prevInput => ({
+    setInput((prevInput) => ({
       ...prevInput,
-      [target.name]: target.value
+      [target.name]: target.value,
     }));
     console.log(input);
   };
 
   const handleSubmit = async () => {
     try {
-      let login = await axios.post("http://localhost:3000/api/admin/signIn", input);
-      console.log("hiii", login.data.uid);
-      
-      router.push({
-        pathname: '/Dashboard',
-        query: { uid: login.data.uid }
+      const response = await fetch("http://localhost:3000/api/admin/signIn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(input),
       });
-    } catch (error) {
-      if (error.response) {
-        console.log("Response status:", error.response.code);
-        console.log("Response data:", error.response.data);
-        alert('Sign-in error');
-      } else if (error.request) {
-        console.log("No response received:", error.request);
-        alert("No response received");
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.uid) {
+          router.push({
+            pathname: "/Dashboard",
+            query: { uid: data.uid },
+          });
+        }
       } else {
-        console.log("Error setting up the request:", error.message);
+        throw new Error("Sign in failed with status: " + response.status);
       }
+    } catch (error) {
+      console.error("Error signing in", error.message);
     }
-   
   };
 
   return (
     <div className={styles.login_page}>
       <div className={styles.form}>
         <form className={styles.login_form}>
-          <input type="email" name="email" autoComplete='on' onChange={handleChange} />
-          <input type="password" name="password" autoComplete='on' onChange={handleChange} />
-          <button type='button' onClick={handleSubmit}>login</button>
-        
+          <input
+            type="email"
+            name="email"
+            autoComplete="on"
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            name="password"
+            autoComplete="on"
+            onChange={handleChange}
+          />
+          <button type="button" onClick={handleSubmit}>
+            login
+          </button>
+
           {/* <p className={styles.message}>Not registered? <a href="#">Create an account</a></p> */}
         </form>
       </div>

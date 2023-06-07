@@ -76,7 +76,7 @@
   background-color: hsl(220, 5%, 78%);
   overflow: hidden;
 
-  background-image: url("../../assets/15.jpg");
+  background-image: attr(image);
   background-position: 50%;
   cursor: pointer;
 }
@@ -94,8 +94,8 @@
 }
 .blogdetails {
   position: absolute;
-  bottom: 0;
-  padding: 2rem;
+  bottom: 10px;
+  scale: 0.8;
 }
 .listingblogs {
   display: grid;
@@ -107,13 +107,13 @@
 }
 .oneblog {
   width: 29vw;
-  height: 450px;
+  height: 25vw;
   border-radius: 3rem;
   position: relative;
   background-color: hsl(0, 0%, 67%);
   overflow: hidden;
   cursor: pointer;
-  background-image: url("../../assets/5.png");
+  background-image: attr(oneblog);
 }
 .aaa {
   height: max-content;
@@ -126,6 +126,7 @@
 .blogdetails h1 {
   font-size: calc(2.2vw);
   width: 100%;
+  font-family: "Audiowide", cursive;
 }
 .blogdetails p {
   font-size: calc(1.1vw);
@@ -144,7 +145,7 @@
   }
   .oneblog {
     width: 42vw;
-    height: 40vh;
+    height: 35vh;
   }
   .allbuttons {
     flex-direction: column;
@@ -154,7 +155,7 @@
     height: max-content;
   }
   .blogdetails p {
-    font-size: calc(2vw);
+    font-size: calc(2vw + 0.3rem);
   }
 }
 @media screen and (max-width: 550px) {
@@ -172,5 +173,8 @@
     font-size: calc(3rem + 5vw);
     line-height: calc(4rem + 4.8vw);
     text-align: center;
+  }
+  .blogdetails h1 {
+    font-size: calc(0.5rem + 1.9vw);
   }
 }
