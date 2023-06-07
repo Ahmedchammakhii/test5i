@@ -27,7 +27,11 @@ const index = () => {
       },
     });
 
-    timeline.fromTo("." + style.blogs, { y: 0 }, { y: -200 });
+    timeline.fromTo(
+      "." + style.blogs,
+      { translateY: 0, transition: "all linear 1s", duration: 2 },
+      { translateY: -200, transition: "all linear 1s", duration: 2 }
+    );
 
     let mouse = {
       x: undefined,
