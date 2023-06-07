@@ -17,10 +17,10 @@
     "mongodb-atlas-api-client": "^3.10.0",
     "next": "10.0.0",
     "postcss": "8.4.23",
-    "react": "16.0.1",
+    "react": "16.14.0",
     "react-chartjs-2": "^5.2.0",
     "react-cloudinary-upload-widget": "^1.6.0",
-    "react-dom": "16.0.1",
+    "react-dom": "16.10.0",
     "simplebar-react": "^3.2.4",
     "tailwindcss": "3.3.2"
   },
