@@ -133,7 +133,6 @@ const FourthSection = () => {
     });
 
     return () => {
-      if (timeline) timeline.kill();
       document.removeEventListener("mousemove");
     };
   }, []);
