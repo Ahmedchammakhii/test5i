@@ -133,7 +133,26 @@ const FourthSection = () => {
     });
 
     return () => {
-      document.removeEventListener("mousemove");
+      document.removeEventListener("mousemove", function () {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+
+        posX =
+          ((mouse.x - window.innerWidth / 2) / (window.innerWidth / 2)) * 100;
+        posY =
+          ((mouse.y - window.innerHeight / 2) / (window.innerHeight / 2)) * 100;
+
+        degX = posX / sensibility;
+        degY = posY / sensibility;
+
+        packs.current.style &&
+          (packs.current.style.transform =
+            "rotateX(" +
+            -degY +
+            "deg) rotateY(" +
+            degX +
+            "deg) translateZ(-100px)");
+      });
     };
   }, []);
   return (
