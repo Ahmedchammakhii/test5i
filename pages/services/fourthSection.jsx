@@ -30,17 +30,16 @@ const FourthSection = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "end end",
+        scrub: true,
+      },
+    });
 
     if (window.innerWidth > 750) {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "end end",
-          scrub: true,
-        },
-      });
-
       timeline
         .fromTo(
           ".psycho",
@@ -87,14 +86,6 @@ const FourthSection = () => {
           { fontSize: "20px" }
         );
     } else {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top -30%",
-          end: "end end",
-          scrub: true,
-        },
-      });
       timeline.fromTo(
         ".psycho",
         {
