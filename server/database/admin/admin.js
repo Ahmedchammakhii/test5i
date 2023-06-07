@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 const { VerifyToken } = require('../middlewear/verifyToken');
 const scrypt = require('scrypt-js');
 require('dotenv').config()
-// const serviceAccountKey = process.env.FIREBASE_CREDENTIAL["service_account_key"]
+const serviceAccountKey = process.env.FIREBASE_CREDENTIAL["service_account_key"]
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: 'https://db5i-9ff89.firebaseio.com/'
@@ -46,10 +46,10 @@ async function signUpAsAdmin(email, password) {
 //     const passwordBuffer = Buffer.from(password, 'utf8');
 //     const scryptParams = { N: 16384, r: 8, p: 1, dkLen: 64, encoding: 'binary' };
 
-//    
+//     // Derive the password hash using scrypt
 //     const derivedKey = await scrypt(passwordBuffer, salt, scryptParams);
 
-//   
+//     // Store the derivedKey and salt in your user data collection or database
 //     const userRecord = await admin.auth().createUser({
 //       email: email,
 //       passwordHash: derivedKey.toString('base64'),
