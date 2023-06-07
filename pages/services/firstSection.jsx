@@ -47,8 +47,8 @@ const FirstSection = () => {
 
     timelin1.fromTo(
       "." + style.glass,
-      { translateY: 0, transition: "all linear 1s" },
-      { translateY: 200, transition: "all linear 1s" }
+      { translateY: 0, transition: "all linear 1s", duration: 2 },
+      { translateY: 200, transition: "all linear 1s", duration: 2 }
     );
   });
   return (
