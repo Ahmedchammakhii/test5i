@@ -17,7 +17,22 @@ export default function Cards({ screen, scroll, containerRef }) {
         if (screen === "mobile") {
             end = start + ref.current.clientHeight
         }
-        if ((scroll <= end && start <= scroll) || (scroll > end && endCondition) || (scroll < start && startCondition)) {
+
+        const percentages = []
+        if (start > window.scrollY && ref.current.store) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push(values[i][0])
+            }
+            f(percentages, ref.current)
+            ref.current.store = false
+        } else if (window.scrollY > end && ref.current.store) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push(values[i][1])
+            }
+            f(percentages, ref.current);
+            ref.current.store = false
+        }
+        else if ((scroll <= end && start <= scroll) || (scroll > end && endCondition) || (scroll < start && startCondition)) {
             let percentages = []
             for (let i = 0; values.length > i; i++) {
                 if (!i) {
@@ -25,6 +40,9 @@ export default function Cards({ screen, scroll, containerRef }) {
                 percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
             }
             f(percentages, ref.current)
+            if (!ref.current.store) {
+                ref.current.store = true
+            }
         }
     }
     const cardsMovements = [

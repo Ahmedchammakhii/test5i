@@ -20,6 +20,7 @@ export default function How({ screen, scroll }) {
         //
     }, []);
     useEffect(() => {
+        
         if (scroll >= container.current.offsetTop - (window.innerHeight * 0.2)) {
 
             const children = ref.current.children;

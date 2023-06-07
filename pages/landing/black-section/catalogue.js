@@ -7,14 +7,30 @@ export default function Catalogue({ screen, scroll }) {
     const txt = useRef(null)
     const btn = useRef(null)
 
-    const scrollTrigger = (ref, f, values, startCondition, endCondition, Start, End) => {
+    const scrollTrigger = (ref, f, values) => {
         let start = ref.current.offsetTop - innerHeight;
         let end = start + ref.current.clientHeight - (innerHeight * 0.2);
         if (screen === "mobile") {
             start += (innerHeight * 0.4)
             end += (innerHeight * 0.4)
         }
-        if (scroll <= end && start <= scroll) {
+
+
+        const percentages = []
+        if (start > window.scrollY && ref.current.store) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push(values[i][0])
+            }
+            f(percentages, ref.current)
+            ref.current.store = false
+        } else if (window.scrollY > end && ref.current.store) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push(values[i][1])
+            }
+            f(percentages, ref.current);
+            ref.current.store = false
+        }
+        else if (scroll <= end && start <= scroll) {
             let percentages = []
             for (let i = 0; values.length > i; i++) {
                 if (!i) {
@@ -22,6 +38,9 @@ export default function Catalogue({ screen, scroll }) {
                 percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
             }
             f(percentages, ref.current)
+            if (!ref.current.store) {
+                ref.current.store = true
+            }
         }
     }
     useEffect(() => {

@@ -5,16 +5,28 @@ export default function About({ scroll, screen, container }) {
     const leftContainer = useRef(null)
     const rightContainer = useRef(null)
     const scrollTrigger = (ref, f, values, start, end) => {
-
-        container.current.offsetTop + container.current.children[0].clientHeight - innerHeight * 1.2
-
-        if (scroll <= end && start <= scroll) {
-
-            let percentages = []
+        const percentages = []
+        if (start > window.scrollY && ref.current.store) {
             for (let i = 0; values.length > i; i++) {
-                percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
+                percentages.push(values[i][0])
             }
             f(percentages, ref.current)
+            ref.current.store = false
+        } else if (window.scrollY > end && ref.current.store) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push(values[i][1])
+            }
+            f(percentages, ref.current);
+            ref.current.store = false
+        }
+        else if (window.scrollY <= end && start <= window.scrollY) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push((((window.scrollY - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
+            }
+            f(percentages, ref.current)
+            if (!ref.current.store) {
+                ref.current.store = true
+            }
         }
     }
 
