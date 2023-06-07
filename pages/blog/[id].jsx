@@ -3,7 +3,6 @@ import style from "../blogs/blogs.module.css";
 import Header from "../landing/layout/header/header";
 import wave from "../../assets/circ.png";
 import { useRouter } from "next/router";
-import axios from "axios";
 import wave2 from "../../assets/circ2.png";
 import Footer from "../landing/layout/footer/footer";
 import main from "../../assets/1.png";
@@ -89,8 +88,10 @@ const index = ({ title, picUrl, description }) => {
   const [blog, setblog] = useState(null);
   async function fetchBlogs() {
     try {
-      const response = await axios.get("http://localhost:3000/api/blogs");
-      response.data.forEach((blog) => {
+      const response = await fetch("http://localhost:3000/api/blogs");
+      const data = await response.json();
+
+      data.forEach((blog) => {
         if (blog.id == id) {
           setblog(blog.data);
         }

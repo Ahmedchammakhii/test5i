@@ -7,7 +7,6 @@ import main from "../../assets/5.png";
 import Image from "next/image";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import axios from "axios";
 import Link from "next/link";
 
 const index = () => {
@@ -86,8 +85,10 @@ const index = () => {
   });
   async function fetchBlogs() {
     try {
-      const response = await axios.get("http://localhost:3000/api/blogs");
-      setblogs(response.data);
+      const response = await fetch("http://localhost:3000/api/blogs");
+      const data = await response.json();
+
+      setblogs(data);
     } catch (e) {
       console.log(e);
     }

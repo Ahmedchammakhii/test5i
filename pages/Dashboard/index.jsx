@@ -9,12 +9,8 @@ import {
   registerables,
 } from "chart.js";
 import { WidgetLoader, Widget } from "react-cloudinary-upload-widget";
-// import { Cloudinary } from "@cloudinary/url-gen";
-import axios from "axios";
 import styles from "./dashboard.module.css";
 import { useRouter } from "next/router";
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
 
 ChartJS.register(
   BarElement,
@@ -43,8 +39,10 @@ const Dashboard = () => {
   async function fetchData(url) {
     try {
       // console.log('uid',uid)
-      const response = await axios.get(url);
-      setMonthlyUsers(response.data);
+      const response = await fetch(url);
+      const data = await response.json();
+      setMonthlyUsers(data);
+
       setUsers(response.data);
       // console.log(response.data);
     } catch (error) {
@@ -69,9 +67,9 @@ const Dashboard = () => {
   }
   async function fetchBlogs(url) {
     try {
-      const response = await axios.get(url);
-      // console.log(response.data)
-      setBlogs(response.data);
+      const response = await fetch(url);
+      const data = await response.json();
+      setBlogs(data);
     } catch (error) {
       alert("Error posting blog:", error.message);
     }
@@ -84,28 +82,44 @@ const Dashboard = () => {
       image_url: url,
       created_at: timestamp,
     };
-
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/blogs/add",
-        blog
-      );
+      const response = await fetch("http://localhost:3000/api/blogs/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(blog),
+      });
 
-      console.log("Blog posted successfully:", response.data, "blog", blog);
-      let refresh = await axios.get("http://localhost:3000/api/blogs");
-      setBlogs(refresh.data);
+      if (response.ok) {
+        console.log("Blog posted successfully:", blog);
+        const refresh = await fetch("http://localhost:3000/api/blogs");
+        const data = await refresh.json();
+        setBlogs(data);
+      } else {
+        throw new Error("Blog post failed with status: " + response.status);
+      }
     } catch (error) {
-      alert("Error posting blog:", error.message);
+      alert("Error posting blog: " + error.message);
     }
   };
   const deleteBlog = async (id) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:3000/api/blogs/delete/${id}`
+      const response = await fetch(
+        `http://localhost:3000/api/blogs/delete/${id}`,
+        {
+          method: "DELETE",
+        }
       );
-      console.log(response);
-      let refresh = await axios.get("http://localhost:3000/api/blogs");
-      setBlogs(refresh.data);
+
+      if (response.ok) {
+        console.log("Blog deleted successfully");
+        const refresh = await fetch("http://localhost:3000/api/blogs");
+        const data = await refresh.json();
+        setBlogs(data);
+      } else {
+        throw new Error("Blog deletion failed with status: " + response.status);
+      }
     } catch (error) {
       console.error("Error deleting blog:", error.message);
     }
@@ -118,11 +132,22 @@ const Dashboard = () => {
     };
 
     try {
-      const response = await axios.put(
+      const response = await fetch(
         `http://localhost:3000/api/blogs/update/blog/${id}`,
-        updatedData
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedData),
+        }
       );
-      console.log(response);
+
+      if (response.ok) {
+        console.log("Data updated successfully");
+      } else {
+        throw new Error("Data update failed with status: " + response.status);
+      }
     } catch (error) {
       console.error("Error updating data", error.message);
     }
