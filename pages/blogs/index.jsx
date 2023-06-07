@@ -17,55 +17,33 @@ const index = () => {
   }, []);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    if (window.innerWidth > 650) {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top top",
+          end: "end end",
+          scrub: true,
+        },
+      });
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ref.current,
-        start: "top top",
-        end: "end end",
-        scrub: true,
-      },
-    });
+      timeline.fromTo(
+        "." + style.blogs,
+        { translateY: 0, transition: "all linear 1s", duration: 2 },
+        { translateY: -200, transition: "all linear 1s", duration: 2 }
+      );
 
-    timeline.fromTo(
-      "." + style.blogs,
-      { translateY: 0, transition: "all linear 1s", duration: 2 },
-      { translateY: -200, transition: "all linear 1s", duration: 2 }
-    );
+      let mouse = {
+        x: undefined,
+        y: undefined,
+      };
+      let posX;
+      let posY;
+      let degX;
+      let degY;
+      let sensibility = 10;
 
-    let mouse = {
-      x: undefined,
-      y: undefined,
-    };
-    let posX;
-    let posY;
-    let degX;
-    let degY;
-    let sensibility = 10;
-
-    document.addEventListener("mousemove", function () {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-
-      posX =
-        ((mouse.x - window.innerWidth / 2) / (window.innerWidth / 2)) * 100;
-      posY =
-        ((mouse.y - window.innerHeight / 2) / (window.innerHeight / 2)) * 100;
-
-      degX = posX / sensibility;
-      degY = posY / sensibility;
-
-      refce.current?.style &&
-        (refce.current.style.transform =
-          "rotateX(" +
-          -degY +
-          "deg) rotateY(" +
-          degX +
-          "deg) translateZ(-100px)");
-    });
-    return () => {
-      timeline.kill();
-      document.removeEventListener("mousemove", function () {
+      document.addEventListener("mousemove", function () {
         mouse.x = event.clientX;
         mouse.y = event.clientY;
 
@@ -77,7 +55,7 @@ const index = () => {
         degX = posX / sensibility;
         degY = posY / sensibility;
 
-        refce.current.style &&
+        refce.current?.style &&
           (refce.current.style.transform =
             "rotateX(" +
             -degY +
@@ -85,7 +63,31 @@ const index = () => {
             degX +
             "deg) translateZ(-100px)");
       });
-    };
+      return () => {
+        timeline.kill();
+        document.removeEventListener("mousemove", function () {
+          mouse.x = event.clientX;
+          mouse.y = event.clientY;
+
+          posX =
+            ((mouse.x - window.innerWidth / 2) / (window.innerWidth / 2)) * 100;
+          posY =
+            ((mouse.y - window.innerHeight / 2) / (window.innerHeight / 2)) *
+            100;
+
+          degX = posX / sensibility;
+          degY = posY / sensibility;
+
+          refce.current.style &&
+            (refce.current.style.transform =
+              "rotateX(" +
+              -degY +
+              "deg) rotateY(" +
+              degX +
+              "deg) translateZ(-100px)");
+        });
+      };
+    }
   });
   async function fetchBlogs() {
     try {
