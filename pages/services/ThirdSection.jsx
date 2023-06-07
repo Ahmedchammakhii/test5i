@@ -3,7 +3,7 @@ import styles from "./sections.module.css"
 import bullet from "../../assets/bullet.svg"
 import Image from 'next/image'
 
- const ThirdSection = () => {
+export const ThirdSection = () => {
     const [leftclicked,setclicked]=useState(true);
     const sectionRef = useRef(null);
   
@@ -56,4 +56,3 @@ import Image from 'next/image'
     </div>
   )
 }
-export default ThirdSection

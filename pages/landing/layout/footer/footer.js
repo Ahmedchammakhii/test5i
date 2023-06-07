@@ -2,7 +2,7 @@ import Link from "next/link";
 export default function Footer({ screen }) {
     return (
         <div>
-            <div className="footer-container" style={{ scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>
+            <div className="footer-container" style={{ scale: "0.7", position: "relative", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>
                 <Link href="/contact" style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
                     <svg viewBox="0 0 700 700">
                         <defs>
@@ -10,44 +10,59 @@ export default function Footer({ screen }) {
                                 <path d="M 556.58 105.892 A 319.757 319.757 0 0 0 45.004 361.709 c 0 176.559 143.154 319.712 319.713 319.712 c 173.826 0 315.135 -138.746 319.541 -311.495 q 0.176 -4.109 0.176 -8.218 V 41.997 a 159.711 159.711 0 0 0 -127.854 63.895 Z" />
                             </clipPath>
                         </defs>
-                        <path d="M 556.58 105.892 A 319.757 319.757 0 0 0 45.004 361.709 c 0 176.559 143.154 319.712 319.713 319.712 c 173.826 0 315.135 -138.746 319.541 -311.495 q 0.176 -4.109 0.176 -8.218 V 41.997 a 159.711 159.711 0 0 0 -127.854 63.895 Z" fill="white" />
-                        <foreignObject
-                            className="footer-inner-container"
+                        <path d="M 556.58 105.892 A 319.757 319.757 0 0 0 45.004 361.709 c 0 176.559 143.154 319.712 319.713 319.712 c 173.826 0 315.135 -138.746 319.541 -311.495 q 0.176 -4.109 0.176 -8.218 V 41.997 a 159.711 159.711 0 0 0 -127.854 63.895 Z" fill="transparent" />
+                    </svg>
+                    <div
+                        className="footer-inner-container"
+                        style={{
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            background: "white",
+                            top: "0",
+                            left: "0",
+                            clipPath: "url(#clip)",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center"
+                        }} >
+                        <h4 style={{
+                            fontWeight: "normal",
+                            zIndex: "5555",
+                            marginTop: "-28px",
+                            color: "black",
+                            fontSize: "20px",
+                            marginTop: "25px"
+
+                        }}>
+                            Click to </h4>
+                        <h1 style={{
+                            fontWeight: "normal", zIndex: "5555", color: "black", fontSize: "50px",
+                        }}>
+                            Get in touch </h1>
+                        <div
+                            className="footer-inner"
                             style={{
-                                height: "100%",
                                 width: "100%",
-                                overflow: "hidden",
+                                height: "100%",
+                                position: "absolute",
+                                transform: "scale(0)",
+
                             }}
-                            clipPath="url(#clip)"
                         >
-                            <h4 style={{ fontWeight: "normal", zIndex: "5555", marginTop: "-28px", color: "black", fontSize: "20px", position: "absolute", left: "50%", top: "50%", transform: 'translate(-50%, -50%)' }}>
-                                Click to </h4>
-                            <h1 style={{ fontWeight: "normal", zIndex: "5555", marginTop: "14px", color: "black", fontSize: "50px", position: "absolute", left: "50%", top: "50%", transform: 'translate(-50%, -50%)' }}>
-                                Get in touch </h1>
                             <div
-                                className="footer-inner"
+                                className="footer-inner-inner"
                                 style={{
                                     width: "100%",
                                     height: "100%",
-                                    position: "absolute",
-                                    transform: "scale(0)",
-
+                                    background: "black",
+                                    borderRadius: "100%",
+                                    transition: "0.4s ease-in-out",
                                 }}
-                            >
-                                <div
-                                    className="footer-inner-inner"
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        background: "black",
-                                        borderRadius: "100%",
-                                        transition: "0.4s ease-in-out",
-                                    }}
-                                />
-                            </div>
-                        </foreignObject>
-                    </svg>
-
+                            />
+                        </div>
+                    </div>
                 </Link>
             </div>
             <div style={{ width: screen === "mobile" ? "100vw" : "100%", height: "100px", display: "flex", justifyContent: "center" }}>

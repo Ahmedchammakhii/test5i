@@ -5,7 +5,7 @@ import firsta from '../../assets/shape.svg'
 import sec from '../../assets/3orsa.png'
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
- const FirstSection = () => {
+export const FirstSection = () => {
   const first = useRef(null);
   useEffect(()=>{
     const timeline=gsap.timeline() ; 
@@ -74,5 +74,3 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
     </div>
   )
 }
-
-export default FirstSection

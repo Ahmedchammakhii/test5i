@@ -6,4 +6,16 @@
     gap: 5px;
     /* background-color: red; */
 }
-
+.buttonsContainer button{
+     cursor: pointer;
+     position: relative;
+     overflow: hidden;
+     font-weight: 500;
+     transition: 0.8s;
+     font-size: 0.8rem;
+     width: 150px;
+     height: 55px;
+     border-radius: 20% 20% 20% 20%/45% 45% 45% 45% ;
+     border: 1px solid black;
+     
+}

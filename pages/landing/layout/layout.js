@@ -1,31 +1,21 @@
-import Header from "./header/header";
-import Footer from "./footer/footer";
-export default function layout({
-  isClicked,
-  setIsClicked,
-  scroll,
-  children,
-}) {
-  return (
-    <div
-      style={{ display: "flex", flexDirection: "column" }}
-      className="main-container"
-    >
-      <Header
-        isClicked={isClicked}
-        setIsClicked={setIsClicked}
-        scroll={scroll}
-      />
+import Header from './header/header'
+import Footer from './footer/footer'
+export default function layout({ isClicked, setIsClicked, scroll, children, screen }) {
 
-      {children}
+    return (
+        <div style={{ display: "flex", flexDirection: "column" }}
+            className="main-container">
+            <Header isClicked={isClicked} setIsClicked={setIsClicked} scroll={scroll} screen={screen} />
 
-      <Footer scroll={scroll} />
-      <style>{`
+            {children}
+
+            <Footer screen={screen} scroll={scroll} />
+            <style>{`
             html {
                 font-size: calc(0.95rem + 1vw);
                 transition: background 2s, background-image 2s;
                 }
             `}</style>
-    </div>
-  );
+        </div>
+    )
 }

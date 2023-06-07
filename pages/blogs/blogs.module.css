@@ -76,7 +76,7 @@
   background-color: hsl(220, 5%, 78%);
   overflow: hidden;
 
-  background-image: attr(image);
+  background-image: url("../../assets/15.jpg");
   background-position: 50%;
   cursor: pointer;
 }
@@ -107,13 +107,13 @@
 }
 .oneblog {
   width: 29vw;
-  height: 29vw;
+  height: 450px;
   border-radius: 3rem;
   position: relative;
   background-color: hsl(0, 0%, 67%);
   overflow: hidden;
   cursor: pointer;
-  background-image: attr(oneblog);
+  background-image: url("../../assets/5.png");
 }
 .aaa {
   height: max-content;
@@ -126,7 +126,6 @@
 .blogdetails h1 {
   font-size: calc(2.2vw);
   width: 100%;
-  font-family: "Audiowide", cursive;
 }
 .blogdetails p {
   font-size: calc(1.1vw);
@@ -173,8 +172,5 @@
     font-size: calc(3rem + 5vw);
     line-height: calc(4rem + 4.8vw);
     text-align: center;
-  }
-  .blogdetails h1 {
-    font-size: calc(0.2rem + 1.9vw);
   }
 }
