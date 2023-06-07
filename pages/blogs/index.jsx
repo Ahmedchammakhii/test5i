@@ -64,7 +64,7 @@ const index = () => {
             "deg) translateZ(-100px)");
       });
       return () => {
-        timeline.kill();
+        if (timeline) timeline.kill();
         document.removeEventListener("mousemove", function () {
           mouse.x = event.clientX;
           mouse.y = event.clientY;
