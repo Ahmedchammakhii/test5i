@@ -142,7 +142,7 @@ const FourthSection = () => {
     });
 
     return () => {
-      timeline.kill();
+      if (timeline) timeline.kill();
       document.removeEventListener("mousemove");
     };
   }, []);
