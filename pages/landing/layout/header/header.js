@@ -85,12 +85,6 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
           .right_side { font-weight: 500; color: #6e6e73; line-height: 1.8; margin-top: -20%;}
           .mobile_button {background-color: #3398ff;color: white;border-radius: 50px;font-size: 20px;width: 80vw;height: 60px;display: flex;align-items: center;justify-content: center;margin-top: 60px;}
 
-           @media screen and (max-width:1200px){
-            .main_container {
-              background : #000;
-              height:  500px 
-            }
-           }
     `}</style>
     </>
   )
