@@ -1,8 +1,10 @@
 import Link from "next/link";
 export default function Footer({ screen }) {
+
+    console.log(screen)
     return (
         <div>
-            <div className="footer-container" style={{ scale: "0.7", position: "relative", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>
+            <div className="footer-container" style={{ scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", position: "relative", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>
                 <Link href="/contact" style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
                     <svg viewBox="0 0 700 700">
                         <defs>
@@ -149,6 +151,6 @@ export default function Footer({ screen }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
