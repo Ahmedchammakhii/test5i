@@ -107,7 +107,7 @@
 }
 .oneblog {
   width: 29vw;
-  height: 29vw;
+  height: 25vw;
   border-radius: 3rem;
   position: relative;
   background-color: hsl(0, 0%, 67%);
@@ -145,7 +145,7 @@
   }
   .oneblog {
     width: 42vw;
-    height: 40vh;
+    height: 35vh;
   }
   .allbuttons {
     flex-direction: column;
