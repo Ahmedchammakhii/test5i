@@ -3,7 +3,7 @@ export default function Footer({ screen }) {
 
     return (
         <div>
-            <div className="footer-container" style={{ overflow: "hidden", scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", position: "relative", height: "700px", width: "100%", cursor: "pointer", transition: "scale 1s" }}>
+            <div className="footer-container" style={{ overflow: screen === "mobile" ? "visible" : "hidden", scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", position: "relative", height: "700px", width: "100vw", cursor: "pointer", transition: "scale 1s" }}>
                 <Link href="/contact" style={{ width: "700px", height: "700px", position: "absolute", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }}>
                     <svg viewBox="0 0 700 700">
                         <defs>

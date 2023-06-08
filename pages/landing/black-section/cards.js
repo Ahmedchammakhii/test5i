@@ -113,16 +113,6 @@ export default function Cards({ screen, scroll, containerRef }) {
                 }
             }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
         }
-
-        // if (container.current.offsetTop - (innerHeight / 2) >= scroll && document.querySelector('.primary-cursor').style.width !== "10px") {
-        //     document.querySelector('.primary-cursor').style.width = "10px"
-        //     document.querySelector('.primary-cursor').style.height = "10px"
-        //     document.querySelector('.cursor-click').textContent = ""
-        //     console.log("fired")
-        // }
-
-
-
         return () => {
             clearTimeout(timer);
         };

@@ -24,20 +24,22 @@ export default function Home() {
   const handleMouseLeave = useCallback(mouseLeave, [])
 
   useLayoutEffect(() => {
-    const innerContainerRef = document.querySelector('.footer-inner-container');
-    const mainContainer = document.querySelector('.main-container');
-    mainContainer.addEventListener("mousemove", handleMouseMove);
+    if (screen !== "mobile") {
+      const innerContainerRef = document.querySelector('.footer-inner-container');
+      const mainContainer = document.querySelector('.main-container');
+      mainContainer.addEventListener("mousemove", handleMouseMove);
 
-    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
-    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
+      innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+      innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
 
-    return () => {
-      mainContainer.removeEventListener("mousemove", handleMouseMove);
+      return () => {
+        mainContainer.removeEventListener("mousemove", handleMouseMove);
 
-      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
-      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
+        innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+        innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
+  }, [handleMouseMove, handleMouseLeave, handleMouseEnter, screen]);
 
   useLayoutEffect(() => {
     handleResize(setScreen);
