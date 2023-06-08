@@ -67,7 +67,8 @@ const FirstSection = () => {
         src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg"
         style={{
           rotate: "90deg",
-          transform: "translate(150px) scale(1.5)",
+          top: 0,
+          transform: " scale(1.5)",
           mixBlendMode: "color-dodge",
           width: "70vw",
           position: "absolute",
