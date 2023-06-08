@@ -10,7 +10,7 @@ export default function layout({
 }) {
   return (
     <div
-      style={{ display: "flex", flexDirection: "column" }}
+      style={{ display: "flex", flexDirection: "column", transition: "background 2s" }}
       className="main-container"
     >
       <Header
@@ -27,7 +27,6 @@ export default function layout({
         <style>{`
             html {
                 font-size: calc(0.95rem + 1vw);
-                transition: background 2s, background-image 2s;
                 }
             `}</style>
       )}
