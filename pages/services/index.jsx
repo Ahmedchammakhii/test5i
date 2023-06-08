@@ -113,7 +113,7 @@ export default function services() {
             style={{
               background:
                 "url(https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png)",
-              width: "100vw",
+              width: "200vw",
               height: "100vh",
               position: "fixed",
               top: "0",
