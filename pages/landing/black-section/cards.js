@@ -7,7 +7,7 @@ export default function Cards({ screen, scroll, containerRef }) {
     const [cardsDimension, setCardsDimension] = useState(0)
     const styles = {
         cards: {
-            position: "sticky", top: "calc(50vh)", marginTop: "15em",
+            position: "sticky", top: "calc(50vh)", marginTop: "15em", cursor: "none",
             height: "16em", width: `${cardsDimension}px`, height: `${cardsDimension}px`,
         }
     }
@@ -80,8 +80,8 @@ export default function Cards({ screen, scroll, containerRef }) {
 
         if (containerRef) {
             scrollTrigger(container, (v) => {
-                if (document.querySelector('.home').style.background !== "rgb(245, 245, 247)") {
-                    document.querySelector('.home').style.background = "rgb(245, 245, 247)"
+                if (document.querySelector('.main-container').style.background !== "rgb(245, 245, 247)") {
+                    document.querySelector('.main-container').style.background = "rgb(245, 245, 247)"
                 }
 
                 containerRef.style.background = `rgba(0, 0, 0, ${v[0]})`

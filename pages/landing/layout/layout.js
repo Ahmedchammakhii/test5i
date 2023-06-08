@@ -20,9 +20,7 @@ export default function layout({
         screen={screen}
       />
 
-      <div className="home">
-        {children}
-      </div>
+            {children}
 
       <Footer screen={screen} scroll={scroll} />
       {htmlcss == "no" && (
