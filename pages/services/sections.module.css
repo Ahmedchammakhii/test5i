@@ -661,6 +661,7 @@
   }
   .boxchoice {
     width: 50px;
+    transform: scale(0.95);
   }
   .thirdsec h2:nth-child(3) {
     font-size: calc(1.2rem + 0.2vw);
