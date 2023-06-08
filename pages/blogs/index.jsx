@@ -115,9 +115,9 @@ const index = () => {
                 className={style.buttons}
                 style={{ display: "flex", gap: "10px" }}
               >
-                <button className={style.selected}>All (20)</button>
-                <button>Announcements</button>
-                <button>News</button>
+                <button className={style.selected}>
+                  All {blogs && `(${blogs.length})`}
+                </button>
               </div>
               <div className="searchbutton">
                 <p style={{ fontSize: ".7rem", marginBottom: "5px" }}>
@@ -331,8 +331,6 @@ const index = () => {
                 style={{ display: "flex", gap: "10px" }}
               >
                 <button className={style.selected}>All (20)</button>
-                <button>Announcements</button>
-                <button>News</button>
               </div>
               <div className="searchbutton">
                 <p style={{ fontSize: ".7rem", marginBottom: "5px" }}>

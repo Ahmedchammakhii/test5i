@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (max-height: 748px) and (max-width: 800px) {
+@media screen and (max-height: 748px) and (max-width: 920px) {
   .ThirdSection {
     height: 200vh;
   }
@@ -194,10 +194,36 @@
     height: 500vh;
   }
 }
+@media screen and (min-width: 1230px) and (max-width: 1440px) and (min-height: 600px) and (max-height: 877px) {
+  .FourthSection {
+    min-height: 250vh;
+  }
+}
 .blacklayer {
   height: 100%;
   width: 100%;
   background-color: #000000;
   position: absolute;
   bottom: 0;
+}
+
+@media screen and (min-height: 700px) and (min-width: 700px) and (max-height: 800px) and (max-width: 800px) {
+  .ThirdSection {
+    height: 200vh;
+  }
+}
+@media screen and (min-height: 700px) and (min-width: 400px) and (max-height: 800px) and (max-width: 450px) {
+  .ThirdSection {
+    height: 150vh;
+  }
+}
+@media screen and (max-width: 380px) {
+  .ThirdSection {
+    height: 150vh;
+  }
+}
+@media screen and (min-width: 1024px) and (min-height: 690px) and (max-height: 710px) and (max-width: 1150px) {
+  .FourthSection {
+    min-height: 450vh;
+  }
 }
