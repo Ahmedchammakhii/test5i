@@ -73,6 +73,7 @@ const FirstSection = () => {
           width: "70vw",
           position: "absolute",
           zIndex: 2,
+          pointerEvents: "none",
         }}
         alt="green"
         className="green"
@@ -85,6 +86,7 @@ const FirstSection = () => {
           position: "absolute",
           width: "70vw",
           top: "55%",
+          pointerEvents: "none",
         }}
         alt="green"
         className="green"
