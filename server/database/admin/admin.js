@@ -1,13 +1,12 @@
-const serviceAccount = require('./serviceAccountKey.json');
-const admin = require('firebase-admin');
-const bcrypt = require("bcrypt")
-const { VerifyToken } = require('../middlewear/verifyToken');
-const scrypt = require('scrypt-js');
-require('dotenv').config()
-const serviceAccountKey = process.env.FIREBASE_CREDENTIAL["service_account_key"]
+const serviceAccount = require("./serviceAccountKey.json");
+const admin = require("firebase-admin");
+const bcrypt = require("bcrypt");
+const { VerifyToken } = require("../middlewear/verifyToken");
+const scrypt = require("scrypt-js");
+require("dotenv").config();
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://db5i-9ff89.firebaseio.com/'
+  databaseURL: "https://db5i-9ff89.firebaseio.com/",
 });
 
 async function signUpAsAdmin(email, password) {
@@ -17,12 +16,11 @@ async function signUpAsAdmin(email, password) {
 
     const userRecord = await admin.auth().createUser({
       email: email,
-      password: hashedPassword
+      password: hashedPassword,
     });
 
     const uid = userRecord.uid;
     const customClaims = { admin: true };
-
 
     await admin.auth().setCustomUserClaims(uid, customClaims);
 
@@ -66,12 +64,13 @@ async function signUpAsAdmin(email, password) {
 
 async function signIn(req, res) {
   const email = req.body.email;
-  const password = req.body.password
+  const password = req.body.password;
   try {
     const userRecord = await admin.auth().getUserByEmail(email);
     //       const passwordMatch = await bcrypt.compare(password, userRecord.passwordHash);
     // console.log(passwordMatch)
-    const customToken = "bearer: " + await admin.auth().createCustomToken(userRecord.uid);
+    const customToken =
+      "bearer: " + (await admin.auth().createCustomToken(userRecord.uid));
     if (userRecord.customClaims && userRecord.customClaims.admin) {
       console.log("Admin privileges granted");
       console.log("User signed in:", userRecord);
@@ -85,12 +84,11 @@ async function signIn(req, res) {
     res.status(200).json(userRecord);
   } catch (error) {
     console.error("Sign in error:", error.code, error.message);
-    return res.status(500).json({ error: 'Sign in error' });
+    return res.status(500).json({ error: "Sign in error" });
   }
 }
 
 async function signOut(uid) {
-
   try {
     await admin.auth().revokeRefreshTokens(uid);
     console.log("Refresh tokens revoked for user:", uid);
@@ -103,6 +101,4 @@ module.exports = {
   signUpAsAdmin,
   signIn,
   signOut,
-}
-
-
+};
