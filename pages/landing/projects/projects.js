@@ -73,7 +73,7 @@ export default function Sections({ screen, scroll }) {
     }, [scroll]);
 
     const styles = {
-        veil: { height: "calc(100% + 150px + 90vh)", width: "100%", position: "absolute", top: screen === "mobile" ? "-100vh" : "-90vh", zIndex: 50, pointerEvents: "none", opacity: 0, transition: "2s", background: "black" },
+        veil: { height: screen === "mobile" ? "calc(100% + 150px + 120vh)" : "calc(100% + 150px + 90vh)", width: "100%", position: "absolute", top: screen === "mobile" ? "-130vh" : "-90vh", zIndex: 50, pointerEvents: "none", opacity: 1, transition: "2s", background: "black" },
         h1: { fontSize: "1.302rem", fontWeight: "500", textAlign: screen === "mobile" ? "center" : "left" },
         h2: { fontSize: "0.45rem", fontWeight: "300", textAlign: screen === "mobile" ? "center" : "left" },
         btn_container: { width: "250px", marginLeft: screen !== "mobile" ? "-25px" : 0, display: "flex", justifyContent: "center", alignItems: screen === "mobile" ? "start" : "center", top: screen === "mobile" ? "2vh" : 0, height: "150px", position: "relative", left: screen === "mobile" ? "50%" : "100px", transform: screen === "mobile" ? "translateX(-50%)" : "translateX((clamp(-100px, -10vw, -150px)))" },
@@ -97,6 +97,8 @@ export default function Sections({ screen, scroll }) {
 
     return (
         <div ref={container} style={styles.contentWrapper}>
+            <div className="veil" style={styles.veil} />
+
             <div style={styles.wrapper}>
                 <div style={styles.container}>
                     <div style={styles.left_wrapper} >
@@ -177,7 +179,6 @@ export default function Sections({ screen, scroll }) {
                         key={i} style={{ ...styles.img, zIndex: 5 - i }} src={e.img} />)} </div> </div>
                 </div>
             </div>
-            <div className="veil" style={styles.veil} />
         </div>
     )
 }
