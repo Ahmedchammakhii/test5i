@@ -233,3 +233,8 @@
     height: 180vh;
   }
 }
+@media screen and (max-width: 1100px) and (min-width: 1000px) and (min-height: 600px) {
+  .FourthSection {
+    min-height: 420vh !important;
+  }
+}
