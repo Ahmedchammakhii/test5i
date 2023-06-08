@@ -231,7 +231,7 @@ const index = () => {
                             borderTopLeftRadius: 0,
                           }}
                         >
-                          {blog.data.description.slice(0, 10) + "... Read More"}
+                          {blog.data.description.slice(0, 50) + "... Read More"}
                         </p>
                         <p
                           style={{
