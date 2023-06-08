@@ -61,10 +61,10 @@ export default function Catalogue({ screen, scroll }) {
 
                             <h1 style={{ fontSize: "clamp(1em, 5vw, 5em)", color: "white", fontWeight: "500", position: "relative", display: "flex" }}>
                                 Explore our
-                                <div onMouseEnter={(event) => {
+                                <div onMouseEnter={() => {
                                     document.getElementsByClassName("primary-cursor")[0].style.display = "none"
                                     btn.current.style.scale = "1.3"
-                                }} onMouseLeave={(event) => {
+                                }} onMouseLeave={() => {
                                     btn.current.style.scale = "1"
                                     btn.current.style.transform = "none"
                                     document.getElementsByClassName("primary-cursor")[0].style.display = "block";

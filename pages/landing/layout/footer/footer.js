@@ -1,7 +1,6 @@
 import Link from "next/link";
 export default function Footer({ screen }) {
 
-    console.log(screen)
     return (
         <div>
             <div className="footer-container" style={{ scale: screen === "mobile" || screen === "tablet" ? "0.4" : "0.7", position: "relative", height: "700px", width: "100%", transition: "scale 1s", cursor: "pointer" }}>

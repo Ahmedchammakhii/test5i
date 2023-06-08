@@ -80,8 +80,8 @@ export default function Cards({ screen, scroll, containerRef }) {
 
         if (containerRef) {
             scrollTrigger(container, (v) => {
-                if (document.querySelector('html').style.background !== "rgb(245, 245, 247)") {
-                    document.querySelector('html').style.background = "rgb(245, 245, 247)"
+                if (document.querySelector('.home').style.background !== "rgb(245, 245, 247)") {
+                    document.querySelector('.home').style.background = "rgb(245, 245, 247)"
                 }
 
                 containerRef.style.background = `rgba(0, 0, 0, ${v[0]})`

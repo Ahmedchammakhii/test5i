@@ -35,12 +35,12 @@ export default function Sections({ screen, scroll }) {
         scrollTrigger(container, (v) => {
             const index = parseInt(((v[1] * (data.length - 1)) / 100))
 
-            if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
-                document.querySelector('html').style.background = data[index + 1].background
+            if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('.home').style.background !== data[index + 1].background) {
+                document.querySelector('.home').style.background = data[index + 1].background
                 document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
 
-            } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
-                document.querySelector('html').style.background = data[index].background
+            } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('.home').style.background !== data[index].background) {
+                document.querySelector('.home').style.background = data[index].background
                 document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
             }
 
@@ -139,9 +139,9 @@ export default function Sections({ screen, scroll }) {
                                 scrollTrigger(container, (v) => {
                                     const index = parseInt(((v[1] * (data.length - 1)) / 100))
 
-                                    if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
+                                    if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('.home').style.background !== data[index + 1].background) {
                                         document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
-                                    } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
+                                    } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('.home').style.background !== data[index].background) {
                                         document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
                                     }
                                     document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
