@@ -818,7 +818,6 @@
 .firstright {
   grid-area: sec;
   font-size: 85px;
-
   font-size: 81px;
 }
 .blur {
@@ -1037,5 +1036,13 @@
   .border {
     margin-top: 100px;
     height: 140vh;
+  }
+}
+@media screen and (min-width: 799px) and (max-width: 850px) and (min-height: 1000px) and (max-height: 1300px) {
+  .firstright {
+    transform: translateY(100px);
+  }
+  .border {
+    height: 71vh;
   }
 }
