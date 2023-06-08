@@ -811,6 +811,7 @@
   font-size: 81px;
   width: 50%;
   padding: 20px;
+  z-index: 3;
 }
 .firstright {
   grid-area: sec;

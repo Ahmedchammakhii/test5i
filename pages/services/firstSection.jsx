@@ -71,6 +71,7 @@ const FirstSection = () => {
           mixBlendMode: "color-dodge",
           width: "70vw",
           position: "absolute",
+          zIndex: 2,
         }}
         alt="green"
         className="green"
