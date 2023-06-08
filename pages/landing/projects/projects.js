@@ -35,12 +35,12 @@ export default function Sections({ screen, scroll }) {
         scrollTrigger(container, (v) => {
             const index = parseInt(((v[1] * (data.length - 1)) / 100))
 
-            if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
-                document.querySelector('html').style.background = data[index + 1].background
+            if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('.main-container').style.background !== data[index + 1].background) {
+                document.querySelector('.main-container').style.background = data[index + 1].background
                 document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
 
-            } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
-                document.querySelector('html').style.background = data[index].background
+            } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('.main-container').style.background !== data[index].background) {
+                document.querySelector('.main-container').style.background = data[index].background
                 document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
             }
 
@@ -73,10 +73,10 @@ export default function Sections({ screen, scroll }) {
     }, [scroll]);
 
     const styles = {
-        veil: { height: "calc(100% + 150px + 90vh)", width: "100%", position: "absolute", top: "-90vh", zIndex: 50, pointerEvents: "none", opacity: 0, transition: "2s", background: "black" },
+        veil: { height: screen === "mobile" ? "calc(100% + 150px + 120vh)" : "calc(100% + 150px + 90vh)", width: "100%", position: "absolute", top: screen === "mobile" ? "-130vh" : "-90vh", zIndex: 50, pointerEvents: "none", opacity: 1, transition: "2s", background: "black" },
         h1: { fontSize: "1.302rem", fontWeight: "500", textAlign: screen === "mobile" ? "center" : "left" },
         h2: { fontSize: "0.45rem", fontWeight: "300", textAlign: screen === "mobile" ? "center" : "left" },
-        btn_container: {  width: "250px", marginLeft: screen !== "mobile" ? "-25px" : 0, display: "flex", justifyContent: "center", alignItems: screen === "mobile" ? "start" : "center", top: screen === "mobile" ? "2vh" : 0, height: "150px", position: "relative", left: screen === "mobile" ? "50%" : "100px", transform: screen === "mobile" ? "translateX(-50%)" : "translateX((clamp(-100px, -10vw, -150px)))" },
+        btn_container: { width: "250px", marginLeft: screen !== "mobile" ? "-25px" : 0, display: "flex", justifyContent: "center", alignItems: screen === "mobile" ? "start" : "center", top: screen === "mobile" ? "2vh" : 0, height: "150px", position: "relative", left: screen === "mobile" ? "50%" : "100px", transform: screen === "mobile" ? "translateX(-50%)" : "translateX((clamp(-100px, -10vw, -150px)))" },
         btn: { cursor: "pointer", position: "relative", overflow: "hidden", transition: "0.8s", fontSize: "0.48rem", width: "clamp(100px, 10vw, 150px)", height: "clamp(50px, 3vw, 55px)", borderRadius: "50px", background: "transparent" },
         btn_wrapper: { width: "100%", height: "100%", background: "black", color: "white", position: "absolute", transform: "translate(-50%,-50%)", top: "-50%", left: "50%", transition: "0.6s", borderRadius: "100%", pointerEvents: "none", zIndex: -1 },
         dark_btn: { transition: "1s", color: "black", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "100%", },
@@ -97,6 +97,8 @@ export default function Sections({ screen, scroll }) {
 
     return (
         <div ref={container} style={styles.contentWrapper}>
+            <div className="veil" style={styles.veil} />
+
             <div style={styles.wrapper}>
                 <div style={styles.container}>
                     <div style={styles.left_wrapper} >
@@ -139,9 +141,9 @@ export default function Sections({ screen, scroll }) {
                                 scrollTrigger(container, (v) => {
                                     const index = parseInt(((v[1] * (data.length - 1)) / 100))
 
-                                    if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('html').style.background !== data[index + 1].background) {
+                                    if (index + 0.5 < ((v[1] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('.main-container').style.background !== data[index + 1].background) {
                                         document.getElementsByClassName("primary-cursor")[0].style.background = data[index + 1].color
-                                    } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('html').style.background !== data[index].background) {
+                                    } else if (index + 0.5 > ((v[1] * (data.length - 1)) / 100) && document.querySelector('.main-container').style.background !== data[index].background) {
                                         document.getElementsByClassName("primary-cursor")[0].style.background = data[index].color
                                     }
                                     document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
@@ -177,7 +179,6 @@ export default function Sections({ screen, scroll }) {
                         key={i} style={{ ...styles.img, zIndex: 5 - i }} src={e.img} />)} </div> </div>
                 </div>
             </div>
-            <div className="veil" style={styles.veil} />
         </div>
     )
 }

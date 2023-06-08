@@ -13,7 +13,6 @@ import Hero from "./landing/hero/hero";
 export default function Home() {
   const [screen, setScreen] = useState("mobile");
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [activeMouse, setActiveMouse] = useState(true);
   const [menuClicked, setMenuClicked] = useState(false);
 
   const handleScroll = useCallback(() => { setScrollPosition(window.scrollY) }, []);
@@ -24,20 +23,22 @@ export default function Home() {
   const handleMouseLeave = useCallback(mouseLeave, [])
 
   useLayoutEffect(() => {
-    const innerContainerRef = document.querySelector('.footer-inner-container');
-    const mainContainer = document.querySelector('.main-container');
-    mainContainer.addEventListener("mousemove", handleMouseMove);
+    if (screen === "desktop") {
+      const innerContainerRef = document.querySelector('.footer-inner-container');
+      const mainContainer = document.querySelector('.main-container');
+      mainContainer.addEventListener("mousemove", handleMouseMove);
 
-    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
-    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
+      innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
+      innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
 
-    return () => {
-      mainContainer.removeEventListener("mousemove", handleMouseMove);
+      return () => {
+        mainContainer.removeEventListener("mousemove", handleMouseMove);
 
-      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
-      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
+        innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
+        innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
+  }, [handleMouseMove, handleMouseLeave, handleMouseEnter, screen]);
 
   useLayoutEffect(() => {
     handleResize(setScreen);
@@ -50,9 +51,9 @@ export default function Home() {
     };
   }, [screen]);
   return (
-    <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} setActiveMouse={setActiveMouse} screen={screen}>
+    <Layout isClicked={menuClicked} setIsClicked={setMenuClicked} scroll={scrollPosition} screen={screen}>
       <Hero screen={screen} scroll={scrollPosition} />
-      <CustomCursor activeMouse={activeMouse} />
+      <CustomCursor screen={screen} />
       <Sections screen={screen} scroll={scrollPosition} />
       <BlackSection screen={screen} menuClicked={menuClicked} scroll={scrollPosition} />
       <How screen={screen} scroll={scrollPosition} />
