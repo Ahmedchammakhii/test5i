@@ -18,6 +18,15 @@ export default function Cards({ screen, scroll, containerRef }) {
             end = start + ref.current.clientHeight
         }
 
+
+        if (start > window.scrollY && document.querySelector('.primary-cursor').style.width !== "10px" || window.scrollY > end && document.querySelector('.primary-cursor').style.width !== "10px") {
+            document.querySelector('.primary-cursor').style.width = "10px"
+            document.querySelector('.cursor-click').textContent = ""
+            document.querySelector('.cursor-click').style.color = "white"
+            document.querySelector('.primary-cursor').style.height = "10px"
+            document.querySelector('.primary-cursor').style.opacity = 1
+
+        }
         const percentages = []
         if (start > window.scrollY && ref.current.store) {
             for (let i = 0; values.length > i; i++) {
@@ -88,16 +97,16 @@ export default function Cards({ screen, scroll, containerRef }) {
                 if (v[0] < 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "white") {
                     document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
                     document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
-                    document.getElementsByClassName("primary-cursor")[0].style.background = "black"
-                    document.getElementsByClassName("cursor-click")[0].style.color = "white"
+                    document.querySelector('.primary-cursor').style.background = "black"
+                    document.querySelector('.cursor-click').style.color = "white"
                     document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
                     document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png'
                     document.getElementsByClassName('veilNoise')[0].style.opacity = 1
                 } else if (v[0] >= 0.6 && document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
                     document.getElementsByClassName('header_lines_btn')[0].style.background = "white"
                     document.getElementsByClassName('header_lines_btn')[1].style.background = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.background = "white"
-                    document.getElementsByClassName("cursor-click")[0].style.color = "black"
+                    document.querySelector('.primary-cursor').style.background = "white"
+                    document.querySelector('.cursor-click').style.color = "black"
                     document.getElementsByClassName('quote')[0].style.background = 'linear-gradient(312deg,#73ffa2, transparent 80%)'
                     document.getElementsByClassName('logo')[0].src = 'https://cdn.discordapp.com/attachments/1073737355896299542/1110855539631595521/logo_blanc_ver.png'
                     document.getElementsByClassName('veilNoise')[0].style.opacity = 0
@@ -105,10 +114,10 @@ export default function Cards({ screen, scroll, containerRef }) {
             }, [[1, 0]], containerRef.style.background !== "rgb(0, 0, 0)", containerRef.style.background !== "rgba(0, 0, 0, 0)")
         }
 
-        // if (container.current.offsetTop - (innerHeight / 2) >= scroll && document.getElementsByClassName("primary-cursor")[0].style.width !== "10px") {
-        //     document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-        //     document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-        //     document.getElementsByClassName("cursor-click")[0].textContent = ""
+        // if (container.current.offsetTop - (innerHeight / 2) >= scroll && document.querySelector('.primary-cursor').style.width !== "10px") {
+        //     document.querySelector('.primary-cursor').style.width = "10px"
+        //     document.querySelector('.primary-cursor').style.height = "10px"
+        //     document.querySelector('.cursor-click').textContent = ""
         //     console.log("fired")
         // }
 
@@ -196,25 +205,25 @@ export default function Cards({ screen, scroll, containerRef }) {
             <div style={{ zIndex: 0, pointerEvents: "none", position: "absolute", height: "100%", transform: `translate(-50% , calc(-${cardsDimension}px * (0.12 * 1.5  )))`, left: `calc(50% + ((${cardsDimension}px * 0.49) - (${cardsDimension}px * 0.153) * 4.5))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "white"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
                     } else {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "black"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "black"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-                    document.getElementsByClassName("cursor-click")[0].textContent = ""
-                    document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-                    document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                    document.querySelector('.primary-cursor').style.width = "10px"
+                    document.querySelector('.cursor-click').textContent = ""
+                    document.querySelector('.cursor-click').style.color = "white"
+                    document.querySelector('.primary-cursor').style.height = "10px"
+                    document.querySelector('.primary-cursor').style.opacity = 1
 
                 }} alt='#' onClick={() => {
                     handleClick(0)
@@ -226,25 +235,25 @@ export default function Cards({ screen, scroll, containerRef }) {
             <div style={{ zIndex: 1, pointerEvents: "none", position: "absolute", height: "100%", transform: `translate(-50% , calc(-${cardsDimension}px * (0.12 * 1.5  )))`, left: `calc(50% + ((${cardsDimension}px * 0.49) - (${cardsDimension}px * 0.153) * 3.1))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "white"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
                     } else {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "black"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "black"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-                    document.getElementsByClassName("cursor-click")[0].textContent = ""
-                    document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-                    document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                    document.querySelector('.primary-cursor').style.width = "10px"
+                    document.querySelector('.cursor-click').textContent = ""
+                    document.querySelector('.cursor-click').style.color = "white"
+                    document.querySelector('.primary-cursor').style.height = "10px"
+                    document.querySelector('.primary-cursor').style.opacity = 1
 
                 }} alt='#' onClick={() => {
                     handleClick(1)
@@ -256,25 +265,25 @@ export default function Cards({ screen, scroll, containerRef }) {
             <div style={{ zIndex: 2, pointerEvents: "none", position: "absolute", height: "100%", transform: `translate(-50% , calc(-${cardsDimension}px * (0.12 * 1.5  )))`, left: `calc(50% + ((${cardsDimension}px * 0.49) - (${cardsDimension}px * 0.153) * 2.08))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "white"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
                     } else {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "black"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "black"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-                    document.getElementsByClassName("cursor-click")[0].textContent = ""
-                    document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-                    document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                    document.querySelector('.primary-cursor').style.width = "10px"
+                    document.querySelector('.cursor-click').textContent = ""
+                    document.querySelector('.cursor-click').style.color = "white"
+                    document.querySelector('.primary-cursor').style.height = "10px"
+                    document.querySelector('.primary-cursor').style.opacity = 1
 
                 }} alt='#' onClick={(e) => {
                     handleClick(2)
@@ -286,25 +295,25 @@ export default function Cards({ screen, scroll, containerRef }) {
             <div style={{ zIndex: 3, pointerEvents: "none", position: "absolute", height: "100%", transform: `translate(-50% , calc(-${cardsDimension}px * 0.12))`, left: `calc(50% + ((${cardsDimension}px * 0.49) - ${cardsDimension}px * 0.153))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "white"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
                     } else {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "black"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "black"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-                    document.getElementsByClassName("cursor-click")[0].textContent = ""
-                    document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-                    document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                    document.querySelector('.primary-cursor').style.width = "10px"
+                    document.querySelector('.cursor-click').textContent = ""
+                    document.querySelector('.cursor-click').style.color = "white"
+                    document.querySelector('.primary-cursor').style.height = "10px"
+                    document.querySelector('.primary-cursor').style.opacity = 1
 
                 }} alt='#' onClick={() => {
                     handleClick(3)
@@ -316,25 +325,25 @@ export default function Cards({ screen, scroll, containerRef }) {
             <div style={{ zIndex: 4, pointerEvents: "none", position: "absolute", height: "100%", transform: "translate(-50%)", left: `calc(50% + (${cardsDimension}px * 0.49))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "white"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
                     } else {
-                        document.getElementsByClassName("primary-cursor")[0].style.width = "80px"
-                        document.getElementsByClassName("cursor-click")[0].textContent = "Click"
-                        document.getElementsByClassName("cursor-click")[0].style.color = "black"
-                        document.getElementsByClassName("primary-cursor")[0].style.height = "80px"
-                        document.getElementsByClassName("primary-cursor")[0].style.opacity = 0.9
+                        document.querySelector('.primary-cursor').style.width = "80px"
+                        document.querySelector('.cursor-click').textContent = "Click"
+                        document.querySelector('.cursor-click').style.color = "black"
+                        document.querySelector('.primary-cursor').style.height = "80px"
+                        document.querySelector('.primary-cursor').style.opacity = 0.9
 
                     }
                 }} onMouseLeave={() => {
-                    document.getElementsByClassName("primary-cursor")[0].style.width = "10px"
-                    document.getElementsByClassName("cursor-click")[0].textContent = ""
-                    document.getElementsByClassName("cursor-click")[0].style.color = "white"
-                    document.getElementsByClassName("primary-cursor")[0].style.height = "10px"
-                    document.getElementsByClassName("primary-cursor")[0].style.opacity = 1
+                    document.querySelector('.primary-cursor').style.width = "10px"
+                    document.querySelector('.cursor-click').textContent = ""
+                    document.querySelector('.cursor-click').style.color = "white"
+                    document.querySelector('.primary-cursor').style.height = "10px"
+                    document.querySelector('.primary-cursor').style.opacity = 1
 
                 }} alt='#' onClick={() => {
                     handleClick(4)
