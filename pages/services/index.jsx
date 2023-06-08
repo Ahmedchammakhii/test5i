@@ -105,7 +105,7 @@ export default function services() {
         screen={screen}
         htmlcss={"yes"}
       >
-        <CustomCursor activeMouse={activeMouse} />
+        <CustomCursor />
 
         <section className={styles.FirstSection} ref={firstRef}>
           <div

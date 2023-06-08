@@ -1,4 +1,4 @@
-export const CustomCursor = ({ activeMouse, screen }) => {
+export const CustomCursor = ({ screen }) => {
   return (
     <div
       className="primary-cursor"
