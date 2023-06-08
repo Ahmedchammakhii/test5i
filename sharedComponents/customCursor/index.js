@@ -1,4 +1,4 @@
-export const CustomCursor = ({ activeMouse }) => {
+export const CustomCursor = ({ activeMouse, screen }) => {
   return (
     <div
       className="primary-cursor"
@@ -14,23 +14,14 @@ export const CustomCursor = ({ activeMouse }) => {
         zIndex: 999,
         left: 0,
         top: 0,
-        display: activeMouse ? "block" : "none",
+        display: screen === "desktop" ? "block" : "none",
         transition: "width 0.5s, height 0.5s, transform 0.1s linear",
         pointerEvents: "none", overflow: "hidden"
       }}
     >
       <div
         className="cursor-click"
-        style={{
-          textAlign: "center",
-          pointerEvents: "none",
-          fontSize: "12px",
-          color: "white",
-          transform: "translate(-50%,-50%)",
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-        }}
+        style={{ textAlign: "center", pointerEvents: "none", fontSize: "12px", color: "white", transform: "translate(-50%,-50%)", position: "absolute", left: "50%", top: "50%" }}
       />
     </div>
   );

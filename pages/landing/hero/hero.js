@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import data from "@/data/landing/projects"
 import words from "@/data/landing/hero"
 
-export default function Hero({ scroll }) {
+export default function Hero({ scroll, screen }) {
     const hero = useRef(null);
     const animatedWords = useRef(null);
     const veilNoise = useRef(null);
@@ -15,13 +15,17 @@ export default function Hero({ scroll }) {
 
             document.querySelector('.main-container').style.background = "rgba(241, 223, 213, 0.5)";
             veilNoise.current.style.opacity = 1
-            document.getElementsByClassName("primary-cursor")[0].style.background = "linear-gradient(to bottom right, transparent, #3398ff 80%)"
-
+            if (screen !== "mobile") {
+                document.getElementsByClassName("primary-cursor")[0].style.background = "linear-gradient(to bottom right, transparent, #3398ff 80%)"
+            }
         } else if (hero.current.offsetTop + (hero.current.clientHeight * 0.4) < scroll && hero.current.offsetTop + (hero.current.clientHeight * 0.5) >= scroll && document.querySelector('.main-container').style.background !== data[0].background) {
-            document.querySelector('.main-container').style.background = data[0].background;
+            if (screen !== "mobile") {
+                document.getElementsByClassName("primary-cursor")[0].style.background = "linear-gradient(to bottom right, transparent, #3398ff 80%)"
+            }
 
+            document.querySelector('.main-container').style.background = data[0].background;
             veilNoise.current.style.opacity = 0
-            document.getElementsByClassName("primary-cursor")[0].style.background = data[0].color
+            // document.getElementsByClassName("primary-cursor")[0].style.background = data[0].color
         }
     }, [scroll])
     return (

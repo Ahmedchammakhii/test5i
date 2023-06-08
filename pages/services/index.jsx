@@ -23,7 +23,6 @@ export default function services() {
   const [screen, setScreen] = useState("mobile");
   const [scrollPosition, setScrollPosition] = useState(0);
   const [color, setBackground] = useState(0);
-  const [activeMouse, setActiveMouse] = useState(true);
   const background = [
     "#fae1ee",
     "#e0f0ff",
@@ -103,7 +102,6 @@ export default function services() {
         isClicked={menuClicked}
         setIsClicked={setMenuClicked}
         scroll={scrollPosition}
-        setActiveMouse={setActiveMouse}
         screen={screen}
         htmlcss={"yes"}
       >
