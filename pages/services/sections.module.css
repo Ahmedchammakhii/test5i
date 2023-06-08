@@ -1017,6 +1017,7 @@
     height: 135vh;
   }
 }
+
 @media screen and (min-width: 1700px) {
   .FirstSection {
     padding: 5vw;

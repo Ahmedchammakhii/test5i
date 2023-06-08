@@ -111,7 +111,7 @@ const ThirdSection = () => {
         style={
           !leftclicked
             ? {
-                gap: "40px",
+                gap: "60px !important",
                 visibility: "visible",
                 opacity: 1,
                 transition: "visibility 0s linear 300ms",

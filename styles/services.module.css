@@ -223,3 +223,13 @@
     min-height: 450vh;
   }
 }
+@media screen and (min-height: 1100px) and (max-width: 800px) and (min-width: 661px) {
+  .ThirdSection {
+    height: 110vh;
+  }
+}
+@media screen and (max-width: 320px) and (min-height: 560px) {
+  .ThirdSection {
+    height: 180vh;
+  }
+}
