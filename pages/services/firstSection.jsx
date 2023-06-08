@@ -32,7 +32,11 @@ const FirstSection = () => {
         },
         "-=.8"
       )
-      .from(".green", { translateY: -1000, duration: 0.5 }, "-=1.2")
+      .from(
+        ".green",
+        { translateY: -1000, duration: 0.5, stagger: { amount: 0.4 } },
+        "-=1.2"
+      )
       .from("." + style.parag, { x: -1000 }, "-=1")
       .from("." + style.blurparent, { scale: 0 });
     gsap.registerPlugin(ScrollTrigger);
