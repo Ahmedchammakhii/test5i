@@ -30,17 +30,16 @@ const FourthSection = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "end end",
+        scrub: true,
+      },
+    });
 
     if (window.innerWidth > 750) {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "end end",
-          scrub: true,
-        },
-      });
-
       timeline
         .fromTo(
           ".psycho",
@@ -87,14 +86,6 @@ const FourthSection = () => {
           { fontSize: "20px" }
         );
     } else {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top -30%",
-          end: "end end",
-          scrub: true,
-        },
-      });
       timeline.fromTo(
         ".psycho",
         {
@@ -109,42 +100,62 @@ const FourthSection = () => {
         "-=.1"
       );
     }
+    if (window.innerWidth > 750) {
+      let mouse = {
+        x: undefined,
+        y: undefined,
+      };
+      let posX;
+      let posY;
+      let degX;
+      let degY;
+      let sensibility = 10;
 
-    let mouse = {
-      x: undefined,
-      y: undefined,
-    };
-    let posX;
-    let posY;
-    let degX;
-    let degY;
-    let sensibility = 10;
+      document.addEventListener("mousemove", function () {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
 
-    document.addEventListener("mousemove", function () {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+        posX =
+          ((mouse.x - window.innerWidth / 2) / (window.innerWidth / 2)) * 100;
+        posY =
+          ((mouse.y - window.innerHeight / 2) / (window.innerHeight / 2)) * 100;
 
-      posX =
-        ((mouse.x - window.innerWidth / 2) / (window.innerWidth / 2)) * 100;
-      posY =
-        ((mouse.y - window.innerHeight / 2) / (window.innerHeight / 2)) * 100;
+        degX = posX / sensibility;
+        degY = posY / sensibility;
 
-      degX = posX / sensibility;
-      degY = posY / sensibility;
+        packs.current.style &&
+          (packs.current.style.transform =
+            "rotateX(" +
+            -degY +
+            "deg) rotateY(" +
+            degX +
+            "deg) translateZ(-100px)");
+      });
 
-      packs.current.style &&
-        (packs.current.style.transform =
-          "rotateX(" +
-          -degY +
-          "deg) rotateY(" +
-          degX +
-          "deg) translateZ(-100px)");
-    });
+      return () => {
+        document.removeEventListener("mousemove", function () {
+          mouse.x = event.clientX;
+          mouse.y = event.clientY;
 
-    return () => {
-      if (timeline) timeline.kill();
-      document.removeEventListener("mousemove");
-    };
+          posX =
+            ((mouse.x - window.innerWidth / 2) / (window.innerWidth / 2)) * 100;
+          posY =
+            ((mouse.y - window.innerHeight / 2) / (window.innerHeight / 2)) *
+            100;
+
+          degX = posX / sensibility;
+          degY = posY / sensibility;
+
+          packs.current.style &&
+            (packs.current.style.transform =
+              "rotateX(" +
+              -degY +
+              "deg) rotateY(" +
+              degX +
+              "deg) translateZ(-100px)");
+        });
+      };
+    }
   }, []);
   return (
     <div className={style.fourth} ref={sectionRef}>

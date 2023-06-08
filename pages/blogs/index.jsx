@@ -115,9 +115,9 @@ const index = () => {
                 className={style.buttons}
                 style={{ display: "flex", gap: "10px" }}
               >
-                <button className={style.selected}>All (20)</button>
-                <button>Announcements</button>
-                <button>News</button>
+                <button className={style.selected}>
+                  All {blogs && `(${blogs.length})`}
+                </button>
               </div>
               <div className="searchbutton">
                 <p style={{ fontSize: ".7rem", marginBottom: "5px" }}>
@@ -173,7 +173,7 @@ const index = () => {
                             borderTopLeftRadius: 0,
                           }}
                         >
-                          {blog.data.description.slice(0, 80) + "..."}
+                          {blog.data.description.slice(0, 50) + "..."}
                         </p>
                         <p
                           style={{
@@ -231,7 +231,7 @@ const index = () => {
                             borderTopLeftRadius: 0,
                           }}
                         >
-                          {blog.data.description.slice(0, 10) + "... Read More"}
+                          {blog.data.description.slice(0, 50) + "... Read More"}
                         </p>
                         <p
                           style={{
@@ -294,7 +294,7 @@ const index = () => {
                             borderTopLeftRadius: 0,
                           }}
                         >
-                          {blog.data.description.slice(0, 80) + "..."}
+                          {blog.data.description.slice(0, 50) + "..."}
                         </p>
                         <p
                           style={{
@@ -331,8 +331,6 @@ const index = () => {
                 style={{ display: "flex", gap: "10px" }}
               >
                 <button className={style.selected}>All (20)</button>
-                <button>Announcements</button>
-                <button>News</button>
               </div>
               <div className="searchbutton">
                 <p style={{ fontSize: ".7rem", marginBottom: "5px" }}>

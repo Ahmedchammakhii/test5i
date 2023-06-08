@@ -15,7 +15,7 @@ const FirstSection = () => {
         delay: 0.3,
         scale: 0,
         stagger: {
-          amount: 1.3,
+          amount: 1,
         },
         ease: "Elastic.easeOut",
       })
@@ -26,11 +26,16 @@ const FirstSection = () => {
           delay: 0,
           scale: 0,
           stagger: {
-            amount: 1.3,
+            amount: 1,
           },
           ease: "Elastic.easeOut",
         },
         "-=.8"
+      )
+      .from(
+        ".green",
+        { translateY: -1000, duration: 0.5, stagger: { amount: 0.4 } },
+        "-=1.2"
       )
       .from("." + style.parag, { x: -1000 }, "-=1")
       .from("." + style.blurparent, { scale: 0 });
@@ -58,6 +63,33 @@ const FirstSection = () => {
         <h1>Creative</h1>
         <h1>Potential</h1>
       </div>
+      <img
+        src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg"
+        style={{
+          rotate: "90deg",
+          top: 0,
+          transform: " scale(1.5)",
+          mixBlendMode: "color-dodge",
+          width: "70vw",
+          position: "absolute",
+          zIndex: 2,
+        }}
+        alt="green"
+        className="green"
+      />
+      <img
+        src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg"
+        style={{
+          transform: "translate(250px) scale(1.5)",
+          mixBlendMode: "color-dodge",
+          position: "absolute",
+          width: "70vw",
+          top: "55%",
+        }}
+        alt="green"
+        className="green"
+      />
+
       <div className={style.firstright}>
         <div className={style.blurparent}>
           <div className={style.blur}></div>{" "}
