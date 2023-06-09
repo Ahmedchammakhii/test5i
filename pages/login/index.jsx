@@ -51,19 +51,15 @@ const Login = () => {
         <div className={styles.login_wrapper}>
           <div className={styles.left_container}>
             <div className={styles.header}>
-              <a className="arrow" href="#">
+              <a
+                className="arrow"
+                href="/"
+                style={{ color: "#000", zIndex: 10000, fontSize: 28 }}
+              >
                 ←
-              </a>
-              <a className="register" href="#">
-                Register
               </a>
             </div>
             <div className={styles.main} style={{ position: "relative" }}>
-              <img
-                className={styles.line}
-                src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg"
-                style={{ position: "absolute", transform: "scale(.2)" }}
-              ></img>
               <h2>Login</h2>
 
               <p>
