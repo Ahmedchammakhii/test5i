@@ -2,7 +2,6 @@ let scale = "0";
 let header = false
 let project = false
 
-let footer_container_scale = 0;
 
 export const mouseMove = (event) => {
 
@@ -92,10 +91,10 @@ export const mouseMove = (event) => {
 export const mouseEnter = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
     event.stopPropagation()
-    if (footer_container_scale !== document.querySelector('.footer-container').style.scale) {
-        footer_container_scale = document.querySelector('.footer-container').style.scale
-    }
-    document.querySelector('.footer-container').style.scale = Number(footer_container_scale) + 0.1 + ""
+
+    document.querySelector('.footer-container').style.scale = window.innerWidth >= 1112 ? "0.8" : "0.5"
+    console.log(document.querySelector('.footer-container').style.scale)
+
     const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {
@@ -107,7 +106,7 @@ export const mouseEnter = (event) => {
 export const mouseLeave = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
     event.stopPropagation()
-    document.querySelector('.footer-container').style.scale = Number(footer_container_scale) + ''
+    document.querySelector('.footer-container').style.scale = window.innerWidth >= 1112 ? "0.7" : "0.4"
     const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {
@@ -171,6 +170,7 @@ export const headerMouseEnter = (event) => {
         event.target.children[0].classList.add("header-button");
         header = true
     }
+
 }
 export const headerMouseLeave = (event) => {
     if (event.target?.children[0]) {
@@ -202,7 +202,6 @@ export const btnParalax = (event, container, btn) => {
     } else if (translateY > maxTranslateY) {
         translateY = maxTranslateY;
     }
-
     btn.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
 
 }
