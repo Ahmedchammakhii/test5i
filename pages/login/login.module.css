@@ -1,100 +1,324 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+.main_container .login_wrapper .header a,
+.main a {
+  text-decoration: none;
+}
 
-.login_page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
-.form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+.main_container .login_wrapper {
+  display: flex;
+  margin: 2% 0%;
+  box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.3);
 }
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
+
+.main_container .login_wrapper .left_container {
 }
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
+/*left container HEADER*/
+.main_container .login_wrapper .left_container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8% 5% 10% 5%;
+}
+.main_container .login_wrapper .left_container .header .register {
+  color: var(--color-fonts);
+  font-size: 1vw;
+  font-weight: 600;
+}
+.main_container .login_wrapper .left_container .header .arrow {
+  font-size: 1.8vw;
+}
+
+/*left container MAIN*/
+.main_container .login_wrapper .left_container .main {
+  padding: 0% 15%;
+}
+.main_container .login_wrapper .left_container .main h2 {
+  font-size: 1.1vw;
+  font-weight: 700;
+}
+
+.main_container .login_wrapper .left_container .main p {
+  padding-top: 4%;
+  padding-bottom: 6%;
+  font-size: 0.78rem;
   font-weight: 500;
-  outline: 0;
-  background: transparent;
+  line-height: 1.2rem;
+}
+.main_container .login_wrapper .left_container .main form input {
   width: 100%;
-  border-color: #333;
-  padding: 15px;
-  color: #000000;
-  font-size: 16px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-  border-radius: 17% 17% 17% 17%/ 45% 45% 45% 45%;
+  padding: 4%;
+  font-size: 1vw;
+  border: none;
+  background-color: #dce3e3;
+  margin: 3.2% 0rem;
 }
-/* .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-} */
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
+/*effects and interactions css*/
+.main_container .login_wrapper .left_container .main form input:focus {
+  background-color: #bcd1d1;
 }
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
+.main_container .login_wrapper .left_container .main .forgotPass {
+  text-align: right;
+  margin-top: 1%;
+  margin-bottom: 5%;
 }
-.form .register-form {
-  display: none;
+.main_container .login_wrapper .left_container .main .forgotPass a {
+  color: var(--color-fonts);
+  font-size: 1vw;
+  font-weight: 600;
 }
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
+/*effects and interactions css*/
+.main_container .login_wrapper .left_container .main .forgotPass a:active {
+  color: #000;
 }
-.container:before, .container:after {
-  content: "";
+.main_container .login_wrapper .left_container .main .login_now a {
   display: block;
-  clear: both;
+  background-color: #4fa7d6;
+  color: #f7f5f5;
+  width: 100%;
+  padding: 5% 0%;
+  border-radius: 2rem;
+  text-align: center;
+  font-size: 0.9vw;
+  font-weight: 600;
 }
-.container .info {
-  margin: 50px auto;
+/*effects and interactions css*/
+.main_container .login_wrapper .left_container .main .login_now a:active {
+  border-radius: 2rem;
+  border: 1px solid #647070;
+  box-shadow: 0px 0px 5px #3b4242;
+}
+.main_container .login_wrapper .left_container .main .line {
+  display: block;
+  width: 100%;
+  border: 1px #dce3e3 solid;
+  margin: 10% 0%;
+}
+
+/*left container FOOTER*/
+.main_container .login_wrapper .left_container .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0% 20% 8% 20%;
+}
+
+.main_container .login_wrapper .left_container .footer .social-media {
+  display: flex;
+  flex-direction: column;
+}
+.main_container .login_wrapper .left_container .footer .social-media h3 {
+  font-size: 1.2vw;
+  font-weight: 500;
+  padding-bottom: 5%;
+  width: 100%;
   text-align: center;
 }
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
+.main_container
+  .login_wrapper
+  .left_container
+  .footer
+  .social-media
+  .links-wrapper {
+  display: flex;
+  justify-content: space-evenly;
 }
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
+.main_container
+  .login_wrapper
+  .left_container
+  .footer
+  .social-media
+  .links-wrapper
+  a {
+  width: 12%;
 }
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
+/*effects and interactions css*/
+.main_container
+  .login_wrapper
+  .left_container
+  .footer
+  .social-media
+  .links-wrapper
+  a:active {
+  box-shadow: 0px 0px 5px #3b4242;
+  border-radius: 50%;
+  padding: 1px;
 }
-.container .info span .fa {
-  color: #EF3B3A;
+.main_container
+  .login_wrapper
+  .left_container
+  .footer
+  .social-media
+  .links-wrapper
+  a
+  img {
+  width: 100%;
 }
-.login_page body {
-  background: #76b852; /* fallback for old browsers */
-  background: rgb(141,194,111);
-  background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+
+/*Right container styles*/
+.main_container .side-container {
+  background-color: #444c68; /*por si no llega a cargar la img*/
+  background-image: url(https://images.unsplash.com/photo-1597950363715-49b0599efa03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+  background-position: center;
+  background-size: cover;
+  min-width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.main_container .side-container .side-text-container {
+  display: flex;
+  padding: 0% 15% 10% 0%;
+}
+.main_container .side-container .short-line {
+  width: 25%;
+  padding-right: 5%;
+  padding-left: 10%;
+}
+.main_container .side-container .short-line hr {
+  border: #e8e8e8 1px solid;
+}
+.main_container .side-container .side-text-container .text {
+  display: flex;
+  flex-direction: column;
+  color: #f0f0f0;
+  width: 75%;
+}
+.main_container .side-container .side-text-container .text h3 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  padding-bottom: 3%;
+}
+.main_container .side-container .side-text-container .text p {
+  line-height: 1.35rem;
+  font-size: 0.85rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .main_container .login_wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0% 0%;
+  }
+
+  .main_container .login_wrapper .left_container .header .register {
+    font-size: 3vw;
+  }
+  .main_container .login_wrapper .left_container .header .arrow {
+    font-size: 5vw;
+  }
+  /*effects and interactions css*/
+  .main_container .login_wrapper .left_container .header .register:active,
+  .arrow:active {
+    background-color: #fafaf5;
+    color: var(--color-fonts);
+    border-radius: 2rem;
+    padding: 2px;
+    box-shadow: 0 5px 10px #3b4242;
+  }
+  .main_container .login_wrapper .left_container .main h2 {
+    font-size: 5vw;
+  }
+  .main_container .login_wrapper .left_container .main p {
+    font-size: 4vw;
+    line-height: 1.2rem;
+  }
+  .main_container .login_wrapper .left_container .main form input {
+    padding: 5%;
+    font-size: 3.8vw;
+  }
+  .main_container .login_wrapper .left_container .main .forgotPass a {
+    font-size: 3vw;
+  }
+  .main_container .login_wrapper .left_container .main .login_now a {
+    font-size: 3vw;
+    font-weight: 700;
+  }
+  .main_container .login_wrapper .left_container .footer .social-media h3 {
+    font-size: 3.5vw;
+  }
+
+  .main_container .side-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+  }
+  .main_container .side-container .short-line {
+    display: none;
+  }
+  .main_container .side-container .side-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+  }
+  .main_container .side-container .side-text-container .text {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5%;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .main_container .login_wrapper .left_container .main p {
+    line-height: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /*effects and interactions css*/
+  .main_container .login_wrapper .left_container .header .register:hover,
+  .arrow:hover {
+    background-color: #6e7070;
+    box-shadow: 0 5px 10px #3b4242;
+    border-radius: 2rem;
+    padding: 2px;
+    color: #f7f5f5;
+  }
+  .main_container .login_wrapper .left_container .header .register:active,
+  .arrow:active {
+    background-color: #fafaf5;
+    color: var(--color-fonts);
+    border-radius: 2rem;
+    padding: 1px;
+    box-shadow: 0 5px 10px #3b4242;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container .login_wrapper .left_container .main h2 {
+    font-size: 1.3vw;
+  }
+  .main_container .login_wrapper .left_container .main p {
+    font-size: 1.1vw;
+    line-height: 1.5rem;
+  }
+  .main_container .side-container .short-line hr {
+    border: #e8e8e8 2px solid;
+  }
+  .main_container .side-container .side-text-container .text {
+    width: 100%;
+  }
+  .main_container .side-container .side-text-container .text h3 {
+    font-size: 2rem;
+  }
+  .main_container .side-container .side-text-container .text p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .main_container .login_wrapper .left_container .main p {
+    line-height: 2.5rem;
+  }
 }
