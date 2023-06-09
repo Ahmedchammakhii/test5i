@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from './faq.module.css';
-import Header from '../landing/layout/header/header'
-import Footer from '../landing/layout/footer/footer'
+import styles from "./faq.module.css";
+import Header from "../landing/layout/header/header";
+import Footer from "../landing/layout/footer/footer";
 
 const faqData = [
   {
@@ -26,24 +26,44 @@ const Faq = () => {
   };
 
   return (
-    <div>
-    <Header scroll={null} screen={null} />
-    <div className={styles.container}>
-      
-      <h2>Frequently Asked Questions</h2>
-      <div id="container" style={{ visibility: 'hidden', position: 'absolute', width: '0px', height: '0px' }}>
+    <div className={styles.container} style={{ overflow: "hidden" }}>
+      <h2 style={{ position: "relative" }}>Frequently Asked Questions</h2>
+      <img
+        className={styles.line}
+        style={{ position: "absolute", top: "35%", left: "30%" }}
+        src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg"
+      ></img>
+      <div
+        id="container"
+        style={{
+          visibility: "hidden",
+          position: "absolute",
+          width: "0px",
+          height: "0px",
+        }}
+      >
         <svg xmlns="http://www.w3.org/2000/svg">
           <symbol viewBox="0 0 24 24" id="expand-more">
-            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path d="M0,50 A50,50 0 0 0 50,50" fill="linear-gradient(to bottom, blue, green, red)"/>
+            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+            <path
+              d="M0,50 A50,50 0 0 0 50,50"
+              fill="linear-gradient(to bottom, blue, green, red)"
+            />
           </symbol>
         </svg>
       </div>
 
       {faqData.map((item, index) => (
         <details key={index} open={index === activeIndex}>
-          <summary >
+          <summary>
             {item.question}
-            <svg className={styles.control_icon_open} onClick={() => handleToggle(index)} width="24" height="24" role="presentation">
+            <svg
+              className={styles.control_icon_open}
+              onClick={() => handleToggle(index)}
+              width="24"
+              height="24"
+              role="presentation"
+            >
               <use xlinkHref="#expand-more" />
             </svg>
           </summary>
@@ -51,14 +71,7 @@ const Faq = () => {
         </details>
       ))}
     </div>
-    {/* <Footer></Footer> */}
-    </div>
-    
-   
   );
 };
 
 export default Faq;
-
-
-
