@@ -3,6 +3,8 @@ import styles from "../login/login.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import CustomButton from "../contact/components/CustomButton";
+import Layout from "../landing/layout/layout";
+import { CustomCursor } from "@/sharedComponents/customCursor";
 // import { getSession } from 'next-auth/client';
 
 const initialState = { email: "", password: "" };
@@ -46,7 +48,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <Layout>
       <main className={styles.main_container}>
         <div className={styles.login_wrapper}>
           <div className={styles.left_container}>
@@ -78,6 +80,7 @@ const Login = () => {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
+                    zIndex: 1000,
                   }}
                 >
                   <CustomButton
@@ -94,7 +97,7 @@ const Login = () => {
           </div>
         </div>
       </main>
-    </>
+    </Layout>
   );
 };
 
