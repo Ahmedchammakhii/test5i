@@ -10,22 +10,30 @@ export default function Sections({ screen, scroll }) {
     const scrollTrigger = (ref, f, values, Start, End) => {
         const start = container.current.offsetTop
         const end = start + container.current.clientHeight - innerHeight
-        let percentages = []
-
-        if (scroll <= end && start <= scroll) {
+        const percentages = []
+        if (start > window.scrollY && ref.current.store) {
             for (let i = 0; values.length > i; i++) {
-                percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
+                percentages.push(values[i][0])
             }
             f(percentages, ref.current)
+            ref.current.store = false
+        } else if (window.scrollY > end && ref.current.store) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push(values[i][1])
+            }
+            f(percentages, ref.current);
+            ref.current.store = false
         }
-        if (screen !== "mobile") {
-            const imgs = rightContainer.current.children
-            if (!percentages.length && start >= scroll && imgs[0].style.clipPath !== "inset(0px 0px 0%)") {
-                imgs[0].style.clipPath = "inset(0px 0px 0%)"
-            } else if (scroll >= end && imgs[imgs.length - 2].style.clipPath !== "inset(0px 0px 100%)") {
-                imgs[imgs.length - 2].style.clipPath = "inset(0px 0px 100%)"
+        if (window.scrollY <= end && start <= window.scrollY) {
+            for (let i = 0; values.length > i; i++) {
+                percentages.push((((window.scrollY - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
+            }
+            f(percentages, ref.current)
+            if (!ref.current.store) {
+                ref.current.store = true
             }
         }
+
     }
     const mousE = useCallback(projectMouseEnter, []);
     const mouseL = useCallback(projectMouseLeave, []);
