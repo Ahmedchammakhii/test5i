@@ -5,9 +5,10 @@ import firsta from "../../assets/shape.svg";
 import sec from "../../assets/3orsa.png";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-const FirstSection = () => {
+const FirstSection = ({ isClicked }) => {
   const first = useRef(null);
   useEffect(() => {
+    console.log(isClicked);
     const timeline = gsap.timeline();
     timeline
       .from("." + style.firstleft + " h1", {

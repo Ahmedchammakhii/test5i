@@ -123,7 +123,7 @@ const FourthSection = () => {
         degX = posX / sensibility;
         degY = posY / sensibility;
 
-        packs.current.style &&
+        packs.current?.style &&
           (packs.current.style.transform =
             "rotateX(" +
             -degY +
