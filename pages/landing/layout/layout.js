@@ -2,7 +2,7 @@ import Header from "./header/header";
 import Footer from "./footer/footer";
 import React, { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { mouseMove, mouseEnter, mouseLeave } from "@/functions/mouse";
-
+import { CustomCursor } from "@/sharedComponents/customCursor";
 export default function Layout({ children }) {
   const [screen, setScreen] = useState("mobile");
   const [scroll, setScroll] = useState(0);
@@ -62,12 +62,14 @@ export default function Layout({ children }) {
       }}
       className="main-container"
     >
+
       <Header
         isClicked={isClicked}
         setIsClicked={setIsClicked}
         scroll={scroll}
         screen={screen}
       />
+      <CustomCursor screen={screen} />
 
       {renderChildren}
 
