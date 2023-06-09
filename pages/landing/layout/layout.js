@@ -3,12 +3,7 @@ import Footer from "./footer/footer";
 import React, { useState, useCallback, useEffect, useLayoutEffect } from "react"
 import { mouseMove, mouseEnter, mouseLeave } from "@/functions/mouse";
 
-export default function Layout({
-  children,
-}) {
-
-
-
+export default function Layout({ children }) {
   const [screen, setScreen] = useState("mobile");
   const [scroll, setScroll] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
