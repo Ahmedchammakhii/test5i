@@ -244,3 +244,13 @@
     height: 420vh;
   }
 }
+@media screen and (max-width: 380px) and (min-width: 351px) and (min-height: 580px) and (max-height: 680px) {
+  .FourthSection {
+    height: 420vh;
+  }
+}
+@media screen and (width:1440px)  and (min-height: 458px) and (max-height: 600px) {
+  .FourthSection {
+    min-height: 400vh;
+  }
+}
