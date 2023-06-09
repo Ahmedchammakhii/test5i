@@ -2,7 +2,9 @@ import { useRef, useEffect } from 'react'
 import data from "@/data/landing/projects"
 import words from "@/data/landing/hero"
 
-export default function Hero({ scroll, screen }) {
+export default function Hero({ scroll, screen, tofatherProp }) {
+    console.log(tofatherProp)
+
     const hero = useRef(null);
     const animatedWords = useRef(null);
     const veilNoise = useRef(null);
@@ -25,7 +27,6 @@ export default function Hero({ scroll, screen }) {
 
             document.querySelector('.main-container').style.background = data[0].background;
             veilNoise.current.style.opacity = 0
-            // document.getElementsByClassName("primary-cursor")[0].style.background = data[0].color
         }
     }, [scroll])
     return (

@@ -6,7 +6,7 @@ import MediaBand from './media-band'
 import Services from './solutions'
 import Wow from './wow'
 
-export default function BlackSection({ screen, scroll, menuClicked }) {
+export default function BlackSection({ screen, scroll, isClicked }) {
     const container = useRef(null)
     useEffect(() => {
         const veil = document.getElementsByClassName('veil')[0]
@@ -39,7 +39,7 @@ export default function BlackSection({ screen, scroll, menuClicked }) {
         const numberString = containerBg.substring(startIndex, endIndex);
         const number = parseFloat(numberString);
         if (scroll >= start && scroll <= end) {
-            if (document.getElementsByClassName('header_lines_btn')[0].style.background === "white" && menuClicked) {
+            if (document.getElementsByClassName('header_lines_btn')[0].style.background === "white" && isClicked) {
                 document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
                 document.getElementsByClassName('header_lines_btn')[1].style.background = "black"
                 document.getElementsByClassName('quote')[0].style.backgroundImage = 'linear-gradient(to bottom right, transparent, #3398ff 80%)'
@@ -56,7 +56,7 @@ export default function BlackSection({ screen, scroll, menuClicked }) {
             }
 
         }
-    }, [menuClicked])
+    }, [isClicked])
     return (
         <div ref={container} style={{
             width: "100vw",

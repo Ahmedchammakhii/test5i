@@ -3,7 +3,7 @@ import { useCallback } from "react"
 import { headerMouseEnter, headerMouseLeave } from "../../../../functions/mouse";
 import { useRouter } from "next/router";
 import Link from "next/link";
-export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
+export default function Navbar({ isClicked, setIsClicked, scroll }) {
 
   const mousE = useCallback(headerMouseEnter, [])
   const mouseL = useCallback(headerMouseLeave, [])
@@ -12,7 +12,7 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
   return (
     <>
-      <div className="main_container" style={{ height: screen === "mobile" ? "8vh" : "80px" }}>
+      <div className="main_container" style={{ height: "80px" }}>
         <div className="nav_sides">
           <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
             <img className="logo" style={{ height: "50%" }}
@@ -20,16 +20,14 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
           </div>
         </div>
         <div className="nav_sides" >
-          <div className="links_container" style={{ opacity: isClicked || scroll ? 0 : 1, display: screen === "mobile" ? "none" : "inherit", marginTop: scroll ? "-80px" : 0 }}>
+          <div className="links_container" style={{ opacity: isClicked || scroll ? 0 : 1, marginTop: scroll ? "-80px" : 0 }}>
             <Link className="links" href='/contact'>Contact</Link>
             <Link className="links" href='/blogs'>Blogs</Link>
             <Link className="links" href='/services'>Services</Link>
             <Link className="links" href='/choices'>Catalogues</Link>
           </div>
 
-          <div
-            onMouseEnter={mousE} onMouseLeave={mouseL} className="header-container"
-            style={{ display: screen === "mobile" ? "none" : "inherit" }}>
+          <div onMouseEnter={mousE} onMouseLeave={mouseL} className="header-container">
             <div className="quote" >
               get a quote
             </div>
@@ -48,7 +46,7 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
           <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: "opacity 0.5s", position: "absolute", left: "-25%" }}>
             <div className="menu">
 
-              {screen === "mobile" ? null : <div className="left_side">
+              <div className="left_side">
                 <div className="menu_title" >get in touch</div>
                 <div>info@info.com</div>
                 <div className="menu_title" style={{ marginTop: "30px" }}>social</div>
@@ -56,17 +54,17 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
                 <div>instagram</div>
                 <div>linkedin</div>
                 <div>github</div>
-              </div>}
+              </div>
 
-              <div className="right_side" style={{ fontSize: screen === "mobile" ? "3rem" : "2.4rem", textAlign: screen === "mobile" ? "center" : "left" }}>
-                {screen === "mobile" ? null : <div className="menu_title" >menu</div>}
+              <div className="right_side" style={{ fontSize: "2.4rem" }}>
+                <div className="menu_title" >menu</div>
                 <div onClick={() => router.push("/services")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Services</div>
                 <div onClick={() => router.push("/blogs")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Blogs</div>
                 <div onClick={() => router.push("/contact")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Contact</div>
                 <div onClick={() => router.push("/choices")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Catalogues</div>
-                {screen === "mobile" ? <div className="mobile_button">
+                <div className="mobile_button">
                   Estimate Project
-                </div> : null}
+                </div>
               </div>
             </div>
           </div>
@@ -91,7 +89,43 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
           .menu_title { font-size: 0.38rem; font-weight: 500;}
           .left_side {  cursor: pointer; font-size: 0.42rem;color: #6e6e73;font-weight: 600;line-height: 3;margin-top: -20%;}
           .right_side { cursor: pointer;  font-weight: 500; color: #6e6e73; line-height: 1.8; margin-top: -20%;}
-          .mobile_button {background-color: #3398ff;color: white;border-radius: 50px;font-size: 20px;width: 80vw;height: 60px;display: flex;align-items: center;justify-content: center;margin-top: 60px;}
+          .mobile_button { background-color: #3398ff; color: white; border-radius: 50px; font-size: 20px; width: 80vw; height: 60px;  align-items: center; justify-content: center; margin-top: 60px; display : none; }
+
+
+
+
+
+
+
+        @media screen and (max-width:1112px){
+             
+        }
+        
+        @media screen and (max-width:764px){
+             .main_container{
+              height: 8vh !important
+             }
+             .links_container {
+              display : none
+             }
+             .header-container {
+              display : none
+             }
+             .left_side {
+              display : none
+             }
+             .right_side {
+              font-size : 3rem;
+              text-align : center
+             }
+             .menu_title {
+              display : none;
+             }
+             .mobile_button {
+              display: flex;
+             }
+        }
+
 
     `}</style>
     </>
