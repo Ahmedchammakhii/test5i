@@ -1,12 +1,13 @@
 
 import { useCallback } from "react"
 import { headerMouseEnter, headerMouseLeave } from "../../../../functions/mouse";
+import { useRouter } from "next/router";
 import Link from "next/link";
 export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
   const mousE = useCallback(headerMouseEnter, [])
   const mouseL = useCallback(headerMouseLeave, [])
-
+  const router = useRouter()
 
 
   return (
@@ -23,6 +24,7 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
             <Link className="links" href='/contact'>Contact</Link>
             <Link className="links" href='/blogs'>Blogs</Link>
             <Link className="links" href='/services'>Services</Link>
+            <Link className="links" href='/choices'>Catalogues</Link>
           </div>
 
           <div
@@ -42,7 +44,8 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
 
       <div className="G_father_container" style={{ zIndex: 1000, pointerEvents: isClicked ? "auto" : "none" }}>
         <div className="father_container" style={{ width: isClicked ? "200%" : "0", height: isClicked ? "500%" : "0" }}>
-          <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: isClicked ? "2s" : "0.2s" }}>
+
+          <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: "opacity 0.5s", position: "absolute", left: "-25%" }}>
             <div className="menu">
 
               {screen === "mobile" ? null : <div className="left_side">
@@ -51,26 +54,31 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
                 <div className="menu_title" style={{ marginTop: "30px" }}>social</div>
                 <div>facebook</div>
                 <div>instagram</div>
+                <div>linkedin</div>
+                <div>github</div>
               </div>}
 
               <div className="right_side" style={{ fontSize: screen === "mobile" ? "3rem" : "2.4rem", textAlign: screen === "mobile" ? "center" : "left" }}>
                 {screen === "mobile" ? null : <div className="menu_title" >menu</div>}
-                <div style={{ fontSize: "1.4rem" }} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Services</div>
-                <div style={{ fontSize: "1.4rem" }} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Blogs</div>
-                <div style={{ fontSize: "1.4rem" }} onMouseEnter={(e) => mobile_button_hover(e)} onMouseLeave={(e) => mobile_button_leave(e)}>Contact</div>
+                <div onClick={() => router.push("/services")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Services</div>
+                <div onClick={() => router.push("/blogs")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Blogs</div>
+                <div onClick={() => router.push("/contact")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Contact</div>
+                <div onClick={() => router.push("/choices")} style={{ fontSize: "1.26rem" }} onMouseEnter={(e) => e.target.style.color = "black"} onMouseLeave={(e) => e.target.style.color = "#6e6e73"}>Catalogues</div>
                 {screen === "mobile" ? <div className="mobile_button">
                   Estimate Project
                 </div> : null}
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
 
       <style>{`
           .main_container {z-index: 1111; margin-left: 3.6%; margin-right: 3.6%; display: flex; justify-content: space-between; position: fixed; top: 0; width: calc(100% - (3.6% * 2)); overflow: hidden; }
           .nav_sides {display: flex; }
-          .links_container {display: flex; align-items: center; transition: 0.5s; z-index: 1002;}
+          .links_container {display: flex; align-items: center;  z-index: 1002;}
           .links {cursor: pointer;font-size: 15px;font-weight: 600;color: #6e6e73;margin-left: 50px;}
           .header-container { display: flex; align-items: center; height: 100%; width: 170px; justify-content: center; margin-right: -10px; z-index: 1002 }   
           .quote { cursor: pointer; width: 100px; height: 40px; background: linear-gradient(to bottom right, transparent, #3398ff 80%); border-radius: 50px; color: white; font-size: 13px; display: flex; justify-content: center; align-items: center; font-weight: 600; transition: 0.5s;} 
@@ -79,10 +87,10 @@ export default function Navbar({ isClicked, setIsClicked, screen, scroll }) {
           .G_father_container { height: calc(100vh + 80px); width: 100%; margin-top: -80px; overflow: hidden; position: fixed; background: transparent; }
           .father_container { background: white; transition: 0.6s; float: right; border-bottom-left-radius: 100% } 
           .container { width: 50%; margin-left: 50%; height: calc(100vh + 80px); margin-top: 80px; display: flex; justify-content: center; align-items: center }
-          .menu { width: 50%; display: flex; justify-content: center; gap: 100px; }
+          .menu { width: 50%; display: flex; justify-content: center; gap: 170px; }
           .menu_title { font-size: 0.38rem; font-weight: 500;}
-          .left_side {font-size: 0.42rem;color: #6e6e73;font-weight: 600;line-height: 3;margin-top: -20%;}
-          .right_side { font-weight: 500; color: #6e6e73; line-height: 1.8; margin-top: -20%;}
+          .left_side {  cursor: pointer; font-size: 0.42rem;color: #6e6e73;font-weight: 600;line-height: 3;margin-top: -20%;}
+          .right_side { cursor: pointer;  font-weight: 500; color: #6e6e73; line-height: 1.8; margin-top: -20%;}
           .mobile_button {background-color: #3398ff;color: white;border-radius: 50px;font-size: 20px;width: 80vw;height: 60px;display: flex;align-items: center;justify-content: center;margin-top: 60px;}
 
     `}</style>

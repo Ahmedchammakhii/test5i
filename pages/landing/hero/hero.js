@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import data from "@/data/landing/projects"
 import words from "@/data/landing/hero"
 
