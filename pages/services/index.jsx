@@ -52,7 +52,6 @@ export default function services() {
   return (
     <main className={styles.main} style={{ overflow: "hidden" }}>
       <Layout>
-        <CustomCursor />
 
         <section className={styles.FirstSection} ref={firstRef}>
           <div

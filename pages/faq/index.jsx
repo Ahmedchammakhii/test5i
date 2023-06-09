@@ -30,12 +30,20 @@ const Faq = () => {
   return (
     <Layout>
       <div className={styles.container} style={{ overflow: "hidden" }}>
-        <h2 style={{ position: "relative" }}>Frequently Asked Questions</h2>
-        <img
-          className={styles.line}
-          style={{ position: "absolute", top: "35%", left: "30%" }}
-          src="https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg"
-        ></img>
+        <h2
+          style={{
+            position: "relative",
+            background:
+              "url('https://uploads-ssl.webflow.com/63ffb1d8365f630bd05a80b9/640528a303087c65a9603d30_underline-green.svg')",
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: "60%",
+            backgroundPositionY: "130%",
+            backgroundSize: "350px",
+          }}
+        >
+          Frequently Asked Questions
+        </h2>
+
         <div
           id="container"
           style={{
