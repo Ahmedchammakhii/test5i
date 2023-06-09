@@ -27,11 +27,11 @@ export default function Navbar({ isClicked, setIsClicked, scroll }) {
             <Link className="links" href='/choices'>Catalogues</Link>
           </div>
 
-          <div onMouseEnter={mousE} onMouseLeave={mouseL} className="header-container">
+          <Link href="/contact" onMouseEnter={mousE} onMouseLeave={mouseL} className="header-container">
             <div className="quote" >
               get a quote
             </div>
-          </div>
+          </Link>
           <div className="lines_btn" onClick={() => setIsClicked(!isClicked)}>
             <div className="header_lines_btn" style={{ transform: isClicked ? "rotate(45deg)" : "none" }} />
             <div className="header_lines_btn" style={{ transform: isClicked ? "rotate(-45deg)" : "none", marginTop: isClicked ? "-3px" : "5px" }} />
