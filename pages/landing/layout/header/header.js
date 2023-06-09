@@ -12,12 +12,12 @@ export default function Navbar({ isClicked, setIsClicked, scroll }) {
 
   return (
     <>
-      <div className="main_container" style={{ height: "80px" }}>
+      <div className="main_container" style={{ height: "80px", fontSize: "calc(2rem + 1vw)", }}>
         <div className="nav_sides">
-          <div style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
+          <Link href="/" style={{ width: "25px", height: "100%", display: "flex", alignItems: "center", zIndex: 1 }}>
             <img className="logo" style={{ height: "50%" }}
               src="https://cdn.discordapp.com/attachments/1073737355896299542/1110855540231381052/logo_noir_ver.png" />
-          </div>
+          </Link>
         </div>
         <div className="nav_sides" >
           <div className="links_container" style={{ opacity: isClicked || scroll ? 0 : 1, marginTop: scroll ? "-80px" : 0 }}>
