@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../login/login.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import CustomButton from "../contact/components/CustomButton";
 // import { getSession } from 'next-auth/client';
 
 const initialState = { email: "", password: "" };
