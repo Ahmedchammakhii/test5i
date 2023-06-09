@@ -38,11 +38,6 @@
   border-top-left-radius: 150px;
   translate: 0 -150px;
 }
-@media screen and (min-width: 1900px) {
-  .FirstSection {
-    padding: 5vw;
-  }
-}
 @media screen and (max-width: 1000px) {
   .ThirdSection {
     height: 130vh;

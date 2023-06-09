@@ -513,6 +513,7 @@
     height: 190vh;
   }
 }
+
 @media screen and (max-width: 350px) and (min-height: 560px) and (max-height: 700px) {
   .border {
     height: 155vh;
@@ -1014,5 +1015,19 @@
 @media screen and (min-height: 700px) and (min-width: 400px) and (max-height: 800px) and (max-width: 450px) {
   .border {
     height: 135vh;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .FirstSection {
+    padding: 5vw;
+  }
+  .firstleft {
+    font-size: 5vw;
+  }
+  .firstright {
+    font-size: 5vw;
+  }
+  .parag p {
+    font-size: 0.9vw;
   }
 }
