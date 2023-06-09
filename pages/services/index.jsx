@@ -20,53 +20,6 @@ import { CustomCursor } from "@/sharedComponents/customCursor";
 import { mouseMove, mouseEnter, mouseLeave } from "../../functions/mouse";
 
 export default function services() {
-  const [screen, setScreen] = useState("mobile");
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [color, setBackground] = useState(0);
-  const background = [
-    "#fae1ee",
-    "#e0f0ff",
-    "#ffede0",
-    "#d3d6f0",
-    "#ffeae0",
-    "#f5f5f7",
-  ];
-  const [menuClicked, setMenuClicked] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    setScrollPosition(window.scrollY);
-  }, []);
-  const handleResize = useCallback((setScreen) => {
-    setScreen(
-      window.innerWidth < 764
-        ? "mobile"
-        : window.innerWidth < 1112
-        ? "tablet"
-        : "desktop"
-    );
-  }, []);
-
-  const handleMouseMove = useCallback(mouseMove, []);
-  const handleMouseEnter = useCallback(mouseEnter, []);
-  const handleMouseLeave = useCallback(mouseLeave, []);
-
-  useLayoutEffect(() => {
-    const innerContainerRef = document.querySelector(".footer-inner-container");
-    const mainContainer = document.querySelector(".main-container");
-
-    mainContainer.addEventListener("mousemove", handleMouseMove);
-
-    innerContainerRef.addEventListener("mouseenter", handleMouseEnter);
-    innerContainerRef.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      mainContainer.removeEventListener("mousemove", handleMouseMove);
-
-      innerContainerRef.removeEventListener("mouseenter", handleMouseEnter);
-      innerContainerRef.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [handleMouseMove, handleMouseLeave, handleMouseEnter]);
-
   const sectionRef = useRef(null);
   const thirdref = useRef(null);
   const firstRef = useRef(null);
@@ -98,14 +51,7 @@ export default function services() {
 
   return (
     <main className={styles.main} style={{ overflow: "hidden" }}>
-      <Layout
-        isClicked={menuClicked}
-        setIsClicked={setMenuClicked}
-        scroll={scrollPosition}
-        screen={screen}
-        htmlcss={"yes"}
-      >
-        <CustomCursor />
+      <Layout>
 
         <section className={styles.FirstSection} ref={firstRef}>
           <div

@@ -4,6 +4,7 @@ import emo from "../../assets/emo1.png";
 import Image from "next/image";
 import Header from "../landing/layout/header/header";
 import CustomButton from "../contact/components/CustomButton";
+import Layout from "../landing/layout/layout";
 
 const Contact = () => {
   const needs = [
@@ -129,105 +130,107 @@ const Contact = () => {
   //   }
   // };
   return (
-    <div className={styles.page}>
-      <Header></Header>
-      <div className={styles.contactContainer}>
-        <h3>
-          We are always happy to help!{" "}
-          <Image
-            src={emo}
-            alt=""
-            style={{ width: "50px", height: "50px" }}
-          ></Image>
-        </h3>
+    <Layout>
+      <div className={styles.page}>
+        {" "}
+        <div className={styles.contactContainer}>
+          <h3>
+            We are always happy to help!{" "}
+            <Image
+              src={emo}
+              alt=""
+              style={{ width: "50px", height: "50px" }}
+            ></Image>
+          </h3>
 
-        <div className={styles.getin}>
-          <h1>Get in touch! </h1>
-        </div>
-        <div>
-          {" "}
-          <h3>I need</h3>{" "}
-        </div>
-        <div className={styles.cerclescontainer}>
-          {needs.map((need) => (
-            <CustomButton
-              key={need}
-              label={need}
-              isActive={userNeeds.includes(need)}
-              onClick={() => addNeed(need)}
-            />
-          ))}
-        </div>
-        <div className={styles.contactForm}>
+          <div className={styles.getin}>
+            <h1>Get in touch! </h1>
+          </div>
           <div>
             {" "}
-            <input
-              id="first"
-              type="text"
-              placeholder="Your first name"
-              onChange={handleInputChange}
-            ></input>{" "}
-            <div className={styles.line}></div>
+            <h3>I need</h3>{" "}
           </div>
-          <div>
-            <input
-              id="last"
-              type="text"
-              placeholder="Your last name"
-              onChange={handleInputChange}
-            ></input>
-            <div className={styles.line}></div>
-          </div>
-          <div>
-            <input
-              id="email"
-              type="email"
-              placeholder="Your email"
-              onChange={handleInputChange}
-            ></input>
-            <div className={styles.line} id="li"></div>
-          </div>
-        </div>
-        <div className={styles.attachement}>
           <div className={styles.cerclescontainer}>
-            <input
-              ref={fileInputRef}
-              type="file"
-              style={{ display: "none" }}
-              onChange={handleUpload}
-            />
-            <CustomButton
-              label="add attachement"
-              isActive={false}
-              onClick={() => fileInputRef.current.click()}
-            />
-          </div>
-        </div>
-        <div className={styles.title}>
-          <h3>Budget (USD)</h3>
-        </div>
-        <div className={styles.budcont}>
-          {budget.map((b) => (
-            <div className={styles.cerclescontainer} key={b}>
+            {needs.map((need) => (
               <CustomButton
-                label={b}
-                isActive={userBudget === b}
-                onClick={() => handleClick(b)}
+                key={need}
+                label={need}
+                isActive={userNeeds.includes(need)}
+                onClick={() => addNeed(need)}
+              />
+            ))}
+          </div>
+          <div className={styles.contactForm}>
+            <div>
+              {" "}
+              <input
+                id="first"
+                type="text"
+                placeholder="Your first name"
+                onChange={handleInputChange}
+              ></input>{" "}
+              <div className={styles.line}></div>
+            </div>
+            <div>
+              <input
+                id="last"
+                type="text"
+                placeholder="Your last name"
+                onChange={handleInputChange}
+              ></input>
+              <div className={styles.line}></div>
+            </div>
+            <div>
+              <input
+                id="email"
+                type="email"
+                placeholder="Your email"
+                onChange={handleInputChange}
+              ></input>
+              <div className={styles.line} id="li"></div>
+            </div>
+          </div>
+          <div className={styles.attachement}>
+            <div className={styles.cerclescontainer}>
+              <input
+                ref={fileInputRef}
+                type="file"
+                style={{ display: "none" }}
+                onChange={handleUpload}
+              />
+              <CustomButton
+                label="add attachement"
+                isActive={false}
+                onClick={() => fileInputRef.current.click()}
               />
             </div>
-          ))}
-        </div>
-        <div className={styles.attachement}>
-          <div className={styles.cerclescontainer}>
-            <CustomButton
-              label="send request"
-              isActive={false}
-              onClick={handleContact}
-            ></CustomButton>
+          </div>
+          <div className={styles.title}>
+            <h3>Budget (USD)</h3>
+          </div>
+          <div className={styles.budcont}>
+            {budget.map((b) => (
+              <div className={styles.cerclescontainer} key={b}>
+                <CustomButton
+                  label={b}
+                  isActive={userBudget === b}
+                  onClick={() => handleClick(b)}
+                />
+              </div>
+            ))}
+          </div>
+          <div className={styles.attachement}>
+            <div className={styles.cerclescontainer}>
+              <CustomButton
+                label="send request"
+                isActive={false}
+                onClick={handleContact}
+              ></CustomButton>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 export default Contact;

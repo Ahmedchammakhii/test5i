@@ -101,9 +101,6 @@
   .container h2 {
     font-size: calc(2rem + 1vw);
   }
-  .line {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 447px) {
