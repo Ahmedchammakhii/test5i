@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../login/login.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import CustomButton from "../contact/components/CustomButton";
 // import { getSession } from 'next-auth/client';
 
 const initialState = { email: "", password: "" };
@@ -45,29 +46,55 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.login_page}>
-      <div className={styles.form}>
-        <form className={styles.login_form}>
-          <input
-            type="email"
-            name="email"
-            autoComplete="on"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            autoComplete="on"
-            onChange={handleChange}
-          />
-          <button type="button" onClick={handleSubmit}>
-            login
-          </button>
+    <>
+      <main className={styles.main_container}>
+        <div className={styles.login_wrapper}>
+          <div className={styles.left_container}>
+            <div className={styles.header}>
+              <a
+                className="arrow"
+                href="/"
+                style={{ color: "#000", zIndex: 10000, fontSize: 28 }}
+              >
+                ←
+              </a>
+            </div>
+            <div className={styles.main} style={{ position: "relative" }}>
+              <h2>Login</h2>
 
-          {/* <p className={styles.message}>Not registered? <a href="#">Create an account</a></p> */}
-        </form>
-      </div>
-    </div>
+              <p>
+                Welcome! Please fill your email to sign in into your dashboard
+              </p>
+
+              <form>
+                <input
+                  type="email"
+                  name="mail"
+                  placeholder="Type your email"
+                  onChange={handleChange}
+                />
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <CustomButton
+                    label="login"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSubmit();
+                    }}
+                  ></CustomButton>{" "}
+                </div>
+                <span className={styles.line} />
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
   );
 };
 

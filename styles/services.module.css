@@ -223,3 +223,34 @@
     min-height: 450vh;
   }
 }
+@media screen and (min-height: 1100px) and (max-width: 800px) and (min-width: 661px) {
+  .ThirdSection {
+    height: 110vh;
+  }
+}
+@media screen and (max-width: 320px) and (min-height: 560px) {
+  .ThirdSection {
+    height: 180vh;
+  }
+}
+@media screen and (min-width: 799px) and (max-width: 850px) and (min-height: 1200px) and (max-height: 1300px) {
+  .FourthSection {
+    height: 280vh;
+  }
+}
+@media screen and (max-width: 1100px) and (min-width: 1000px) and (min-height: 600px) and (max-height: 1210px) {
+  .FourthSection {
+    min-height: 420vh !important;
+    height: 420vh;
+  }
+}
+@media screen and (max-width: 380px) and (min-width: 351px) and (min-height: 580px) and (max-height: 680px) {
+  .FourthSection {
+    height: 420vh;
+  }
+}
+@media screen and (width:1440px)  and (min-height: 458px) and (max-height: 600px) {
+  .FourthSection {
+    min-height: 400vh;
+  }
+}

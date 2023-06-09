@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styles from "../components/customButton.module.css";
 
 const CustomButton = ({ label, value, isActive, onClick }) => {
@@ -32,7 +32,8 @@ const CustomButton = ({ label, value, isActive, onClick }) => {
 
   return (
     <div className={styles.buttonsContainer}>
-      <button style={{
+      <button
+        style={{
           cursor: "pointer",
           position: "relative",
           overflow: "hidden",
@@ -41,14 +42,13 @@ const CustomButton = ({ label, value, isActive, onClick }) => {
           fontSize: "0.8rem",
           width: "150px",
           height: "55px",
-          borderRadius: "20% 20% 20% 20%/45% 45% 45% 45%" ,
+          borderRadius: "20% 20% 20% 20%/45% 45% 45% 45%",
           border: "1px solid black",
-         background: isActive ? "black" : "transparent",
-      }}
+          background: isActive ? "black !important" : "transparent !important",
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
-    
       >
         <div
           style={{
@@ -97,7 +97,7 @@ const CustomButton = ({ label, value, isActive, onClick }) => {
         </div>
       </button>
     </div>
-  )
+  );
 };
 
 export default CustomButton;

@@ -360,6 +360,7 @@
   -webkit-box-shadow: 0px 12px 15px -12px rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
+
 @media screen and (min-width: 1000px) and (max-width: 1440px) and (min-height: 600px) and (max-height: 877px) {
   .border {
     height: 150vh;
@@ -660,6 +661,7 @@
   }
   .boxchoice {
     width: 50px;
+    transform: scale(0.95);
   }
   .thirdsec h2:nth-child(3) {
     font-size: calc(1.2rem + 0.2vw);
@@ -817,7 +819,6 @@
 .firstright {
   grid-area: sec;
   font-size: 85px;
-
   font-size: 81px;
 }
 .blur {
@@ -1017,6 +1018,7 @@
     height: 135vh;
   }
 }
+
 @media screen and (min-width: 1700px) {
   .FirstSection {
     padding: 5vw;
@@ -1029,5 +1031,29 @@
   }
   .parag p {
     font-size: 0.9vw;
+  }
+}
+@media screen and (min-width: 1670px) and (min-height: 1000px) {
+  .border {
+    margin-top: 100px;
+    height: 140vh;
+  }
+}
+@media screen and (min-width: 799px) and (max-width: 850px) and (min-height: 1000px) and (max-height: 1300px) {
+  .firstright {
+    transform: translateY(100px);
+  }
+  .border {
+    height: 71vh;
+  }
+}
+@media screen and (width:1440px)  and (min-height: 635px) and (max-height: 688px) {
+  .border {
+    height: 170vh;
+  }
+}
+@media screen and (width:1440px)  and (min-height: 458px) and (max-height: 600px) {
+  .border {
+    height: 300vh;
   }
 }
