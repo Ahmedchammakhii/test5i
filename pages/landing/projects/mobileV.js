@@ -40,6 +40,8 @@ export default function MobileV({ scroll }) {
             const calcOpacity = x => (x <= 20) ? 0 : (x >= 70) ? 1 : (x - 20) / 50;
             const calcPreviousOpacity = x => (x <= 40) ? 1 : (x >= 100) ? 0 : 1 - (x - 40) / 50;
             const calcBgPosition = x => (x === 0) ? 30 : (x === 100) ? 70 : ((x * 0.4) + 30);
+            const calcScale  = x => (x <= 30) ? 1 : (x >= 100) ? 0.5 : 1 - (x - 30) / 140;
+
 
 
 
@@ -92,7 +94,7 @@ export default function MobileV({ scroll }) {
             }
 
             imgs[data.length + index].style.bottom = calculateBottom(v[0] * (data.length - 1) - (index * 100)) + '%'
-            imgs[data.length + index].style.transform = `translateY(${calculateY(v[0] * (data.length - 1) - (index * 100))}%)`
+            imgs[data.length + index].style.transform = `translateY(${calculateY(v[0] * (data.length - 1) - (index * 100))}%) scale(${calcScale(v[0] * (data.length - 1) - (index * 100))})`
             imgs[data.length + index].style.opacity = calcPreviousOpacity(v[0] * (data.length - 1) - (index * 100))
 
 
