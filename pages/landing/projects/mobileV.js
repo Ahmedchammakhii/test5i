@@ -101,7 +101,7 @@ export default function MobileV({ scroll }) {
         }, [[0, 100]])
     }, [scroll])
     return (
-        <div ref={container} style={{ height: `calc(100vh + (50vh * ${data.length - 1}))` }}>
+        <div ref={container} style={{ height: `calc(100vh + (50vh * ${data.length - 1}))`, marginTop: "-30vh" }}>
             <div style={{
                 height: '100vh',
                 // background: "gray",
