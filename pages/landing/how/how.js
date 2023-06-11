@@ -20,7 +20,7 @@ export default function How({ screen, scroll }) {
         //
     }, []);
     useEffect(() => {
-        
+
         if (scroll >= container.current.offsetTop - (window.innerHeight * 0.2)) {
 
             const children = ref.current.children;
@@ -37,8 +37,8 @@ export default function How({ screen, scroll }) {
     const data = [1, 2, 3, 4,]
     return (
         <div ref={container} style={{
-            marginTop: "-40vh",
-            marginBottom: "250px", position: "relative"
+            marginTop: screen === "mobile" ? "-60vh" : "-40vh",
+            marginBottom: screen === "mobile" ? "100px":  "250px", position: "relative"
         }}>
             <div style={{
                 display: "flex", flexDirection: "column",
