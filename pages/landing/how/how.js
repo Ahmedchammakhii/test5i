@@ -37,7 +37,7 @@ export default function How({ screen, scroll }) {
     const data = [1, 2, 3, 4,]
     return (
         <div ref={container} style={{
-            marginTop: screen === "mobile" ? "-60vh" : "-40vh",
+            marginTop:  "-40vh",
             marginBottom: screen === "mobile" ? "100px":  "250px", position: "relative"
         }}>
             <div style={{

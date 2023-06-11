@@ -191,7 +191,7 @@ export default function Cards({ screen, scroll, containerRef }) {
         }
     }
     return (
-        <div ref={container} style={{ width: "100vw", height: screen === "mobile" ? '100vh' : '200vh', display: "flex", justifyContent: "center", position: "relative", overflow: "hidden", marginTop: screen === "mobile" ? "-20vh" : 0 }}>
+        <div ref={container} style={{ width: "100vw", height: screen === "mobile" ? '100vh' : '200vh', display: "flex", justifyContent: "center", position: "relative", contain: "paint", marginTop: screen === "mobile" ? "-20vh" : 0 }}>
             <div style={{ zIndex: 0, pointerEvents: "none", position: "absolute", height: "100%", transform: `translate(-50% , calc(-${cardsDimension}px * (0.12 * 1.5  )))`, left: `calc(50% + ((${cardsDimension}px * 0.49) - (${cardsDimension}px * 0.153) * 4.5))` }}>
                 <img onMouseEnter={() => {
                     if (document.getElementsByClassName('header_lines_btn')[0].style.background === "black") {
