@@ -145,6 +145,13 @@ export default function Hero({ scroll, screen }) {
                     transform: rotate(45deg) translate(20px, 20px);
                 }
             }
+            @media screen and (max-width:764px){
+                .box{
+                    margin-top:-50%;
+                 }
+            }
+
+            
             `}</style>
         </div>
     )
