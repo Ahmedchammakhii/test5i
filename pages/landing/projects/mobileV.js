@@ -65,7 +65,7 @@ export default function MobileV({ scroll }) {
 
                 imgs[data.length + index - 1].style.bottom = 100 + '%'
                 imgs[data.length + index - 1].style.transform = `translateY(-100%)`
-                imgs[data.length + index - 1].style.opacity = 0
+                imgs[data.length + index ].style.opacity = 1
 
             } else if (index < data.length - 2 && imgs[index + 1].style.clipPath !== "inset(0px 0px 0%)") {
                 imgs[index + 1].style.clipPath = "inset(0px 0px 0%)"
@@ -73,7 +73,7 @@ export default function MobileV({ scroll }) {
 
                 imgs[data.length + index + 1].style.bottom = 20 + '%'
                 imgs[data.length + index + 1].style.transform = `translateY(60%)`
-                imgs[data.length + index + 1].style.opacity = 1
+                imgs[data.length + index + 2].style.opacity = 0
 
             }
 
