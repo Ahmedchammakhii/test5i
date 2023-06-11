@@ -39,7 +39,7 @@ export default function MobileV({ scroll }) {
             const calculateBottom = x => (x === 0) ? 20 : (x === 100) ? 100 : ((80 / 100) * x) + 20;
             const calcOpacity = x => (x <= 20) ? 0 : (x >= 70) ? 1 : (x - 20) / 50;
             const calcPreviousOpacity = x => (x <= 40) ? 1 : (x >= 100) ? 0 : 1 - (x - 40) / 50;
-            const calcBgPosition  = x => (x === 0) ? 30 : (x === 100) ? 70 : ((x * 0.4) + 30);
+            const calcBgPosition = x => (x === 0) ? 30 : (x === 100) ? 70 : ((x * 0.4) + 30);
 
 
 
@@ -53,10 +53,13 @@ export default function MobileV({ scroll }) {
             }
             const imgs = container.current.children[0].children
             imgs[index].style.clipPath = `inset(0px 0px ${v[0] * (data.length - 1) - (index * 100)}%)`
-            imgs[index].style.backgroundPosition = `0px ${calcBgPosition(v[0] * (data.length - 1) - (index * 100))}%`
+            if (index !== data.length - 1) {
+                imgs[index].style.backgroundPosition = `0px ${calcBgPosition(v[0] * (data.length - 1) - (index * 100))}%`
+            }
 
             if (index && imgs[index - 1].style.clipPath !== "inset(0px 0px 100%)") {
                 imgs[index - 1].style.clipPath = "inset(0px 0px 100%)"
+                imgs[index - 1].style.backgroundPosition = `0px 70%`
 
                 imgs[data.length + index - 1].style.bottom = 100 + '%'
                 imgs[data.length + index - 1].style.transform = `translateY(-100%)`
@@ -64,6 +67,7 @@ export default function MobileV({ scroll }) {
 
             } else if (index < data.length - 2 && imgs[index + 1].style.clipPath !== "inset(0px 0px 0%)") {
                 imgs[index + 1].style.clipPath = "inset(0px 0px 0%)"
+                imgs[index + 1].style.backgroundPosition = `0px 30%`
 
                 imgs[data.length + index + 1].style.bottom = 20 + '%'
                 imgs[data.length + index + 1].style.transform = `translateY(60%)`
