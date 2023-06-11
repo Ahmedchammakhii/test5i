@@ -39,6 +39,8 @@ export default function MobileV({ scroll }) {
             const calculateBottom = x => (x === 0) ? 20 : (x === 100) ? 100 : ((80 / 100) * x) + 20;
             const calcOpacity = x => (x <= 20) ? 0 : (x >= 70) ? 1 : (x - 20) / 50;
             const calcPreviousOpacity = x => (x <= 40) ? 1 : (x >= 100) ? 0 : 1 - (x - 40) / 50;
+            const calcBgPosition  = x => (x === 0) ? 30 : (x === 100) ? 70 : ((x * 0.4) + 30);
+
 
 
             if (index + 0.5 < ((v[0] * (data.length - 1)) / 100) && data[index + 1] && document.querySelector('.main-container').style.background !== data[index + 1].background) {
@@ -51,6 +53,7 @@ export default function MobileV({ scroll }) {
             }
             const imgs = container.current.children[0].children
             imgs[index].style.clipPath = `inset(0px 0px ${v[0] * (data.length - 1) - (index * 100)}%)`
+            imgs[index].style.backgroundPosition = `0px ${calcBgPosition(v[0] * (data.length - 1) - (index * 100))}%`
 
             if (index && imgs[index - 1].style.clipPath !== "inset(0px 0px 100%)") {
                 imgs[index - 1].style.clipPath = "inset(0px 0px 100%)"
@@ -100,7 +103,7 @@ export default function MobileV({ scroll }) {
                 // background: "gray",
                 position: "sticky", top: "calc(50% - 50vh)", display: "flex", alignItems: "center", justifyContent: "center"
             }} >
-                {data.map((e, i) => <img src={e.img} style={{ zIndex: 6 - i, width: '70vw', height: "70vw", position: "absolute", objectFit: "cover", borderRadius: "40px" }} />)}
+                {data.map((e, i) => <div src={e.img} style={{ background: `url(${e.img})`, backgroundSize: "100%", backgroundPosition: i !== data.length - 1 ? "0px 30%" : "0px 50%", zIndex: 6 - i, width: '70vw', height: "70vw", position: "absolute", borderRadius: "40px" }} />)}
                 {data.map((e, i) => <div style={{
                     width: "100vw", height: "100px", textAlign: "center",
                     //background: "red",
