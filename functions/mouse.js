@@ -93,7 +93,6 @@ export const mouseEnter = (event) => {
     event.stopPropagation()
 
     document.querySelector('.footer-container').style.scale = window.innerWidth >= 1112 ? "0.8" : "0.5"
-    console.log(document.querySelector('.footer-container').style.scale)
 
     const children = innerContainerRef.children
     setTimeout(() => {

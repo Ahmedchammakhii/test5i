@@ -2,8 +2,7 @@ import { useRef, useEffect } from 'react'
 import data from "@/data/landing/projects"
 import words from "@/data/landing/hero"
 
-export default function Hero({ scroll, screen, tofatherProp }) {
-    console.log(tofatherProp)
+export default function Hero({ scroll, screen }) {
 
     const hero = useRef(null);
     const animatedWords = useRef(null);
@@ -30,7 +29,7 @@ export default function Hero({ scroll, screen, tofatherProp }) {
         }
     }, [scroll])
     return (
-        <div ref={hero} style={{ width: "90vw", marginLeft: "5vw", height: "90vh", background: "transparent", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+        <div ref={hero} style={{ width: "90vw", marginLeft: "5vw", height: "100vh", background: "transparent", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
             <div className='veilNoise' ref={veilNoise} style={{
                 background: "url(https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png)",
                 width: "100vw",

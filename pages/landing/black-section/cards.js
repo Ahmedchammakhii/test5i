@@ -19,7 +19,7 @@ export default function Cards({ screen, scroll, containerRef }) {
         }
 
 
-        if (start > window.scrollY && document.querySelector('.primary-cursor').style.width !== "10px" || window.scrollY > end && document.querySelector('.primary-cursor').style.width !== "10px") {
+        if (start - innerHeight < window.scrollY && start  > window.scrollY && document.querySelector('.primary-cursor').style.width !== "10px" || window.scrollY > end && document.querySelector('.primary-cursor').style.width !== "10px") {
             document.querySelector('.primary-cursor').style.width = "10px"
             document.querySelector('.cursor-click').textContent = ""
             document.querySelector('.cursor-click').style.color = "white"
