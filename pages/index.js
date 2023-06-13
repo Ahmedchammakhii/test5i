@@ -15,7 +15,6 @@ export default function Home() {
       <Sections />
       <BlackSection />
       <How />
-
       <style>{`
             html {
                 font-size: calc(0.95rem + 1vw);

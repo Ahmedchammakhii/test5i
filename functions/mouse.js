@@ -92,8 +92,7 @@ export const mouseEnter = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
     event.stopPropagation()
 
-    document.querySelector('.footer-container').style.scale = window.innerWidth >= 1112 ? "0.8" : "0.5"
-    console.log(document.querySelector('.footer-container').style.scale)
+    document.querySelector('.footer-container').style.transform = `scale(${window.innerWidth >= 1112 ? 0.8 : 0.5})`
 
     const children = innerContainerRef.children
     setTimeout(() => {
@@ -106,7 +105,7 @@ export const mouseEnter = (event) => {
 export const mouseLeave = (event) => {
     const innerContainerRef = document.querySelector('.footer-inner-container');
     event.stopPropagation()
-    document.querySelector('.footer-container').style.scale = window.innerWidth >= 1112 ? "0.7" : "0.4"
+    document.querySelector('.footer-container').style.transform = `scale(${window.innerWidth >= 1112 ? 0.7 : 0.4})`
     const children = innerContainerRef.children
     setTimeout(() => {
         for (let i = 0; children.length > i; i++) {

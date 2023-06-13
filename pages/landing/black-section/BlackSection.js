@@ -38,7 +38,7 @@ export default function BlackSection({ screen, scroll, isClicked }) {
         const endIndex = containerBg.lastIndexOf(')');
         const numberString = containerBg.substring(startIndex, endIndex);
         const number = parseFloat(numberString);
-        if (scroll >= start && scroll <= end) {
+        if (scroll >= start + innerHeight * 0.5 && scroll <= end) {
             if (document.getElementsByClassName('header_lines_btn')[0].style.background === "white" && isClicked) {
                 document.getElementsByClassName('header_lines_btn')[0].style.background = "black"
                 document.getElementsByClassName('header_lines_btn')[1].style.background = "black"

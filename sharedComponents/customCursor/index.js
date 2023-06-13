@@ -21,7 +21,7 @@ export const CustomCursor = ({ screen }) => {
     >
       <div
         className="cursor-click"
-        style={{ textAlign: "center", pointerEvents: "none", fontSize: "12px", color: "white", transform: "translate(-50%,-50%)", position: "absolute", left: "50%", top: "50%" }}
+        style={{ whiteSpace: "nowrap", textAlign: "center", pointerEvents: "none", fontSize: "12px", color: "white", transform: "translate(-50%,-50%)", position: "absolute", left: "50%", top: "50%" }}
       />
     </div>
   );

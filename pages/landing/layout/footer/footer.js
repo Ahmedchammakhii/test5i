@@ -117,7 +117,7 @@ export default function Footer() {
             </div>
             <style>{`
             
-        .footer-container { overflow: hidden; scale: 0.7; position: relative; height: 700px; width: 100vw; cursor: pointer; transition: scale 1s;  }
+        .footer-container { overflow: hidden; transform: scale(0.7); position: relative; height: 700px; width: 100vw; cursor: pointer; transition: transform 1s;  }
         .footer_wrapper { width: 700px; height: 700px; position: absolute; transform: translate(-50%,-50%); top: 50%; left: 50%;  }
         .footer-inner-container { position: absolute; width: 100%; height: 100%; background: white; top: 0; left: 0; clip-path: url(#clip); display: flex; flex-direction: column; justify-content: center; align-items: center;  }
         .click_to { font-weight: normal; z-index: 5555; margin-top: 25px; color: black; font-size: 20px;  }
@@ -141,14 +141,14 @@ export default function Footer() {
 
         @media screen and (max-width:1112px){
             .footer-container {
-                scale : 0.4;
+                transform : scale(0.4);
               }
         }
         
         @media screen and (max-width:764px){
               .footer-container {
                 overflow : visible;
-                scale : 0.4;
+                transform : scale(0.4);
               }
               .lower-footer {
                 width : 100vw;
