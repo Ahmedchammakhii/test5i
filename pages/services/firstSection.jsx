@@ -56,7 +56,16 @@ const FirstSection = ({ isClicked }) => {
       { translateY: 0, transition: "all linear 1s", duration: 2 },
       { translateY: 200, transition: "all linear 1s", duration: 2 }
     );
-  });
+     let mouse = {
+        x: undefined,
+        y: undefined,
+      };
+    document.addEventListener("mousemove", function () {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+gsap.to( "." + style.glass,
+{ translateY: mouse.y-200,translateX:mouse.x-1000, transition: "all linear 1s", duration: 2 },
+) }) });
   return (
     <div className={style.FirstSection} ref={first}>
       <div className={style.firstleft}>
