@@ -25,7 +25,7 @@
   font-size: calc(7rem + 3vw);
 }
 .main p {
-  color: #818388;
+  color: #2549a5;
 }
 .main button {
   background-color: #292b31;
@@ -188,4 +188,13 @@
   .oneblog {
     height: 40vh;
   }
+}
+
+@media screen and (max-width: 330px) {
+.allbuttons{
+  scale: .9;
+}
+.main {
+  padding: 30px;
+}
 }
