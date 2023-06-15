@@ -63,9 +63,14 @@ const FirstSection = ({ isClicked }) => {
     document.addEventListener("mousemove", function () {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
+      if(innerWidth>1050){
 gsap.to( "." + style.glass,
 { translateY: mouse.y-200,translateX:mouse.x-1000, transition: "all linear 1s", duration: 2 },
-) }) });
+)} else {
+  gsap.to( "." + style.glass,
+  { translateY: mouse.y,translateX:mouse.x, transition: "all linear 1s", duration: 2 },
+  ) 
+}}) });
   return (
     <div className={style.FirstSection} ref={first}>
       <div className={style.firstleft}>
