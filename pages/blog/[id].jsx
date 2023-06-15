@@ -15,6 +15,7 @@ const index = ({ title, picUrl, description }) => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ref.current,
@@ -23,9 +24,9 @@ const index = ({ title, picUrl, description }) => {
         scrub: true,
       },
     });
-
+    if (window.innerWidth > 650) {
     timeline.fromTo("." + style.blogs, { y: 0 }, { y: -200 });
-
+  }
     let mouse = {
       x: undefined,
       y: undefined,
