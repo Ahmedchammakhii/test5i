@@ -206,7 +206,7 @@ const Contact = () => {
             </div>
           </div>
           <div className={styles.title}>
-            <h3>Budget (USD)</h3>
+            <h3>Budget (TND)</h3>
           </div>
           <div className={styles.budcont}>
             {budget.map((b) => (

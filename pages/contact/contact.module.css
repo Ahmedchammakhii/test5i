@@ -114,7 +114,20 @@
   margin: 0;
   padding: 0;
 }
+@media screen and (max-width: 680px) {
 
+
+  .contactContainer {
+    height: max-content;
+  }
+
+
+
+
+
+
+
+}
 @media (max-width: 1000px) {
   .getin {
     font-size: 28px;
@@ -132,9 +145,7 @@
 }
 
 @media (max-width: 670px) {
-  .contactContainer {
-    height: 150vh;
-  }
+
 
   .contactForm input {
     width: 250px;
