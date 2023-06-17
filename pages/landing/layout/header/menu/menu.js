@@ -89,7 +89,7 @@ export default function Menu({ isClicked }) {
             className="G_father_container" style={{ zIndex: 1000, pointerEvents: isClicked ? "auto" : "none" }}>
             <div className="father_container" style={{ width: isClicked ? "200%" : "0", height: isClicked ? "500%" : "0" }}>
 
-                <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: "opacity 0.5s", position: "absolute",right:"50vw",width:"100%",transform:"translateX(54vw)" }}>
+                <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: "opacity 0.5s", position: "absolute",right:"50%",width:"100%",transform:"translateX(50%)" }}>
                     <div className="menu">
 
                         <div className="left_side">
@@ -131,7 +131,7 @@ export default function Menu({ isClicked }) {
                             </div>
                         </div>
 
-                        <div className="right_side" style={{ fontSize: "2.4rem", marginLeft: "-2.4rem" }}>
+                        <div className="right_side" style={{ fontSize: "2.4rem" }}>
                             <div className="menu_title"  >menu</div>
                             <div
                                 onMouseMove={parallax}
