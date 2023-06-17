@@ -89,7 +89,7 @@ export default function Menu({ isClicked }) {
             className="G_father_container" style={{ zIndex: 1000, pointerEvents: isClicked ? "auto" : "none" }}>
             <div className="father_container" style={{ width: isClicked ? "200%" : "0", height: isClicked ? "500%" : "0" }}>
 
-                <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: "opacity 0.5s", position: "absolute", left: "-25%" }}>
+                <div className="container" style={{ opacity: isClicked ? 1 : 0, transition: "opacity 0.5s", position: "absolute",right:"50vw",width:"100%",transform:"translateX(54vw)" }}>
                     <div className="menu">
 
                         <div className="left_side">
@@ -148,6 +148,12 @@ export default function Menu({ isClicked }) {
                             <div onMouseMove={parallax}
                                 onMouseLeave={menuLinkLeave}
                                 onMouseEnter={menuLinkEnter}
+                                onClick={() => router.push("/faq")} style={{ fontSize: "1.26rem" }}>
+                                <div className="parallax-child">Questions</div>
+                            </div>
+                            <div onMouseMove={parallax}
+                                onMouseLeave={menuLinkLeave}
+                                onMouseEnter={menuLinkEnter}
                                 onClick={() => router.push("/contact")} style={{ fontSize: "1.26rem" }}>
                                 <div className="parallax-child">Contact</div>
                             </div>
@@ -157,6 +163,7 @@ export default function Menu({ isClicked }) {
                                 onClick={() => router.push("/choices")} style={{ fontSize: "1.26rem", display: "flex", justifyContent: "center" }}>
                                 <div className="parallax-child">Catalogues</div>
                             </div>
+                            
                             <div className="mobile_button">
                                 Estimate Project
                             </div>

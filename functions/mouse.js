@@ -72,7 +72,7 @@ export const mouseMove = (event) => {
             translateY = maxTranslateY;
         }
 
-        headerButton.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+        headerButton?.style &&  (headerButton.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`)
     }
     const primaryCursor = document.querySelector('.primary-cursor');
 
